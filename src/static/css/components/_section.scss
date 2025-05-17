@@ -1,0 +1,56 @@
+///
+/// Future Imperfect by HTML5 UP
+/// html5up.net | @ajlkn
+/// Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+///
+
+/* Section/Article */
+
+section,
+article {
+  &.special {
+    text-align: center;
+  }
+}
+
+header {
+  p {
+    font-family: _font(family-heading);
+    font-size: 1.125rem;
+    font-weight: _font(weight-heading);
+    letter-spacing: _font(kerning-heading);
+    margin-top: -1em;
+  }
+}
+
+h3 {
+  font-size: 1.125rem;
+  padding-bottom: 1rem;
+}
+
+ul {
+  padding-left: 2rem;
+  list-style-position: outside;
+  font-size: 1.125rem;
+}
+
+h6,
+p {
+  font-size: 1.125rem;
+}
+h6 {
+  padding-bottom: 1rem;
+}
+@include breakpoint(small) {
+  .post > header .title h2 {
+    font-size: 2rem;
+  }
+  section h3 {
+    //font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding-bottom: 1.2rem;
+  }
+  section h6 {
+    padding-bottom: 0.8rem;
+  }
+}

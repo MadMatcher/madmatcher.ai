@@ -1,0 +1,39 @@
+# .github/workflows/deploy.yml
+name: Deploy React site to GitHub Pages
+
+on:
+  workflow_dispatch:          # ↖ makes the “Run workflow” button appear
+  push:                       # optional – keep or remove
+    branches: [ main ]
+
+permissions:
+  contents: write             # lets the built-in GITHUB_TOKEN push to gh-pages
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Re-write origin with token
+        run: |
+          git remote set-url origin \
+            https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & publish
+        run: |
+          git config --global user.name  "github-actions-bot"
+          git config --global user.email "github-actions@github.com"
+          npm run deploy -- -u "github-actions-bot <github-actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+
+

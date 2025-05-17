@@ -1,0 +1,81 @@
+// Misc.
+$misc: (
+  z-index-base: 10000,
+);
+
+// Duration.
+$duration: (
+  menu: 0.5s,
+  transition: 0.2s,
+);
+
+// Size.
+$size: (
+  element-height: 2.75em,
+  element-margin: 1em,
+  section-spacing: 1.75em,
+  section-spacing-small: 1.5em,
+  menu: 25em,
+);
+
+// Font.
+$font: (
+  family: (
+    georgia,
+    'times new roman',
+    times,
+    serif,
+  ),
+  family-fixed: (
+    georgia,
+    'times new roman',
+    times,
+    serif,
+  ),
+  family-heading: (
+    georgia,
+    'times new roman',
+    times,
+    serif,
+  ),
+  weight: 400,
+  weight-bold: 700,
+  weight-heading: 400,
+  weight-heading-bold: 800,
+  weight-heading-extrabold: 900,
+);
+
+// Palette.
+$palette: (
+  bg: #ffffff,
+  bg-alt: #f4f4f4,
+  fg: #191919,
+  fg-bold: #121212,
+  fg-light: #aaaaaa,
+  border: rgba(160, 160, 160, 0.3),
+  border-bg: rgba(160, 160, 160, 0.075),
+  border-alt: rgba(160, 160, 160, 0.65),
+  accent: #2e59ba,
+);
+
+// Example SCSS for adjusting header sizes
+
+// Default styles for h2 and h3
+h2 {
+  font-size: 2em; // Default size for h2
+}
+
+h3 {
+  font-size: 1.5em; // Default size for h3
+}
+
+// Media query for smaller screens
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.75em; // Adjusted size for h2 on smaller screens
+  }
+
+  h3 {
+    font-size: 1.25em; // Adjusted size for h3 on smaller screens
+  }
+}

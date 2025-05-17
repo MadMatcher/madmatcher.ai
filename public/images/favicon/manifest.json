@@ -1,0 +1,11 @@
+{
+  "name": "https://anhaidgroup.github.io/magellan",
+  "icons": [
+    {
+      "src": "/images/favicon/favicon-96x96",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "2.0"
+    }
+  ]
+}
