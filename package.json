@@ -1,7 +1,7 @@
 {
   "name": "madmatcher",
   "version": "0.1.1",
-  "homepage": "https://www.madmatcher.ai"
+  "homepage": "https://www.madmatcher.ai",
   "license": "MIT",
   "repository": {
     "type": "git",
