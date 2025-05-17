@@ -19,7 +19,7 @@
     "start": "react-scripts start",
     "test": "npx jest",
     "eject": "react-scripts eject",
-  "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
