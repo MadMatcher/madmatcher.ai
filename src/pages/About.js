@@ -4,7 +4,7 @@ import Main from '../layouts/Main';
 import examplepic from '../images/magellan_tech_about_image.png';
 
 const About = () => (
-  <Main title="About" description="About MagellanTech.">
+  <Main title="About" description="About MadMatcher.">
     <article className="post" id="about">
       <header>
         <div className="title">
