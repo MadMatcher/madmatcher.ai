@@ -8,9 +8,47 @@ const About = () => (
     <article className="post" id="about">
       <header>
         <div className="title">
-          <h2>About</h2>
+          <h2>About Us</h2>
         </div>
       </header>
+
+      <section id="team">
+        <h3>Our Team</h3>
+        <p>
+          We are a team of experts in data matching, machine learning, and software engineering.
+        </p>
+        <ul>
+          <li>Data Scientists</li>
+          <li>Software Engineers</li>
+          <li>Product Managers</li>
+          <li>Research Scientists</li>
+        </ul>
+      </section>
+
+      <section id="product-development">
+        <h3>Product Development</h3>
+        <p>
+          Our product development process focuses on creating robust, scalable, and user-friendly
+          solutions.
+        </p>
+        <ul>
+          <li>User-centered design</li>
+          <li>Agile development methodology</li>
+          <li>Continuous integration and deployment</li>
+          <li>Quality assurance and testing</li>
+        </ul>
+      </section>
+
+      <section id="research">
+        <h3>Research</h3>
+        <p>We actively contribute to research in data matching and related fields.</p>
+        <ul>
+          <li>Entity matching algorithms</li>
+          <li>Machine learning for data matching</li>
+          <li>Scalable matching solutions</li>
+          <li>Academic publications and collaborations</li>
+        </ul>
+      </section>
 
       <section>
         <h3>Entity Matching</h3>
@@ -24,7 +62,7 @@ const About = () => (
           Entity Matching (EM) is the problem of finding data instances that refer to the same
           real‑world entity. For example, given the two tables A and B shown here, find all tuple
           pairs (a in A, b in B) that match, such as (Dave Smith, Madison, WI) and (David D. Smith,
-          Madison, WI). We call these pairs “matches".
+          Madison, WI). We call these pairs "matches".
         </p>
         <p>
           This problem often arises in data science and AI. Many such projects must combine multiple
@@ -50,7 +88,7 @@ const About = () => (
         </p>
         <p>
           For example, in the above figure, the blocking step keeps only those pairs that share the
-          same state (this can be done quickly using an index on Column “State”). Then the matching
+          same state (this can be done quickly using an index on Column "State"). Then the matching
           step applies a matcher that predicts pairs (a1,b1) and (a3,b2) to be matches.
         </p>
       </section>
@@ -59,8 +97,8 @@ const About = () => (
         <h3>Variations of EM and Related Problems</h3>
         <p>
           Variations of EM are known as entity resolution, record linkage, deduplication, and more.
-          We use the term “entity matching” because there are many other related problems, and their
-          names all end with “matching.”
+          We use the term "entity matching" because there are many other related problems, and their
+          names all end with "matching."
         </p>
         <p>
           Specifically, string matching finds strings that refer to the same real-world concept,

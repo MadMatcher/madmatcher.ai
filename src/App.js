@@ -17,18 +17,42 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Index = lazy(() => import('./pages/Index'));
 const LessonsLearned = lazy(() => import('./pages/LessonsLearned'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const WhoWeAre = lazy(() => import('./pages/WhoWeAre'));
+const Product = lazy(() => import('./pages/Product'));
+const OpenSource = lazy(() => import('./pages/OpenSource'));
+const SparkMatcher = lazy(() => import('./pages/SparkMatcher'));
+const CloudMatcher = lazy(() => import('./pages/CloudMatcher'));
+const Consulting = lazy(() => import('./pages/Consulting'));
+const Team = lazy(() => import('./pages/Team'));
+const ProductDevelopment = lazy(() => import('./pages/ProductDevelopment'));
+const AboutResearch = lazy(() => import('./pages/AboutResearch'));
+const UseCases = lazy(() => import('./pages/UseCases'));
+const UseCase1 = lazy(() => import('./pages/UseCase1'));
+const UseCase2 = lazy(() => import('./pages/UseCase2'));
+const UseCase3 = lazy(() => import('./pages/UseCase3'));
+const ContactForm = lazy(() => import('./pages/ContactForm'));
 
 const App = () => (
   <BrowserRouter basename={PUBLIC_URL}>
     <Suspense fallback={<Main />}>
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/who-we-are" element={<WhoWeAre />} />
+        <Route path="/product" element={<Product />} />
+        <Route path="/product/open-source" element={<OpenSource />} />
+        <Route path="/product/sparkmatcher" element={<SparkMatcher />} />
+        <Route path="/product/cloudmatcher" element={<CloudMatcher />} />
+        <Route path="/product/consulting" element={<Consulting />} />
         <Route path="/about" element={<About />} />
-        <Route path="/software" element={<Software />} />
-        <Route path="/data" element={<Data />} />
-        <Route path="/research" element={<Research />} />
-        <Route path="/casestudies" element={<CaseStudies />} />
-        <Route path="/lessonslearned" element={<LessonsLearned />} />
+        <Route path="/about/team" element={<Team />} />
+        <Route path="/about/product-development" element={<ProductDevelopment />} />
+        <Route path="/about/research" element={<AboutResearch />} />
+        <Route path="/use-cases" element={<UseCases />} />
+        <Route path="/use-cases/1" element={<UseCase1 />} />
+        <Route path="/use-cases/2" element={<UseCase2 />} />
+        <Route path="/use-cases/3" element={<UseCase3 />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact/form" element={<ContactForm />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>

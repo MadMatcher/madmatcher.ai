@@ -19,6 +19,90 @@
       }
     }
   }
+
+  .form-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1em;
+
+    @include breakpoint(small) {
+      flex-direction: column;
+      gap: 0.5em;
+    }
+  }
+
+  .form-group {
+    flex: 1;
+    margin-bottom: 1em;
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.75em;
+      border: 1px solid _palette(border);
+      border-radius: 4px;
+      font-family: _font(family);
+      font-size: 1em;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+  }
+
+  .form-buttons {
+    display: flex;
+    gap: 1em;
+    margin-top: 1em;
+
+    @include breakpoint(small) {
+      flex-direction: column;
+      gap: 0.5em;
+    }
+
+    button {
+      padding: 0.5em 1em;
+      border: none;
+      border-radius: 4px;
+      font-family: _font(family);
+      font-size: 0.9em;
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 2.5em;
+
+      &.primary {
+        background-color: _palette(bg-alt);
+        color: white;
+
+        &:hover {
+          background-color: darken(_palette(accent-hover), 10%);
+        }
+      }
+
+      &:not(.primary) {
+        background-color: _palette(bg-alt);
+        color: _palette(fg);
+
+        &:hover {
+          background-color: darken(_palette(accent-hover), 5%);
+        }
+      }
+    }
+  }
 }
 
 .inline {
