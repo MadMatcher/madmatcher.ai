@@ -17,11 +17,13 @@ body {
   border-bottom: solid 1px _palette(border);
   height: 3.5em;
   left: 0;
-  line-height: 3.5em;
+  line-height: normal;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: _misc(z-index-base);
+  display: flex;
+  align-items: center;
 
   a {
     color: inherit;
@@ -40,21 +42,25 @@ body {
   }
 
   h1 {
-    height: inherit;
-    line-height: inherit;
+    line-height: normal;
+    display: flex;
+    align-items: center;
+    height: 100%;
     padding: 0 1em 0 1em;
     white-space: nowrap;
 
     a {
-      font-size: 0.7em;
+      font-size: 1.8rem;
+      line-height: 1;
+      font-weight: bold;
     }
   }
 
   .links {
     @include vendor('flex', '1');
     border-left: solid 1px _palette(border);
-    height: inherit;
-    line-height: inherit;
+    height: auto;
+    line-height: normal;
     //margin-left: 1.5em;
     overflow: hidden;
     padding-left: 1.5em;
@@ -84,8 +90,8 @@ body {
   }
 
   .main {
-    height: inherit;
-    line-height: inherit;
+    height: auto;
+    line-height: normal;
     text-align: right;
 
     ul {
