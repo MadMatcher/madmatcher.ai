@@ -27,9 +27,6 @@ const Team = lazy(() => import('./pages/Team'));
 const ProductDevelopment = lazy(() => import('./pages/ProductDevelopment'));
 const AboutResearch = lazy(() => import('./pages/AboutResearch'));
 const UseCases = lazy(() => import('./pages/UseCases'));
-const UseCase1 = lazy(() => import('./pages/UseCase1'));
-const UseCase2 = lazy(() => import('./pages/UseCase2'));
-const UseCase3 = lazy(() => import('./pages/UseCase3'));
 const ContactForm = lazy(() => import('./pages/ContactForm'));
 
 const App = () => (
@@ -48,9 +45,6 @@ const App = () => (
         <Route path="/about/product-development" element={<ProductDevelopment />} />
         <Route path="/about/research" element={<AboutResearch />} />
         <Route path="/use-cases" element={<UseCases />} />
-        <Route path="/use-cases/1" element={<UseCase1 />} />
-        <Route path="/use-cases/2" element={<UseCase2 />} />
-        <Route path="/use-cases/3" element={<UseCase3 />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/contact/form" element={<ContactForm />} />
         <Route path="*" element={<NotFound />} />
