@@ -40,7 +40,7 @@ const UseCases = () => (
         </p>
         <ul>
           <li>Challenge: Columns from datasets need to be matched with ECSO Ontologies</li>
-          <li>Result: xx.x% recall, xx.x% precision</li>
+          <li>Result: In progress</li>
         </ul>
       </section>
     </article>

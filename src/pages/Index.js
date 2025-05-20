@@ -14,7 +14,11 @@ const Index = () => (
       </header>
 
       <section>
-        <p>One-Liner</p>
+        <p>
+          MadMatcher provides solutions for Fast & Accurate Entity Matching. We take advantage of
+          modern Machine Learning and Artificial Intelligence algorithms along with Spark to achieve
+          this.
+        </p>
       </section>
     </article>
   </Main>

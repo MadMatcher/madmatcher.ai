@@ -11,45 +11,15 @@ const About = () => (
           <h2>About Us</h2>
         </div>
       </header>
-
-      <section id="team">
-        <h3>Our Team</h3>
+      <section>
+        <h3>Background</h3>
         <p>
-          We are a team of experts in data matching, machine learning, and software engineering.
+          MadMatcher stems from research at University of Wisconsin - Madison. For over 10 years, a
+          research group has been studying the entity matching problem, and have developed several
+          solutions and published countless papers in top data conferences. MadMatcher’s software
+          uses the lessons and feedback from past to guide its development.
         </p>
-        <ul>
-          <li>Data Scientists</li>
-          <li>Software Engineers</li>
-          <li>Product Managers</li>
-          <li>Research Scientists</li>
-        </ul>
       </section>
-
-      <section id="product-development">
-        <h3>Product Development</h3>
-        <p>
-          Our product development process focuses on creating robust, scalable, and user-friendly
-          solutions.
-        </p>
-        <ul>
-          <li>User-centered design</li>
-          <li>Agile development methodology</li>
-          <li>Continuous integration and deployment</li>
-          <li>Quality assurance and testing</li>
-        </ul>
-      </section>
-
-      <section id="research">
-        <h3>Research</h3>
-        <p>We actively contribute to research in data matching and related fields.</p>
-        <ul>
-          <li>Entity matching algorithms</li>
-          <li>Machine learning for data matching</li>
-          <li>Scalable matching solutions</li>
-          <li>Academic publications and collaborations</li>
-        </ul>
-      </section>
-
       <section>
         <h3>Entity Matching</h3>
         <span className="image right">
