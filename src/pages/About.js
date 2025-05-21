@@ -14,10 +14,10 @@ const About = () => (
       <section>
         <h3>Background</h3>
         <p>
-          MadMatcher stems from research at University of Wisconsin - Madison. For over 10 years, a
-          research group has been studying the entity matching problem, and have developed several
-          solutions and published countless papers in top data conferences. MadMatcher’s software
-          uses the lessons and feedback from past to guide its development.
+          MadMatcher stems from research at University of Wisconsin - Madison. For over 10 years,
+          AnHai Doan's research group has been studying the entity matching problem, and have
+          developed several solutions and published countless papers in top data conferences.
+          MadMatcher’s software uses the lessons and feedback from past to guide its development.
         </p>
       </section>
       <section>
@@ -51,10 +51,10 @@ const About = () => (
         <h3>Blocking and Matching</h3>
         <p>
           Considering all pairs between Tables A and B is practically infeasible for large tables.
-          So EM is typically performed in two steps: blocking and matching (and the Magellan project
-          develops software for both steps). The blocking step uses heuristics to quickly remove a
-          large number of pairs judged unlikely to match. The matching step applies a rule‑ or
-          ML‑based matcher to each remaining pair, to predict match or non‑match.
+          So EM is typically performed in two steps: blocking and matching (and MadMatcher has
+          solutions for both steps). The blocking step uses heuristics to quickly remove a large
+          number of pairs judged unlikely to match. The matching step applies a rule‑ or ML‑based
+          matcher to each remaining pair, to predict match or non‑match.
         </p>
         <p>
           For example, in the above figure, the blocking step keeps only those pairs that share the
@@ -78,35 +78,17 @@ const About = () => (
           between ontology concepts and table columns, matching tables, and more.{' '}
         </p>
         <p>
-          While Magellan is designed primarily for EM, it can also be used for these related
+          While MadMatcher is designed primarily for EM, it can also be used for these related
           matching problems.
         </p>
       </section>
 
       <section>
-        <h3>The Magellan Project</h3>
+        <h3>Contact</h3>
         <p>
-          This project was started in 2015 at the University of Wisconsin‑Madison. By that time,
-          even though numerous publications on EM existed, we had not found any industrial‑strength
-          EM software. So our goal has been to develop industrial‑strength open‑source software for
-          EM, work with customers to evaluate these products, use the evaluations to refine the
-          products, and publish the findings.
+          To contact us with any requests, please email{' '}
+          <a href="mailto:entitymatchinginfo@gmail.com"> us</a>.
         </p>
-        <p>
-          The goal is to release EM software that can find widespread use. Publishing findings is an
-          important part of the project, but is viewed as a side effect of executing the
-          software-customer cycle. We refer to this template as the "academic startup" template.
-        </p>
-      </section>
-
-      <section>
-        <h3>Team and Contact</h3>
-        <p>
-          Over the years many people have contributed to Magellan. Their names are listed in the
-          "Research" section. The current team (as of April 2025) consists of Derek Paulsen, Dev
-          Ahluwalia, Anson Doan, and AnHai Doan, who are working on the SparkMatcher software.
-        </p>
-        <p>To contact us with any requests, please email entitymatchinginfo@gmail.com.</p>
       </section>
     </article>
   </Main>

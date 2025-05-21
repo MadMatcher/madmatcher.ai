@@ -39,7 +39,10 @@ const UseCases = () => (
           <em>Limnology (UW) - EDI</em>
         </p>
         <ul>
-          <li>Challenge: Columns from datasets need to be matched with ECSO Ontologies</li>
+          <li>
+            Challenge: Dataset columns collected from several research groups need to be matched
+            with ECSO Ontologies
+          </li>
           <li>Result: In progress</li>
         </ul>
       </section>
