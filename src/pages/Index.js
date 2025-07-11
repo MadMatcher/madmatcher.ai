@@ -5,7 +5,7 @@ import Main from '../layouts/Main';
 import EmailLink from '../components/Contact/EmailLink';
 
 const Index = () => (
-  <Main description="Magellan's Research Website">
+  <Main description="MadMatcher's Website">
     <article className="post" id="index">
       <header>
         <div className="title">

@@ -1,0 +1,112 @@
+.heroHomeFull {
+  height: calc(100vh - var(--navbar-height, 104px));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 100%);
+  position: relative;
+  overflow: hidden;
+}
+.heroHomeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2vw;
+  gap: 4vw;
+}
+.heroLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 0;
+}
+.heroTitle {
+  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  font-weight: 800;
+  color: #1a2233;
+  margin-bottom: 1.5vw;
+  line-height: 1.1;
+}
+.heroSubtitle {
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  color: #4a5a6a;
+  margin-bottom: 2vw;
+  max-width: 32rem;
+}
+.heroButtons {
+  display: flex;
+  gap: 1.2vw;
+  justify-content: center;
+}
+.heroBtnMain {
+  background: #ce0000;
+  color: #fff;
+  font-weight: 700;
+  padding: 1vw 2.5vw;
+  border-radius: 0.7vw;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0.1vw 0.4vw rgba(206, 0, 0, 0.08);
+  border: none;
+  cursor: pointer;
+}
+.heroBtnMain:hover,
+.heroBtnMain:focus {
+  background: #a30000;
+  box-shadow: 0 0.4vw 1.6vw rgba(206, 0, 0, 0.13);
+  outline: none;
+}
+.heroBtnAlt {
+  background: #fff;
+  color: #ce0000;
+  border: 1.5px solid #ce0000;
+  font-weight: 700;
+  padding: 1vw 2.5vw;
+  border-radius: 0.7vw;
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0.1vw 0.4vw rgba(206, 0, 0, 0.08);
+  cursor: pointer;
+}
+.heroBtnAlt:hover,
+.heroBtnAlt:focus {
+  background: #f9fafb;
+  color: #a30000;
+  box-shadow: 0 0.4vw 1.6vw rgba(206, 0, 0, 0.13);
+  outline: none;
+}
+.heroRight {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.heroLogo {
+  width: 100%;
+  max-width: 540px;
+  height: auto;
+  display: block;
+}
+@media (max-width: 900px) {
+  .heroHomeContainer {
+    flex-direction: column;
+    gap: 2vw;
+    padding: 0 4vw;
+  }
+  .heroLeft,
+  .heroRight {
+    align-items: center;
+    text-align: center;
+  }
+  .heroLogo {
+    max-width: 340px;
+  }
+}
