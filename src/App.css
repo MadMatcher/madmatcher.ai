@@ -13,8 +13,8 @@ html {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
-    Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
   font-weight: 400;
   background-color: #ffffff;
@@ -29,13 +29,13 @@ body {
   /* Colors - Modern Professional Palette */
   --color-primary: #1d1d1f;
   --color-primary-light: #424245;
-  --color-secondary: #ce0000;
-  --color-secondary-dark: #a30000;
-  --color-accent: #ce0000;
-  --color-accent-light: #ff3333;
+  --color-secondary: #db070e;
+  --color-secondary-dark: #b1050b;
+  --color-accent: #db070e;
+  --color-accent-light: #f20810;
   --color-success: #34c759;
   --color-warning: #ff9500;
-  --color-error: #ff3b30;
+  --color-error: #9a0409;
 
   /* Neutral Colors - Clean & Professional */
   --color-white: #ffffff;
@@ -98,12 +98,9 @@ body {
 
   /* Shadows */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 
   /* Transitions */
@@ -184,10 +181,6 @@ a {
   transition: var(--transition-fast);
 }
 
-a:hover {
-  color: var(--color-secondary-dark);
-}
-
 /* Layout Components */
 .app {
   min-height: 100vh;
@@ -224,6 +217,14 @@ a:hover {
 /* Section Layouts */
 .section {
   padding: var(--spacing-4xl) 0;
+}
+
+/* Contact section specific - reduced padding for viewport height */
+#contact-us.section {
+  padding: var(--spacing-xl) 0;
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
 }
 
 .section-sm {
@@ -354,35 +355,16 @@ a:hover {
   box-shadow: var(--shadow-sm);
 }
 
-.btn-primary:hover {
-  background: var(--color-secondary-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
 .btn-secondary {
   background: var(--color-white);
   color: var(--color-secondary);
   border: 2px solid var(--color-secondary);
 }
 
-.btn-secondary:hover {
-  background: var(--color-secondary);
-  color: var(--color-white);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
-}
-
 .btn-accent {
   background: var(--color-accent);
   color: var(--color-white);
   box-shadow: var(--shadow-sm);
-}
-
-.btn-accent:hover {
-  background: var(--color-accent-light);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
 }
 
 .btn-lg {
@@ -403,11 +385,6 @@ a:hover {
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--color-gray-200);
   transition: all var(--transition-base);
-}
-
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-xl);
 }
 
 .card-header {
@@ -433,7 +410,7 @@ a:hover {
 
 /* Form Elements */
 .form-group {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .form-label {
@@ -464,7 +441,7 @@ a:hover {
 
 .form-textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 80px;
 }
 
 /* Navbar */
@@ -505,10 +482,6 @@ a:hover {
   transition: var(--transition-base);
 }
 
-.navbar-logo:hover {
-  transform: scale(1.05);
-}
-
 .navbar-logo img {
   height: 60px;
   width: auto;
@@ -535,18 +508,13 @@ a:hover {
   border-radius: var(--radius-md);
 }
 
-.navbar-link:hover {
-  color: var(--color-secondary);
-  background: rgba(0, 102, 204, 0.05);
-}
-
 .navbar-link.active {
   color: var(--color-secondary);
   background: rgba(0, 102, 204, 0.1);
 }
 
 .navbar-link::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: -4px;
   left: 50%;
@@ -555,11 +523,6 @@ a:hover {
   background: var(--color-secondary);
   transition: all var(--transition-base);
   transform: translateX(-50%);
-}
-
-.navbar-link:hover::after,
-.navbar-link.active::after {
-  width: 80%;
 }
 
 .navbar-toggle {
@@ -571,10 +534,6 @@ a:hover {
   border-radius: var(--radius-md);
   transition: var(--transition-base);
   z-index: 1001;
-}
-
-.navbar-toggle:hover {
-  background: var(--color-gray-100);
 }
 
 .hamburger {
@@ -610,11 +569,7 @@ a:hover {
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(
-    135deg,
-    var(--color-gray-50) 0%,
-    var(--color-white) 100%
-  );
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-white) 100%);
   padding: var(--spacing-5xl) 0;
   position: relative;
   overflow: hidden;
@@ -624,7 +579,7 @@ a:hover {
 }
 
 .hero::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -701,11 +656,7 @@ a:hover {
   transform: translate(-50%, -50%);
   width: 120%;
   height: 120%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 102, 204, 0.1) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(0, 102, 204, 0.1) 0%, transparent 70%);
   border-radius: var(--radius-2xl);
   z-index: 1;
   animation: pulse 3s ease-in-out infinite;
@@ -901,6 +852,15 @@ a:hover {
 
   .grid-cols-4 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile responsive for flex containers with gap-lg */
+@media (max-width: 768px) {
+  .flex.justify-center.gap-lg {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: var(--spacing-xl) !important;
   }
 }
 
@@ -1170,7 +1130,7 @@ a:hover {
 }
 
 .category-title {
-  font-size: var(--text-3xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-bold);
   color: var(--color-secondary);
   margin-bottom: var(--spacing-md);
@@ -1200,11 +1160,6 @@ a:hover {
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-xl);
 }
 
 .product-header {
@@ -1302,7 +1257,7 @@ a:hover {
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-3xl);
+  gap: var(--spacing-xl);
   align-items: stretch;
   max-width: 1000px;
   margin: 0 auto;
@@ -1364,7 +1319,7 @@ a:hover {
 .contact-form-card {
   background: var(--color-white);
   border-radius: var(--radius-xl);
-  padding: var(--spacing-3xl);
+  padding: var(--spacing-lg);
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--color-gray-200);
   display: flex;
@@ -1374,7 +1329,7 @@ a:hover {
 
 .form-header {
   text-align: center;
-  margin-bottom: var(--spacing-2xl);
+  margin-bottom: var(--spacing-md);
 }
 
 .form-header h3 {
@@ -1444,16 +1399,16 @@ a:hover {
 }
 
 .alert-error {
-  background: rgba(255, 59, 48, 0.1);
+  background: rgba(219, 7, 14, 0.1);
   color: var(--color-error);
-  border: 1px solid rgba(255, 59, 48, 0.2);
+  border: 1px solid rgba(219, 7, 14, 0.2);
 }
 
 /* Contact Info Styles */
 .contact-info-card {
   background: var(--color-white);
   border-radius: var(--radius-xl);
-  padding: var(--spacing-3xl);
+  padding: var(--spacing-lg);
   box-shadow: var(--shadow-lg);
   border: 1px solid var(--color-gray-200);
   display: flex;
@@ -1464,11 +1419,11 @@ a:hover {
 
 .info-header {
   text-align: center;
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-md);
 }
 
 .logo-container {
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
 }
 
 .contact-logo {
@@ -1492,8 +1447,8 @@ a:hover {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-3xl);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
 }
 
 .contact-method {
@@ -1527,14 +1482,9 @@ a:hover {
   transition: var(--transition-base);
 }
 
-.contact-link:hover {
-  color: var(--color-secondary-dark);
-  text-decoration: underline;
-}
-
 .contact-cta {
   text-align: center;
-  padding-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
   border-top: 1px solid var(--color-gray-200);
 }
 
@@ -1652,65 +1602,11 @@ a:hover {
   border: 1px solid var(--color-gray-700);
 }
 
-.footer-social:hover {
-  background: var(--color-secondary);
-  color: var(--color-white);
-  transform: translateY(-2px);
-  border-color: var(--color-secondary);
-}
+/* Footer styles are now handled by CSS modules */
 
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-2xl);
-}
+/* Footer responsive styles are now handled by CSS modules */
 
-/* Ensure footer links are responsive */
-@media (max-width: 1024px) {
-  .footer-links {
-    grid-template-columns: repeat(2, 1fr) !important;
-    gap: var(--spacing-xl);
-  }
-}
-
-@media (max-width: 480px) {
-  .footer-links {
-    grid-template-columns: 1fr !important;
-    gap: var(--spacing-lg);
-  }
-}
-
-.footer-link-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.footer-link-title {
-  color: var(--color-white);
-  font-size: var(--text-lg);
-  font-weight: var(--font-semibold);
-  margin-bottom: var(--spacing-lg);
-}
-
-.footer-link-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.footer-link {
-  color: var(--color-gray-300);
-  text-decoration: none;
-  transition: var(--transition-base);
-  font-size: var(--text-sm);
-}
-
-.footer-link:hover {
-  color: var(--color-secondary);
-}
+/* Footer link styles are now handled by CSS modules */
 
 .footer-bottom {
   display: flex;
@@ -1755,17 +1651,9 @@ a:hover {
   transition: var(--transition-base);
 }
 
-.footer-legal-link:hover {
-  color: var(--color-gray-300);
-}
-
 /* Case Studies Styles */
 .case-studies-header {
-  background: linear-gradient(
-    135deg,
-    var(--color-white) 0%,
-    var(--color-gray-50) 100%
-  );
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-gray-50) 100%);
   text-align: center;
   padding: var(--spacing-2xl) 0 var(--spacing-md) 0;
   border-bottom: 1px solid var(--color-gray-200);
@@ -1804,7 +1692,6 @@ a:hover {
   white-space: nowrap;
 }
 
-.btn-nav:hover,
 .btn-nav.active {
   background: var(--color-primary);
   color: var(--color-white);
@@ -1869,7 +1756,7 @@ a:hover {
   color: var(--color-white);
   padding: var(--spacing-md);
   border-radius: var(--radius-sm);
-  font-family: "Monaco", "Menlo", monospace;
+  font-family: 'Monaco', 'Menlo', monospace;
   font-size: 0.9rem;
   margin: var(--spacing-md) 0;
 }
@@ -2000,10 +1887,6 @@ a:hover {
 ::-webkit-scrollbar-thumb {
   background: var(--color-gray-300);
   border-radius: var(--radius-full);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-gray-400);
 }
 
 /* Product Layout Responsive */

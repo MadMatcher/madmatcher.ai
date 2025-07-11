@@ -92,11 +92,6 @@
   box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
 }
 
-.primaryButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.3);
-}
-
 .secondaryButton {
   background: white;
   color: #0f172a;
@@ -108,12 +103,6 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.secondaryButton:hover {
-  background: #f8fafc;
-  border-color: #cbd5e1;
-  transform: translateY(-2px);
 }
 
 /* Entity Matching Section Styles */
@@ -256,18 +245,13 @@
 }
 
 .solutionCard::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 4px;
   background: linear-gradient(90deg, #0f172a, #475569);
-}
-
-.solutionCard:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
 }
 
 .solutionCard h3 {
@@ -302,19 +286,9 @@
   color: white;
 }
 
-.githubLink:hover {
-  background: #1a1e22;
-  transform: translateY(-2px);
-}
-
 .docsLink {
   background: #6366f1;
   color: white;
-}
-
-.docsLink:hover {
-  background: #4f46e5;
-  transform: translateY(-2px);
 }
 
 .solutionCard p {
@@ -425,11 +399,6 @@
   margin-top: 16px;
 }
 
-.submitButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.3);
-}
-
 .contactInfo {
   font-size: 1rem;
   color: #64748b;
@@ -441,10 +410,6 @@
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
-}
-
-.contactInfo a:hover {
-  color: #475569;
 }
 
 /* Responsive Design */
@@ -557,7 +522,14 @@
   justify-self: center;
 }
 
-.product-card:hover {
-  box-shadow: 0 8px 32px rgba(30, 40, 90, 0.13);
-  transform: translateY(-4px) scale(1.02);
+/* Responsive breakpoint for products grid */
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .product-card.madmatcher-tools {
+    grid-column: 1;
+  }
 }

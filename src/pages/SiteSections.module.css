@@ -54,7 +54,7 @@
 }
 .btn-main {
   display: inline-block;
-  background: #ce0000;
+  background: #db070e;
   color: #fff;
   font-weight: 600;
   padding: 1vw 2.5vw;
@@ -62,15 +62,14 @@
   text-decoration: none;
   font-size: 1.3vw;
   transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0.1vw 0.4vw rgba(206, 0, 0, 0.08);
+  box-shadow: 0 0.1vw 0.4vw rgba(219, 7, 14, 0.08);
   margin-top: 1.2vw;
   border: none;
   cursor: pointer;
 }
-.btn-main:hover,
 .btn-main:focus {
-  background: #a30000;
-  box-shadow: 0 0.4vw 1.6vw rgba(206, 0, 0, 0.13);
+  background: #b1050b;
+  box-shadow: 0 0.4vw 1.6vw rgba(219, 7, 14, 0.13);
   outline: none;
 }
 .about-em-image-float-container {

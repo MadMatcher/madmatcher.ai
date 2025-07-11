@@ -44,7 +44,7 @@
   justify-content: center;
 }
 .heroBtnMain {
-  background: #ce0000;
+  background: #db070e;
   color: #fff;
   font-weight: 700;
   padding: 1vw 2.5vw;
@@ -52,34 +52,32 @@
   text-decoration: none;
   font-size: 1.1rem;
   transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0.1vw 0.4vw rgba(206, 0, 0, 0.08);
+  box-shadow: 0 0.1vw 0.4vw rgba(219, 7, 14, 0.08);
   border: none;
   cursor: pointer;
 }
-.heroBtnMain:hover,
 .heroBtnMain:focus {
-  background: #a30000;
-  box-shadow: 0 0.4vw 1.6vw rgba(206, 0, 0, 0.13);
+  background: #b1050b;
+  box-shadow: 0 0.4vw 1.6vw rgba(219, 7, 14, 0.13);
   outline: none;
 }
 .heroBtnAlt {
   background: #fff;
-  color: #ce0000;
-  border: 1.5px solid #ce0000;
+  color: #db070e;
+  border: 1.5px solid #db070e;
   font-weight: 700;
   padding: 1vw 2.5vw;
   border-radius: 0.7vw;
   text-decoration: none;
   font-size: 1.1rem;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0.1vw 0.4vw rgba(206, 0, 0, 0.08);
+  box-shadow: 0 0.1vw 0.4vw rgba(219, 7, 14, 0.08);
   cursor: pointer;
 }
-.heroBtnAlt:hover,
 .heroBtnAlt:focus {
   background: #f9fafb;
-  color: #a30000;
-  box-shadow: 0 0.4vw 1.6vw rgba(206, 0, 0, 0.13);
+  color: #b1050b;
+  box-shadow: 0 0.4vw 1.6vw rgba(219, 7, 14, 0.13);
   outline: none;
 }
 .heroRight {

@@ -42,10 +42,6 @@
   padding: 32px 24px 28px 24px;
   transition: box-shadow 0.2s, transform 0.2s;
 }
-.offeringCard:hover {
-  box-shadow: 0 8px 32px rgba(30, 40, 90, 0.13);
-  transform: translateY(-4px) scale(1.02);
-}
 .offeringIcon {
   width: 64px;
   height: 64px;
@@ -88,7 +84,7 @@
   position: relative;
 }
 .featuresList li:before {
-  content: "✔";
+  content: '✔';
   color: #0070f3;
   position: absolute;
   left: 0;
@@ -106,10 +102,6 @@
   font-size: 1rem;
   transition: background 0.2s, box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(0, 112, 243, 0.08);
-}
-.ctaButton:hover {
-  background: #0056b3;
-  box-shadow: 0 4px 16px rgba(0, 112, 243, 0.13);
 }
 
 .ctaSection {
@@ -140,10 +132,6 @@
   font-size: 1.1rem;
   transition: background 0.2s, box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(0, 112, 243, 0.08);
-}
-.ctaMainButton:hover {
-  background: #0056b3;
-  box-shadow: 0 4px 16px rgba(0, 112, 243, 0.13);
 }
 
 @media (max-width: 700px) {
