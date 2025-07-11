@@ -1,8 +1,8 @@
-import React from "react";
-import styles from "./AboutMadMatcher.module.css";
-import devHeadshot from "../../assets/dev-ahluwalia-headshot.jpg";
-import anhaiHeadshot from "../../assets/anhai-headshot.png";
-import derekHeadshot from "../../assets/derek-headshot.jpg";
+import React from 'react';
+import styles from './AboutMadMatcher.module.css';
+import devHeadshot from '../../assets/dev-ahluwalia-headshot.jpg';
+import anhaiHeadshot from '../../assets/anhai-headshot.png';
+import derekHeadshot from '../../assets/derek-headshot.jpg';
 
 const AboutMadMatcher = () => {
   return (
@@ -19,15 +19,13 @@ const AboutMadMatcher = () => {
             <h2>Our Story</h2>
             <div className={styles.story}>
               <p>
-                MadMatcher was founded in July of 2025 by a former student
-                researcher from the University of Wisconsin-Madison. The core
-                open-source technology that powers MadMatcher builds upon over
-                10 years of research and development from Professor AnHai Doan's
-                group at UW-Madison. While MadMatcher operates independently
-                from the university, our technology leverages the foundational
-                work of the Magellan project - a pioneering initiative from
-                UW-Madison that demonstrated the potential for scalable,
-                accurate entity matching solutions.
+                MadMatcher was founded in July of 2025 by a student researcher at the University of
+                Wisconsin-Madison. The core open-source technology that powers MadMatcher builds
+                upon over 10 years of research and development from Professor AnHai Doan's group at
+                UW-Madison. While MadMatcher operates independently from the university, our
+                technology leverages the foundational work of the Magellan project - a 10+ year
+                research initiative at UW-Madison that has developed practical, scalable entity
+                matching solutions used in real-world applications.
               </p>
             </div>
           </section>
@@ -38,22 +36,22 @@ const AboutMadMatcher = () => {
               <div className={styles.missionCard}>
                 <h3>Advance Entity Matching Technology</h3>
                 <p>
-                  Push the boundaries of EM through modern technologies and
-                  machine learning breakthroughs.
+                  Push the boundaries of EM through modern technologies and machine learning
+                  breakthroughs.
                 </p>
               </div>
               <div className={styles.missionCard}>
                 <h3>Streamline Integration</h3>
                 <p>
-                  Create intuitive solutions that seamlessly fit into existing
-                  enterprise workflows and systems.
+                  Create intuitive solutions that seamlessly fit into existing enterprise workflows
+                  and systems.
                 </p>
               </div>
               <div className={styles.missionCard}>
                 <h3>Support Open Source</h3>
                 <p>
-                  Contribute back to the community through open-source tools and
-                  resources for entity matching.
+                  Contribute back to the community through open-source tools and resources for
+                  entity matching.
                 </p>
               </div>
             </div>
@@ -67,7 +65,7 @@ const AboutMadMatcher = () => {
                   <img src={devHeadshot} alt="Dev Ahluwalia" />
                 </div>
                 <h3>Dev Ahluwalia</h3>
-                <p className={styles.title}>Founder, Chief Executive Officer</p>
+                <p className={styles.title}>Founder, CEO</p>
               </div>
               <div className={styles.leader}>
                 <div className={styles.leaderImage}>
