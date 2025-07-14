@@ -1,5 +1,5 @@
 import React from 'react';
-import network from '../assets/network.png';
+import mmHero from '../assets/mm-hero.png';
 
 const HeroHome = () => {
   const scrollToSection = (sectionId) => {
@@ -30,7 +30,7 @@ const HeroHome = () => {
         </div>
 
         <div className="hero-image animate-fade-in">
-          <img src={network} alt="Entity Matching Network" />
+          <img src={mmHero} alt="Entity Matching Network" />
         </div>
       </div>
     </section>
