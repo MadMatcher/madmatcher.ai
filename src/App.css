@@ -2050,7 +2050,6 @@ a {
 /* === HOMEPAGE FONT SIZE STRICT OVERRIDES === */
 /* Only allow these three font sizes on homepage */
 .homepage-large,
-.hero-title,
 .section-title,
 .contactContent h2,
 .solutionsContainer h2,
@@ -2088,7 +2087,6 @@ a {
 }
 
 /* Remove/override all other font-size utilities for homepage */
-.hero-title,
 .section-title,
 .cta-card h3,
 .product-name,
