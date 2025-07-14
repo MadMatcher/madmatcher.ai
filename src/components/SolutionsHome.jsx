@@ -107,10 +107,9 @@ const SolutionsHome = () => (
         <div className="max-w-3xl mx-auto">
           <h2>Ready to Get Started?</h2>
           <p className="hero-subtitle mb-lg">
-            Explore our open-source tools or get in touch with our team to discuss your entity
-            matching needs.
+            Explore our open-source tools, or reach out for free consulting using the contact form
+            below.
           </p>
-
           <div className="flex justify-center gap-lg mt-xl">
             <a
               href="https://github.com/madmatcher"
