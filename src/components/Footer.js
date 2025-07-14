@@ -25,13 +25,6 @@ const Footer = () => {
       <div className={styles.footerContainer}>
         <div className={styles.footerContent}>
           <div className={styles.footerBrand}>
-            <div className={styles.footerLogo} style={{ maxWidth: 180 }}>
-              <img
-                src={logo}
-                alt="MadMatcher"
-                style={{ width: '100%', height: 'auto', maxWidth: 180 }}
-              />
-            </div>
             <div className={styles.footerSocials}>
               <a
                 href="https://github.com/madmatcher"

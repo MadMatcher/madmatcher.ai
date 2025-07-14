@@ -132,19 +132,6 @@ const SolutionsHome = () => (
                 View on GitHub
               </span>
             </a>
-            <a
-              href="/contact"
-              className="btn btn-secondary btn-lg"
-              style={{
-                minWidth: '200px',
-                height: '56px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-              }}
-            >
-              Contact Our Team
-            </a>
           </div>
         </div>
       </div>

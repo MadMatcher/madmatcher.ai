@@ -20,18 +20,12 @@ const HeroHome = () => {
           </h1>
 
           <div className="hero-actions">
-            <button
-              onClick={() => scrollToSection('our-products')}
-              className="btn btn-primary btn-lg"
-            >
-              Explore Products
-            </button>
-            <button
-              onClick={() => scrollToSection('contact-us')}
-              className="btn btn-secondary btn-lg"
-            >
-              Contact Us
-            </button>
+            <p className="hero-blurb">
+              MadMatcher delivers state-of-the-art entity matching solutions for enterprises and
+              researchers. Our open-source tools are designed for scalability, accuracy, and ease of
+              integration. Join a growing community advancing the future of data matching and
+              AI-driven record linkage.
+            </p>
           </div>
         </div>
 
