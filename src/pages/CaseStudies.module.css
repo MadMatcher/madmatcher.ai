@@ -536,3 +536,40 @@
     font-size: 0.85rem;
   }
 }
+
+.heroSection h1,
+.resultsSection h2,
+.datasetsSection h2,
+.comparisonsSection h2 {
+  font-size: var(--text-4xl) !important;
+}
+.datasetResults h3,
+.card-title,
+.datasetCard h3,
+.systemComparison h3,
+.exampleSection h4,
+.challengesSection h4 {
+  font-size: var(--text-xl) !important;
+}
+.heroContent p,
+.sectionIntro,
+.card-content,
+.resultsTable,
+.resultsTable th,
+.resultsTable td,
+.matchingSteps li,
+.navButton,
+.datasetCard > p,
+.exampleTable,
+.exampleTable th,
+.exampleTable td,
+.challengesSection p {
+  font-size: var(--text-base) !important;
+}
+
+.case-studies-header h1 {
+  font-size: var(--text-4xl) !important;
+}
+.section-intro {
+  font-size: var(--text-base) !important;
+}

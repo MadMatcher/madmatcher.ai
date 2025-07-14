@@ -2013,7 +2013,6 @@ a {
   font-size: 1.25rem;
   color: var(--color-gray-600);
   text-align: center;
-  max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
 }
@@ -2046,4 +2045,167 @@ a {
     grid-template-columns: 1fr;
     max-width: 600px;
   }
+}
+
+/* === HOMEPAGE FONT SIZE STRICT OVERRIDES === */
+/* Only allow these three font sizes on homepage */
+.homepage-large,
+.hero-title,
+.section-title,
+.contactContent h2,
+.solutionsContainer h2,
+.emText h2,
+.ready-title {
+  font-size: var(--text-4xl) !important;
+}
+.homepage-medium,
+.hero-subtitle,
+.section-subtitle,
+.category-title,
+.product-name,
+.features-title,
+.feature-check,
+.btn,
+.btn-lg,
+.btn-sm,
+.cta-card h3,
+.contactSubtitle,
+.navbar-link {
+  font-size: var(--text-base) !important;
+}
+.homepage-small,
+.product-description,
+.feature-item,
+.category-description,
+.solutionCard p,
+.emDescription p,
+.blockingMatchingSection p,
+.contactInfo,
+.formGroup label,
+.formGroup input,
+.formGroup textarea {
+  font-size: var(--text-base) !important;
+}
+
+/* Remove/override all other font-size utilities for homepage */
+.hero-title,
+.section-title,
+.cta-card h3,
+.product-name,
+.features-title,
+.category-title {
+  font-size: var(--text-4xl) !important;
+}
+.hero-subtitle,
+.section-subtitle,
+.btn,
+.btn-lg,
+.btn-sm,
+.navbar-link,
+.contactSubtitle {
+  font-size: var(--text-base) !important;
+}
+.product-description,
+.feature-item,
+.category-description,
+.solutionCard p,
+.emDescription p,
+.blockingMatchingSection p,
+.contactInfo,
+.formGroup label,
+.formGroup input,
+.formGroup textarea {
+  font-size: var(--text-base) !important;
+}
+
+/* HOMEPAGE: Make key features, navbar menu, and buttons the smallest size */
+.feature-item,
+.features-title,
+.navbar-link,
+.btn,
+.btn-lg,
+.btn-sm,
+.heroBtnMain,
+.heroBtnAlt,
+.primaryButton,
+.secondaryButton,
+.submitButton {
+  font-size: var(--text-base) !important;
+}
+
+/* CONTACT FORM: Enforce only three font sizes */
+.section-title,
+.form-header h3,
+.info-header h3 {
+  font-size: var(--text-4xl) !important;
+}
+.form-label,
+.form-input,
+.form-textarea,
+.contact-submit-btn,
+.alert,
+.contact-info-card,
+.contact-methods,
+.contact-method,
+.method-icon,
+.method-content h4,
+.method-content p {
+  font-size: var(--text-base) !important;
+}
+/* If any subheadings or supporting text exist, use medium */
+.contactSubtitle,
+.form-header p {
+  font-size: var(--text-xl) !important;
+}
+
+.case-studies-header h1 {
+  font-size: var(--text-4xl) !important;
+}
+.section-intro {
+  font-size: var(--text-base) !important;
+}
+
+.products-header h1,
+.case-studies-header h1 {
+  font-size: var(--text-4xl) !important;
+}
+.products-header .section-intro,
+.case-studies-header .section-intro {
+  font-size: var(--text-base) !important;
+}
+
+.card h2 {
+  font-size: var(--text-4xl) !important;
+}
+
+.card .text-secondary {
+  font-size: var(--text-base) !important;
+}
+.card h4 {
+  font-size: var(--text-base) !important;
+}
+
+.card ul li {
+  font-size: var(--text-base) !important;
+}
+
+.card .btn-primary[href*='github'] {
+  background: white !important;
+  color: var(--color-secondary) !important;
+  border: 2px solid var(--color-secondary) !important;
+  box-shadow: none !important;
+}
+
+/* === CASE STUDIES DATASET CARD FONT SIZE FIXES === */
+.dataset-card h3 {
+  font-size: var(--text-xl) !important;
+}
+.dataset-card .card-content p,
+.dataset-card .card-content li,
+.dataset-card .card-content th,
+.dataset-card .card-content td,
+.dataset-card .example-title,
+.dataset-card .challenges-section h4,
+.dataset-card .challenges-section p {
+  font-size: var(--text-base) !important;
 }

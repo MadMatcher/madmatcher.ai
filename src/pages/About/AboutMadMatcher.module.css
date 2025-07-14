@@ -218,6 +218,28 @@
   margin-bottom: 0;
 }
 
+.hero h1,
+.section h2 {
+  font-size: var(--text-4xl) !important;
+}
+.hero p,
+.missionCard h3,
+.value h3,
+.leader h3,
+.area h3 {
+  font-size: var(--text-xl) !important;
+}
+.story p,
+.missionCard p,
+.value p,
+.leader p,
+.title,
+.research p,
+.area p,
+.placeholder {
+  font-size: var(--text-base) !important;
+}
+
 @media (max-width: 768px) {
   .hero h1 {
     font-size: 2rem;

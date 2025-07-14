@@ -30,21 +30,21 @@
   align-items: center;
 }
 .heroContent h1 {
-  font-size: 3.2rem;
+  font-size: var(--text-4xl) !important;
   font-weight: 800;
   color: #1a2233;
   margin-bottom: 24px;
   letter-spacing: -1px;
 }
 .heroSubtitle {
-  font-size: 1.45rem;
+  font-size: var(--text-base) !important;
   color: #4a5a6a;
   margin-bottom: 0;
 }
 .heroAccent {
   color: #0070f3;
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: var(--text-base) !important;
 }
 
 .offeringsSection {
@@ -93,7 +93,7 @@
   object-fit: contain;
 }
 .offeringName {
-  font-size: 2.3rem;
+  font-size: var(--text-xl) !important;
   font-weight: 800;
   color: #1a2233;
   margin-bottom: 4px;
@@ -101,7 +101,7 @@
 }
 .offeringSubtitle {
   color: #0070f3;
-  font-size: 1.25rem;
+  font-size: var(--text-xl) !important;
   font-weight: 600;
   margin-bottom: 0;
 }
@@ -110,7 +110,7 @@
 }
 .offeringDescription {
   color: #3a445a;
-  font-size: 1.22rem;
+  font-size: var(--text-base) !important;
   margin-bottom: 28px;
   line-height: 1.8;
   max-width: 900px;
@@ -120,14 +120,14 @@
   padding: 0;
   margin: 0 0 32px 0;
   color: #0070f3;
-  font-size: 1.13rem;
+  font-size: var(--text-base) !important;
 }
 .offeringFeatures li {
   margin-bottom: 12px;
   padding-left: 1.7em;
   position: relative;
   color: #1a2233;
-  font-size: 1.13rem;
+  font-size: var(--text-base) !important;
 }
 .offeringFeatures li:before {
   content: '';
@@ -148,7 +148,7 @@
   padding: 18px 48px;
   border-radius: 14px;
   text-decoration: none;
-  font-size: 1.18rem;
+  font-size: var(--text-base) !important;
   transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
   box-shadow: 0 1px 8px rgba(0, 112, 243, 0.08);
   letter-spacing: 0.01em;
@@ -176,14 +176,14 @@
   border-top: 1px solid #e5e7eb;
 }
 .ctaContent h2 {
-  font-size: 2.3rem;
+  font-size: var(--text-4xl) !important;
   font-weight: 800;
   color: #1a2233;
   margin-bottom: 18px;
 }
 .ctaContent p {
   color: #4a5568;
-  font-size: 1.23rem;
+  font-size: var(--text-base) !important;
   margin-bottom: 32px;
 }
 .ctaMainButton {
@@ -194,7 +194,7 @@
   padding: 18px 48px;
   border-radius: 14px;
   text-decoration: none;
-  font-size: 1.18rem;
+  font-size: var(--text-base) !important;
   transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
   box-shadow: 0 1px 8px rgba(0, 112, 243, 0.08);
   letter-spacing: 0.01em;

@@ -57,7 +57,7 @@ const CaseStudies = () => {
       </div>
 
       {/* Datasets Section */}
-      <section id="datasets" className="section">
+      <section id="datasets" className="section" style={{ padding: 'var(--spacing-xl) 0' }}>
         <div className="container">
           <div className="content-section">
             <h2 className="section-title">Datasets</h2>

@@ -10,13 +10,13 @@
   border-bottom: 1px solid #e5e7eb;
 }
 .heroContent h1 {
-  font-size: 2.8rem;
+  font-size: var(--text-4xl) !important;
   font-weight: 800;
   color: #1a2233;
   margin-bottom: 16px;
 }
 .heroContent p {
-  font-size: 1.25rem;
+  font-size: var(--text-base) !important;
   color: #5a6270;
   margin-bottom: 0;
 }
@@ -58,15 +58,15 @@
   object-fit: contain;
 }
 .offeringContent h2 {
-  font-size: 1.35rem;
+  font-size: var(--text-xl) !important;
   font-weight: 700;
   color: #1a2233;
   margin-bottom: 8px;
   text-align: center;
 }
 .offeringContent p {
+  font-size: var(--text-base) !important;
   color: #4a5568;
-  font-size: 1.05rem;
   margin-bottom: 14px;
   text-align: center;
 }
@@ -75,7 +75,7 @@
   padding: 0;
   margin: 0 0 18px 0;
   color: #0070f3;
-  font-size: 0.98rem;
+  font-size: var(--text-base) !important;
   text-align: left;
 }
 .featuresList li {
@@ -99,7 +99,7 @@
   padding: 10px 24px;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: var(--text-base) !important;
   transition: background 0.2s, box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(0, 112, 243, 0.08);
 }
@@ -111,14 +111,14 @@
   border-top: 1px solid #e5e7eb;
 }
 .ctaContent h2 {
-  font-size: 2rem;
+  font-size: var(--text-4xl) !important;
   font-weight: 700;
   color: #1a2233;
   margin-bottom: 10px;
 }
 .ctaContent p {
+  font-size: var(--text-base) !important;
   color: #4a5568;
-  font-size: 1.1rem;
   margin-bottom: 22px;
 }
 .ctaMainButton {
@@ -129,7 +129,7 @@
   padding: 12px 32px;
   border-radius: 8px;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: var(--text-base) !important;
   transition: background 0.2s, box-shadow 0.2s;
   box-shadow: 0 1px 4px rgba(0, 112, 243, 0.08);
 }

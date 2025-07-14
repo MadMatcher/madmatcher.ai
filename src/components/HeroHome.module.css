@@ -26,14 +26,14 @@
   min-width: 0;
 }
 .heroTitle {
-  font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+  font-size: var(--text-4xl);
   font-weight: 800;
   color: #1a2233;
   margin-bottom: 1.5vw;
   line-height: 1.1;
 }
 .heroSubtitle {
-  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  font-size: var(--text-xl);
   color: #4a5a6a;
   margin-bottom: 2vw;
   max-width: 32rem;
@@ -50,7 +50,7 @@
   padding: 1vw 2.5vw;
   border-radius: 0.7vw;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: var(--text-base);
   transition: background 0.2s, box-shadow 0.2s;
   box-shadow: 0 0.1vw 0.4vw rgba(219, 7, 14, 0.08);
   border: none;
@@ -69,7 +69,7 @@
   padding: 1vw 2.5vw;
   border-radius: 0.7vw;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: var(--text-base);
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   box-shadow: 0 0.1vw 0.4vw rgba(219, 7, 14, 0.08);
   cursor: pointer;
@@ -92,6 +92,10 @@
   max-width: 540px;
   height: auto;
   display: block;
+}
+.heroBtnMain,
+.heroBtnAlt {
+  font-size: var(--text-base);
 }
 @media (max-width: 900px) {
   .heroHomeContainer {

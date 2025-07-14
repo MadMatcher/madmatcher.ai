@@ -303,3 +303,22 @@
     font-size: 1.3rem;
   }
 }
+
+.heroContent h1,
+.contentCard h2 {
+  font-size: var(--text-4xl) !important;
+}
+.blockingMatchingSection h3 {
+  font-size: var(--text-xl) !important;
+}
+.emDescription p,
+.blockingMatchingSection p {
+  font-size: var(--text-base) !important;
+}
+
+.case-studies-header h1 {
+  font-size: var(--text-4xl) !important;
+}
+.section-intro {
+  font-size: var(--text-base) !important;
+}
