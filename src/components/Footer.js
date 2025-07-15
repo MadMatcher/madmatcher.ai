@@ -13,9 +13,6 @@ const Footer = () => {
     Company: [
       { name: 'About Us', href: '/about' },
       { name: 'Case Studies', href: '/case-studies' },
-    ],
-    Resources: [
-      { name: 'GitHub', href: 'https://github.com/madmatcher' },
       { name: 'Contact Us', href: '/contact' },
     ],
   };

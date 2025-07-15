@@ -107,8 +107,8 @@ const SolutionsHome = () => (
         <div className="max-w-3xl mx-auto">
           <h2>Ready to Get Started?</h2>
           <p className="hero-subtitle mb-lg">
-            Explore our open-source tools, or reach out for free consulting using the contact form
-            below.
+            Explore our <strong>open-source tools</strong>, or reach out for{' '}
+            <strong>free consulting</strong> using the contact form below.
           </p>
           <div className="flex justify-center gap-lg mt-xl">
             <a
