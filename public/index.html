@@ -28,6 +28,13 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script>
+      (function () {
+        var u = new URL(location.href);
+        var r = u.searchParams.get('redirect');
+        if (r) history.replaceState(null, '', r);
+      })();
+    </script>
     <div id="root"></div>
     <!--
       This HTML file is a template.
