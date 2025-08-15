@@ -140,7 +140,7 @@ h1 {
 }
 
 h2 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-semibold);
   letter-spacing: -0.02em;
 }
@@ -898,7 +898,7 @@ a {
   }
 
   .hero-title {
-    font-size: var(--text-4xl);
+    font-size: var(--text-2xl);
   }
 
   .hero-subtitle {
@@ -927,7 +927,7 @@ a {
   }
 
   h1 {
-    font-size: var(--text-4xl);
+    font-size: var(--text-2xl);
   }
 
   h2 {
@@ -1251,7 +1251,7 @@ a {
 
 /* Section Titles */
 .section-title {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
   font-weight: var(--font-bold);
   color: var(--color-primary);
   margin-bottom: var(--spacing-lg);
@@ -2054,7 +2054,7 @@ a {
 .solutionsContainer h2,
 .emText h2,
 .ready-title {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
 }
 .homepage-medium,
 .hero-subtitle,
@@ -2091,7 +2091,7 @@ a {
 .product-name,
 .features-title,
 .category-title {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
 }
 .hero-subtitle,
 .section-subtitle,
@@ -2134,7 +2134,7 @@ a {
 .section-title,
 .form-header h3,
 .info-header h3 {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
 }
 .form-label,
 .form-input,
@@ -2156,7 +2156,7 @@ a {
 }
 
 .case-studies-header h1 {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
 }
 .section-intro {
   font-size: var(--text-base) !important;
@@ -2164,7 +2164,7 @@ a {
 
 .products-header h1,
 .case-studies-header h1 {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
 }
 .products-header .section-intro,
 .case-studies-header .section-intro {
@@ -2172,7 +2172,7 @@ a {
 }
 
 .card h2 {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
 }
 
 .card .text-secondary {

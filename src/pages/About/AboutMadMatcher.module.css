@@ -220,7 +220,7 @@
 
 .hero h1,
 .section h2 {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
 }
 .hero p,
 .missionCard h3,

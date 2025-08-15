@@ -53,14 +53,10 @@ const ContactUs = () => {
   return (
     <section id="contact-us" className="section bg-white">
       <div className="container">
-        <div className="text-center mb-2xl">
-          <h2 className="section-title">Contact Us</h2>
-        </div>
-
         {/* Contact Form */}
         <div className="contact-form-card">
           <div className="form-header">
-            <h3>Send us a message</h3>
+            <h3>Contact Us</h3>
           </div>
 
           <form onSubmit={handleSubmit} className="contact-form">

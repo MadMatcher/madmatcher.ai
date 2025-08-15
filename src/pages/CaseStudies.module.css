@@ -541,7 +541,7 @@
 .resultsSection h2,
 .datasetsSection h2,
 .comparisonsSection h2 {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
 }
 .datasetResults h3,
 .card-title,
@@ -568,7 +568,7 @@
 }
 
 .case-studies-header h1 {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
 }
 .section-intro {
   font-size: var(--text-base) !important;

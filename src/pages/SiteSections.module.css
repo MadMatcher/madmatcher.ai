@@ -31,7 +31,7 @@
   padding: 2.5vw 2vw;
 }
 .card-title {
-  font-size: var(--text-4xl) !important;
+  font-size: var(--text-2xl) !important;
   font-weight: 700;
   color: #1a2233;
   margin-bottom: 1.2vw;

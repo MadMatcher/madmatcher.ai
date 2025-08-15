@@ -41,7 +41,7 @@
 }
 
 .heroText h1 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
   font-weight: 800;
   margin-bottom: 24px;
   line-height: 1.1;
@@ -129,7 +129,7 @@
 }
 
 .emText h2 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
   font-weight: 700;
   color: #0f172a;
   margin-bottom: 32px;
@@ -184,7 +184,7 @@
 }
 
 .solutionsContainer h2 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
   font-weight: 700;
   color: #0f172a;
   margin-bottom: 60px;
@@ -323,7 +323,7 @@
 }
 
 .contactContent h2 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
   font-weight: 700;
   color: #0f172a;
   margin-bottom: 32px;
@@ -537,7 +537,7 @@
 .emText h2,
 .solutionsContainer h2,
 .contactContent h2 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
 }
 
 .blockingMatchingSection h3,

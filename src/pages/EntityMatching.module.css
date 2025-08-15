@@ -1,6 +1,6 @@
 .heroContent h1,
 .contentCard h2 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-2xl);
 }
 .emDescription p {
   font-size: var(--text-base);
