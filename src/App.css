@@ -355,6 +355,11 @@ a {
   box-shadow: var(--shadow-sm);
 }
 
+.contact-form .btn {
+  align-self: center;
+  width: auto;
+}
+
 .btn-secondary {
   background: var(--color-white);
   color: var(--color-secondary);
@@ -605,7 +610,7 @@ a {
 }
 
 .hero-title {
-  font-size: var(--text-5xl);
+  font-size: var(--text-3xl);
   font-weight: var(--font-bold);
   color: var(--color-primary);
   margin-bottom: var(--spacing-lg);
@@ -842,7 +847,7 @@ a {
   }
 
   .hero-title {
-    font-size: var(--text-5xl);
+    font-size: var(--text-3xl);
   }
 
   .grid-cols-3 {
@@ -910,7 +915,6 @@ a {
   }
 
   .btn {
-    width: 100%;
     justify-content: center;
   }
 

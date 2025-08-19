@@ -124,11 +124,7 @@ const ContactUs = () => {
               </div>
             )}
 
-            <button
-              type="submit"
-              className="btn btn-primary btn-lg contact-submit-btn"
-              disabled={isSubmitting}
-            >
+            <button type="submit" className="btn btn-primary btn-lg" disabled={isSubmitting}>
               {isSubmitting ? (
                 <span className="loading-spinner">
                   <span className="spinner"></span>

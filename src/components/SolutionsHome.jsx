@@ -30,18 +30,28 @@ const solutions = [
     ],
   },
   {
-    category: 'Matching Product',
+    category: 'Matching Products',
     description: 'Advanced matching algorithms and workflows',
     products: [
       {
-        name: 'MadMatcher Tools',
+        name: 'MadLib',
         description: 'Comprehensive entity matching workflow suite',
         features: [
           'Use built-in similarity functions and tokenizers or build your own',
-          'Command line interface to label data',
-          'Ability to use SKLearn or SparkML models',
+          'Multiple labeling interfaces',
+          'Leverage Pandas, Spark on a local machine, or Spark on a cluster',
         ],
-        link: '/products#mm-tools',
+        link: '/products#madlib',
+      },
+      {
+        name: 'ActiveMatcher',
+        description: 'Pre-built active learning workflow',
+        features: [
+          'Use a pre-built workflow to get from raw tuples to predicted matches',
+          'Meant for Spark based solutions on a cluster',
+          'Designed for hospitals with source systems without an API',
+        ],
+        link: '/products#activematcher',
       },
     ],
   },

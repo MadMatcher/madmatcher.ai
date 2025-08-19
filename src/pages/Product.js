@@ -2,6 +2,12 @@ import React from 'react';
 
 const products = [
   {
+    id: 'consulting',
+    name: 'Consulting Services',
+    subtitle:
+      'The MadMatcher team will help you understand where and how to implement entity matching in your data pipeline.',
+  },
+  {
     id: 'sparkly',
     name: 'Sparkly',
     subtitle:
@@ -50,8 +56,8 @@ const products = [
     examples: 'https://github.com/anhaidgroup/delex/tree/main/examples',
   },
   {
-    id: 'mm-tools',
-    name: 'MadMatcher Matching Tools',
+    id: 'madlib',
+    name: 'MadLib',
     subtitle:
       'A comprehensive suite of tools to create, customize, and deploy your own entity matching workflows. Build powerful matching solutions with our modular components.',
     icon: '🛠️',
@@ -66,16 +72,30 @@ const products = [
       'Featurizing your data efficiently with Spark',
       'Building specialized matching pipelines',
     ],
-    github: 'https://github.com/madmatcher/mm-tools',
-    docs: 'https://docs.madmatcher.com/mm-tools',
-    apiDocs: 'https://api.madmatcher.com/mm-tools',
-    examples: 'https://examples.madmatcher.com/mm-tools',
+    github: 'https://github.com/madmatcher/madlib',
+    docs: 'https://github.com/madmatcher/madlib/tree/main/doc',
+    apiDocs: 'https://madmatcher.github.io/madlib/',
+    examples: 'https://github.com/madmatcher/madlib/tree/main/examples',
   },
   {
-    id: 'consulting',
-    name: 'Consulting Services',
-    subtitle:
-      'The MadMatcher team will help you understand where and how to implement entity matching in your data pipeline.',
+    id: 'activematcher',
+    name: 'ActiveMatcher',
+    subtitle: 'A pre-built active learning workflow for entity matching',
+    icon: '🛠️',
+    features: [
+      'Use a pre-built workflow to get from raw tuples to predicted matches',
+      'Meant for Spark based solutions on a cluster',
+      'Designed for large-scale entity matching tasks',
+    ],
+    useCases: [
+      'Labeling data using Active Learning so you label the most informative exmples',
+      'Featurizing your data efficiently with Spark',
+      'Building specialized matching pipelines',
+    ],
+    github: 'https://github.com/anhaidgroup/active_matcher',
+    docs: 'https://github.com/anhaidgroup/active_matcher/tree/main/doc',
+    apiDocs: 'https://anhaidgroup.github.io/active_matcher/',
+    examples: 'https://github.com/anhaidgroup/active_matcher/tree/main/examples',
   },
 ];
 

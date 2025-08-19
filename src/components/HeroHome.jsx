@@ -1,5 +1,5 @@
 import React from 'react';
-import mmHero from '../assets/mm-hero.png';
+import mmHero from '../assets/mm-hero-optimized.jpg';
 
 const HeroHome = () => {
   const scrollToSection = (sectionId) => {
@@ -23,8 +23,7 @@ const HeroHome = () => {
             <p className="hero-blurb">
               MadMatcher delivers state-of-the-art entity matching solutions for enterprises and
               researchers. Our open-source tools are designed for scalability, accuracy, and ease of
-              integration. Join a growing community advancing the future of data matching and
-              AI-driven record linkage.
+              integration.
             </p>
           </div>
         </div>
