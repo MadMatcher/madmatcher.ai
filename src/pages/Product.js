@@ -27,8 +27,7 @@ const products = [
       'High quality candidate pair generation',
     ],
     github: 'https://github.com/anhaidgroup/sparkly',
-    docs: 'https://github.com/anhaidgroup/sparkly/tree/main/doc',
-    apiDocs: 'https://github.com/anhaidgroup/sparkly#api-docs',
+    apiDocs: 'https://anhaidgroup.github.io/sparkly/',
     examples: 'https://github.com/anhaidgroup/sparkly/tree/main/examples',
   },
   {
@@ -51,8 +50,7 @@ const products = [
       'Efficient blocking for high-volume data processing',
     ],
     github: 'https://github.com/anhaidgroup/delex',
-    docs: 'https://github.com/anhaidgroup/delex/tree/main/doc',
-    apiDocs: 'https://github.com/anhaidgroup/delex#api-docs',
+    apiDocs: 'https://anhaidgroup.github.io/delex/',
     examples: 'https://github.com/anhaidgroup/delex/tree/main/examples',
   },
   {
@@ -73,8 +71,7 @@ const products = [
       'Building specialized matching pipelines',
     ],
     github: 'https://github.com/madmatcher/madlib',
-    docs: 'https://github.com/madmatcher/madlib/tree/main/doc',
-    apiDocs: 'https://madmatcher.github.io/madlib/',
+    apiDocs: 'https://madmatcher.github.io/MadLib/',
     examples: 'https://github.com/madmatcher/madlib/tree/main/examples',
   },
   {
@@ -93,7 +90,6 @@ const products = [
       'Building specialized matching pipelines',
     ],
     github: 'https://github.com/anhaidgroup/active_matcher',
-    docs: 'https://github.com/anhaidgroup/active_matcher/tree/main/doc',
     apiDocs: 'https://anhaidgroup.github.io/active_matcher/',
     examples: 'https://github.com/anhaidgroup/active_matcher/tree/main/examples',
   },

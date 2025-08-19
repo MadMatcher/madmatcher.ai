@@ -36,7 +36,6 @@ const ContactUs = () => {
       // Open mail client
       window.location.href = mailtoLink;
 
-      setSubmitStatus('success');
       setFormData({
         name: '',
         email: '',
