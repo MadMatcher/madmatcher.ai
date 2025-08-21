@@ -8,7 +8,8 @@ const Footer = () => {
     Products: [
       { name: 'Sparkly', href: '/products#sparkly' },
       { name: 'Delex', href: '/products#delex' },
-      { name: 'MadMatcher Tools', href: '/products#mm-tools' },
+      { name: 'MadLib', href: '/products#madlib' },
+      { name: 'ActiveMatcher', href: '/products#activematcher' },
     ],
     Company: [
       { name: 'About Us', href: '/about' },
