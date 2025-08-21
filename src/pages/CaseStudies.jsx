@@ -26,9 +26,8 @@ const CaseStudies = () => {
         <div className="container">
           <div className="text-center">
             <p style={{ color: 'black' }}>
-              We have used the functions in MadLib or earlier variants in many real-world
-              applications in domain sciences and industry. We will report more details here in the
-              near future.
+              We have used the MadMatcher and earlier variants in many real-world applications in
+              domain sciences and industry. We will report more details here in the near future.
             </p>
           </div>
         </div>

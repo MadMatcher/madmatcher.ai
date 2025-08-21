@@ -38,7 +38,7 @@ const solutions = [
         description: 'Comprehensive entity matching workflow suite',
         features: [
           'Use built-in similarity functions and tokenizers or build your own',
-          'Multiple labeling interfaces',
+          'Supports passive learning and active learning',
           'Leverage Pandas, Spark on a local machine, or Spark on a cluster',
         ],
         link: '/products#madlib',
@@ -49,7 +49,7 @@ const solutions = [
         features: [
           'Use a pre-built workflow to get from raw tuples to predicted matches',
           'Meant for Spark based solutions on a cluster',
-          'Designed for hospitals with source systems without an API',
+          'Active learning to minimize labeling effort while maximizing accuracy',
         ],
         link: '/products#activematcher',
       },
