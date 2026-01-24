@@ -74,25 +74,6 @@ const products = [
     apiDocs: 'https://madmatcher.github.io/MadLib/',
     examples: 'https://github.com/madmatcher/madlib/tree/main/examples',
   },
-  {
-    id: 'activematcher',
-    name: 'ActiveMatcher',
-    subtitle: 'A pre-built active learning workflow for entity matching',
-    icon: '🛠️',
-    features: [
-      'Use a pre-built workflow to get from raw tuples to predicted matches',
-      'Meant for Spark based solutions on a cluster',
-      'Designed for large-scale entity matching tasks',
-    ],
-    useCases: [
-      'Labeling data using Active Learning so you label the most informative exmples',
-      'Featurizing your data efficiently with Spark',
-      'Building specialized matching pipelines',
-    ],
-    github: 'https://github.com/anhaidgroup/active_matcher',
-    apiDocs: 'https://anhaidgroup.github.io/active_matcher/',
-    examples: 'https://github.com/anhaidgroup/active_matcher/tree/main/examples',
-  },
 ];
 
 // Add this style override at the top of the Product component

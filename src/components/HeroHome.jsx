@@ -14,7 +14,7 @@ const HeroHome = () => {
       <div className="hero-container">
         <div className="hero-content animate-fade-in">
           <h1 className="hero-title">
-            Fast & Accurate
+            Scalable & Accurate
             <br />
             Entity Matching
           </h1>

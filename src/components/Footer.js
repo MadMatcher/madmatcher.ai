@@ -9,7 +9,6 @@ const Footer = () => {
       { name: 'Sparkly', href: '/products#sparkly' },
       { name: 'Delex', href: '/products#delex' },
       { name: 'MadLib', href: '/products#madlib' },
-      { name: 'ActiveMatcher', href: '/products#activematcher' },
     ],
     Company: [
       { name: 'About Us', href: '/about' },

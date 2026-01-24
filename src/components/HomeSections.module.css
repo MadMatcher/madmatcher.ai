@@ -521,6 +521,12 @@
   justify-self: center;
 }
 
+.product-card.single-product {
+  grid-column: 1 / 3;
+  justify-self: center;
+  max-width: calc(50% - 16px);
+}
+
 /* Responsive breakpoint for products grid */
 @media (max-width: 768px) {
   .products-grid {
@@ -530,6 +536,11 @@
 
   .product-card.madmatcher-tools {
     grid-column: 1;
+  }
+
+  .product-card.single-product {
+    grid-column: 1;
+    max-width: 100%;
   }
 }
 
@@ -564,4 +575,26 @@
 .submitButton,
 .tabButton {
   font-size: var(--text-base);
+}
+
+/* Kit Form Styles */
+.kit-form-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.kit-form-wrapper > * {
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Ensure Kit form inputs are visible and styled */
+.kit-form-wrapper form,
+.kit-form-wrapper [data-kit-form] {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
 }

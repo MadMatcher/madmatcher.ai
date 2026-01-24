@@ -34,6 +34,7 @@ jobs:
           git config --global user.email "github-actions@github.com"
           npm run deploy -- -u "github-actions-bot <github-actions@github.com>"
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REACT_APP_STATICFORMS_API_KEY: ${{ secrets.REACT_APP_STATICFORMS_API_KEY }} 
 
 

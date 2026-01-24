@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './HomeSections.module.css';
+import EmailSignup from './EmailSignup';
 
 const solutions = [
   {
@@ -30,7 +31,7 @@ const solutions = [
     ],
   },
   {
-    category: 'Matching Products',
+    category: 'Matching Product',
     description: 'Advanced matching algorithms and workflows',
     products: [
       {
@@ -42,16 +43,6 @@ const solutions = [
           'Leverage Pandas, Spark on a local machine, or Spark on a cluster',
         ],
         link: '/products#madlib',
-      },
-      {
-        name: 'ActiveMatcher',
-        description: 'Pre-built active learning workflow',
-        features: [
-          'Use a pre-built workflow to get from raw tuples to predicted matches',
-          'Meant for Spark based solutions on a cluster',
-          'Active learning to minimize labeling effort while maximizing accuracy',
-        ],
-        link: '/products#activematcher',
       },
     ],
   },
@@ -80,6 +71,8 @@ const SolutionsHome = () => (
                 key={product.name}
                 className={`${styles['product-card']} ${
                   product.name === 'MadMatcher Tools' ? styles['madmatcher-tools'] : ''
+                } ${
+                  solution.products.length === 1 ? styles['single-product'] : ''
                 } animate-fade-in`}
                 style={{
                   animationDelay: `${(solutionIndex * 2 + productIndex) * 0.2}s`,
@@ -117,8 +110,8 @@ const SolutionsHome = () => (
         <div className="max-w-3xl mx-auto">
           <h2>Ready to Get Started?</h2>
           <p className="hero-subtitle mb-lg">
-            Explore our <strong>open-source tools</strong>, or reach out for{' '}
-            <strong>free consulting</strong> using the contact form below.
+            Explore our <strong>open-source tools</strong>, join our <strong>mailing list</strong>,
+            or reach out for <strong>free consulting</strong> using the contact form below.
           </p>
           <div className="flex justify-center gap-lg mt-xl">
             <a
@@ -142,6 +135,7 @@ const SolutionsHome = () => (
               </span>
             </a>
           </div>
+          <EmailSignup />
         </div>
       </div>
     </div>

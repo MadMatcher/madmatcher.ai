@@ -9,15 +9,14 @@ const Index = () => (
     <article className="post" id="index">
       <header>
         <div className="title">
-          <h2>Fast and Accurate Entity Matching with AI</h2>
+          <h2>Scalable and Accurate Entity Matching</h2>
         </div>
       </header>
 
       <section>
         <p>
-          MadMatcher provides solutions for Fast & Accurate Entity Matching. We take advantage of
-          modern Machine Learning and Artificial Intelligence algorithms along with Spark to achieve
-          this.
+          MadMatcher provides solutions for Scalable & Accurate Entity Matching. We build upon key
+          ideas from databases, big data, AI/ML, information retrieval, and human interaction.
         </p>
       </section>
     </article>
