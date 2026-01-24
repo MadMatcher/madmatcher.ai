@@ -2,12 +2,6 @@ import React from 'react';
 
 const products = [
   {
-    id: 'consulting',
-    name: 'Consulting Services',
-    subtitle:
-      'The MadMatcher team will help you understand where and how to implement entity matching in your data pipeline.',
-  },
-  {
     id: 'sparkly',
     name: 'Sparkly',
     subtitle:
@@ -73,6 +67,12 @@ const products = [
     github: 'https://github.com/madmatcher/madlib',
     apiDocs: 'https://madmatcher.github.io/MadLib/',
     examples: 'https://github.com/madmatcher/madlib/tree/main/examples',
+  },
+  {
+    id: 'consulting',
+    name: 'Consulting Services',
+    subtitle:
+      'The MadMatcher team will help you understand where and how to implement entity matching in your data pipeline.',
   },
 ];
 

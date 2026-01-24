@@ -21,9 +21,18 @@ const HeroHome = () => {
 
           <div className="hero-actions">
             <p className="hero-blurb">
-              MadMatcher delivers state-of-the-art entity matching solutions for enterprises and
-              researchers. Our open-source tools are designed for scalability, accuracy, and ease of
-              integration.
+              MadMatcher delivers state-of-the-art entity matching solutions for enterprises,
+              government agencies, and university researchers. Our open-source tools are built on a{' '}
+              <a 
+                href="https://anhaidgroup.github.io/magellan/"
+                style={{
+                  textDecoration: 'none',
+                  borderBottom: '1px dotted #9ca3af',
+                }}
+              >
+                decade of research at the University of Wisconsin-Madison
+              </a>
+              , and are designed for scalability, accuracy, and ease of integration.
             </p>
           </div>
         </div>

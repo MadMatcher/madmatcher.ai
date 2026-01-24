@@ -63,7 +63,7 @@ export default function EmailSignup() {
           textAlign: 'center',
           marginBottom: '1rem',
           fontSize: 'var(--text-lg)',
-          color: 'var(--color-gray-700)',
+          fontFamily: 'inherit',
         }}
       >
         Join our mailing list to stay updated
@@ -76,7 +76,7 @@ export default function EmailSignup() {
           style={{
             display: 'flex',
             gap: '0.5rem',
-            alignItems: 'flex-start',
+            alignItems: 'center',
             flexWrap: 'wrap',
           }}
         >
@@ -98,6 +98,9 @@ export default function EmailSignup() {
                 marginBottom: 0,
                 borderRadius: 'var(--radius-md)',
                 width: '100%',
+                height: '56px',
+                boxSizing: 'border-box',
+                fontFamily: 'inherit',
               }}
             />
           </div>
@@ -107,8 +110,13 @@ export default function EmailSignup() {
             disabled={isSubmitting}
             style={{
               whiteSpace: 'nowrap',
-              padding: 'var(--spacing-md) var(--spacing-lg)',
+              padding: '0 var(--spacing-lg)',
               flexShrink: 0,
+              height: '56px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontFamily: 'inherit',
             }}
           >
             {isSubmitting ? 'Submitting...' : 'Subscribe'}
