@@ -26,9 +26,15 @@ export default function EmailSignup() {
 
       const data = await response.json();
 
-      if (response.ok && data.success) {
+      console.log('Response status:', response.status);
+      console.log('Response ok:', response.ok);
+      console.log('Response data:', data);
+
+      // Check if the response indicates success
+      // StaticForms API returns success in the data object
+      if (data.success === true || data.message === 'Form submitted successfully') {
         setStatus('success');
-        setMessage("Success! You've been added to our mailing list.");
+        setMessage(data.message || "Success! You've been added to our mailing list.");
         setEmail('');
       } else {
         setStatus('error');
