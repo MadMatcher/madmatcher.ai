@@ -19,13 +19,13 @@ const AboutMadMatcher = () => {
             <h2>Our Story</h2>
             <div className={styles.story}>
               <p>
-                MadMatcher was founded in July of 2025 by Dev Ahluwalia, a student researcher at the
-                University of Wisconsin-Madison. The core open-source technology that powers
-                MadMatcher builds upon over 10 years of research and development from Professor
-                AnHai Doan's group at UW-Madison. While MadMatcher operates independently from the
-                university, our technology leverages the foundational work of the Magellan project -
-                a 10+ year research initiative at UW-Madison that has developed practical, scalable
-                entity matching solutions used in real-world applications.
+                MadMatcher was founded in July 2025 by Dev Ahluwalia, a student researcher at the
+                University of Wisconsin–Madison. While MadMatcher operates independently of the
+                university, its core open-source technology builds on more than a decade of research
+                and development from Professor AnHai Doan’s group and leverages foundational work
+                from the Magellan project, a long-running UW–Madison research initiative that has
+                developed practical, scalable entity matching solutions used in real-world
+                applications.
               </p>
             </div>
           </section>
