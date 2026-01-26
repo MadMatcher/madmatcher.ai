@@ -35,14 +35,14 @@ const solutions = [
     description: 'Advanced matching algorithms and workflows',
     products: [
       {
-        name: 'MadLib',
+        name: 'MatchFlow',
         description: 'Comprehensive entity matching workflow suite',
         features: [
           'Use built-in similarity functions and tokenizers or build your own',
           'Supports passive learning and active learning',
           'Leverage Pandas, Spark on a local machine, or Spark on a cluster',
         ],
-        link: '/products#madlib',
+        link: '/products#matchflow',
       },
     ],
   },

@@ -48,8 +48,8 @@ const products = [
     examples: 'https://github.com/anhaidgroup/delex/tree/main/examples',
   },
   {
-    id: 'madlib',
-    name: 'MadLib',
+    id: 'matchflow',
+    name: 'MatchFlow',
     subtitle:
       'A comprehensive suite of tools to create, customize, and deploy your own entity matching workflows. Build powerful matching solutions with our modular components.',
     icon: '🛠️',
@@ -64,9 +64,9 @@ const products = [
       'Featurizing your data efficiently with Spark',
       'Building specialized matching pipelines',
     ],
-    github: 'https://github.com/madmatcher/madlib',
-    apiDocs: 'https://madmatcher.github.io/MadLib/',
-    examples: 'https://github.com/madmatcher/madlib/tree/main/examples',
+    github: 'https://github.com/madmatcher/matchflow',
+    apiDocs: 'https://madmatcher.github.io/MatchFlow/',
+    examples: 'https://github.com/madmatcher/matchflow/tree/main/examples',
   },
   {
     id: 'consulting',
