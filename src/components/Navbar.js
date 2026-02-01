@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/logo.png";
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,24 +10,20 @@ const Navbar = () => {
 
   const menuItems = [
     {
-      title: "Home",
-      path: "/",
+      title: 'Home',
+      path: '/',
     },
     {
-      title: "About",
-      path: "/about",
+      title: 'Products',
+      path: '/products',
     },
     {
-      title: "Products",
-      path: "/products",
+      title: 'Use Cases',
+      path: '/use-cases',
     },
     {
-      title: "Case Studies",
-      path: "/case-studies",
-    },
-    {
-      title: "Contact",
-      path: "/contact",
+      title: 'About',
+      path: '/about',
     },
   ];
 
@@ -41,8 +37,8 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Measure navbar height and set it as a CSS custom property
@@ -50,10 +46,7 @@ const Navbar = () => {
     const updateNavbarHeight = () => {
       if (navbarRef.current) {
         const height = navbarRef.current.offsetHeight;
-        document.documentElement.style.setProperty(
-          "--navbar-height",
-          `${height}px`
-        );
+        document.documentElement.style.setProperty('--navbar-height', `${height}px`);
       }
     };
 
@@ -61,19 +54,16 @@ const Navbar = () => {
     updateNavbarHeight();
 
     // Update on window resize
-    window.addEventListener("resize", updateNavbarHeight);
+    window.addEventListener('resize', updateNavbarHeight);
 
     // Cleanup
     return () => {
-      window.removeEventListener("resize", updateNavbarHeight);
+      window.removeEventListener('resize', updateNavbarHeight);
     };
   }, [isOpen]); // Re-measure when menu opens/closes
 
   return (
-    <nav
-      className={`navbar ${isScrolled ? "navbar-scrolled" : ""}`}
-      ref={navbarRef}
-    >
+    <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`} ref={navbarRef}>
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
           <img src={logo} alt="MadMatcher" />
@@ -85,21 +75,19 @@ const Navbar = () => {
           aria-label="Toggle menu"
           aria-expanded={isOpen}
         >
-          <div className={`hamburger ${isOpen ? "open" : ""}`}>
+          <div className={`hamburger ${isOpen ? 'open' : ''}`}>
             <span></span>
             <span></span>
             <span></span>
           </div>
         </button>
 
-        <div className={`navbar-menu ${isOpen ? "open" : ""}`}>
+        <div className={`navbar-menu ${isOpen ? 'open' : ''}`}>
           {menuItems.map((item) => (
             <div key={item.title} className="navbar-item">
               <Link
                 to={item.path}
-                className={`navbar-link ${
-                  location.pathname === item.path ? "active" : ""
-                }`}
+                className={`navbar-link ${location.pathname === item.path ? 'active' : ''}`}
                 onClick={handleMenuClick}
               >
                 {item.title}

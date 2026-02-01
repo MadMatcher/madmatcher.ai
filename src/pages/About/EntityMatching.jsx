@@ -1,18 +1,17 @@
-import React from "react";
-import styles from "./EntityMatching.module.css";
-import emExampleImage from "../../assets/em_example_image.png";
+import React from 'react';
+import styles from './EntityMatching.module.css';
+import emExampleImage from '../../assets/em_example_image.png';
 
 const EntityMatching = () => {
   return (
     <div className={styles.entityMatching}>
       {/* Hero Section */}
-      <section className="case-studies-header">
+      <section className="use-cases-header">
         <div className="container">
           <div className="text-center">
             <h1>About</h1>
             <p className="section-intro">
-              Learn about entity matching and how MadMatcher solves this
-              challenging problem.
+              Learn about entity matching and how MadMatcher solves this challenging problem.
             </p>
           </div>
         </div>
@@ -25,26 +24,22 @@ const EntityMatching = () => {
             <h2>What is Entity Matching?</h2>
             <div className={styles.emDescription}>
               <p>
-                Entity Matching (EM) is the problem of finding data instances
-                that refer to the same real‑world entity. For example, given the
-                two tables A and B shown here, find all tuple pairs (a in A, b
-                in B) that match, such as (Dave Smith, Madison, WI) and (David
-                D. Smith, Madison, WI). We call these pairs "matches".
+                Entity Matching (EM) is the problem of finding data instances that refer to the same
+                real‑world entity. For example, given the two tables A and B shown here, find all
+                tuple pairs (a in A, b in B) that match, such as (Dave Smith, Madison, WI) and
+                (David D. Smith, Madison, WI). We call these pairs "matches".
               </p>
               <p>
-                This problem often arises in data science and AI. Many such
-                projects must combine multiple datasets into a single clean
-                unified dataset, then analyze it to extract insights or use it
-                to train AI. To combine multiple datasets, we often must solve
+                This problem often arises in data science and AI. Many such projects must combine
+                multiple datasets into a single clean unified dataset, then analyze it to extract
+                insights or use it to train AI. To combine multiple datasets, we often must solve
                 the EM problem.
               </p>
               <p>
-                This problem is challenging for two reasons. First, data
-                instances that match often appear in different forms, using
-                different words, making it difficult to achieve high matching
-                accuracy. Second, Tables A and B are often very large, having
-                100M to 500M tuples or more, making it difficult to achieve
-                reasonable runtime.
+                This problem is challenging for two reasons. First, data instances that match often
+                appear in different forms, using different words, making it difficult to achieve
+                high matching accuracy. Second, Tables A and B are often very large, having 100M to
+                500M tuples or more, making it difficult to achieve reasonable runtime.
               </p>
             </div>
 
@@ -55,39 +50,35 @@ const EntityMatching = () => {
             <div className={styles.blockingMatchingSection}>
               <h3>Blocking and Matching</h3>
               <p>
-                Considering all pairs between Tables A and B is practically
-                infeasible for large tables. So EM is typically performed in two
-                steps: blocking and matching (and the Magellan project develops
-                software for both steps). The blocking step uses heuristics to
-                quickly remove a large number of pairs judged unlikely to match.
-                The matching step applies a rule‑ or ML‑based matcher to each
-                remaining pair, to predict match or non‑match.
+                Considering all pairs between Tables A and B is practically infeasible for large
+                tables. So EM is typically performed in two steps: blocking and matching (and the
+                Magellan project develops software for both steps). The blocking step uses
+                heuristics to quickly remove a large number of pairs judged unlikely to match. The
+                matching step applies a rule‑ or ML‑based matcher to each remaining pair, to predict
+                match or non‑match.
               </p>
               <p>
-                For example, in the above figure, the blocking step keeps only
-                those pairs that share the same state (this can be done quickly
-                using an index on Column "State"). Then the matching step
-                applies a matcher that predicts pairs (a1,b1) and (a3,b2) to be
-                matches.
+                For example, in the above figure, the blocking step keeps only those pairs that
+                share the same state (this can be done quickly using an index on Column "State").
+                Then the matching step applies a matcher that predicts pairs (a1,b1) and (a3,b2) to
+                be matches.
               </p>
             </div>
 
             <div className={styles.blockingMatchingSection}>
               <h3>Variations of EM and Related Problems</h3>
               <p>
-                Variations of EM are known as entity resolution, record linkage,
-                deduplication, and more. We use the term "entity matching"
-                because there are many other related problems, and their names
-                all end with "matching."
+                Variations of EM are known as entity resolution, record linkage, deduplication, and
+                more. We use the term "entity matching" because there are many other related
+                problems, and their names all end with "matching."
               </p>
               <p>
-                Specifically, string matching finds strings that refer to the
-                same real-world concept, such as "UW-Madison" and "Univ of Wisc
-                Madison". Schema matching finds similar columns across tables,
-                such as "address" and "location". Ontology matching finds
-                similar concepts across ontologies, such as "car" and
-                "automobile". Other related problems include matching between
-                ontology concepts and table columns, matching tables, and more.
+                Specifically, string matching finds strings that refer to the same real-world
+                concept, such as "UW-Madison" and "Univ of Wisc Madison". Schema matching finds
+                similar columns across tables, such as "address" and "location". Ontology matching
+                finds similar concepts across ontologies, such as "car" and "automobile". Other
+                related problems include matching between ontology concepts and table columns,
+                matching tables, and more.
               </p>
             </div>
           </div>

@@ -1,0 +1,74 @@
+/* Use Cases — layout from new-use-cases.md */
+
+.wrapper {
+  min-height: 100vh;
+  background: var(--color-white);
+}
+
+.useCasesList {
+  padding: 0 0 var(--spacing-4xl);
+}
+
+/* Card container: product-card (App.css) sets colors, shadow, border, radius, padding. We only add spacing. */
+.useCaseCard {
+  margin-bottom: var(--spacing-lg);
+  height: auto;
+}
+
+.useCaseCard:last-child {
+  margin-bottom: 0;
+}
+
+/* Only layout — font sizes and colors come from product-name / product-description (App.css) */
+.useCaseTitle {
+  margin-bottom: var(--spacing-sm);
+}
+
+.useCaseBody {
+  margin: 0;
+}
+
+.goodFitSection {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-gray-50);
+}
+
+.goodFitTitle {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.goodFitList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.goodFitList li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--text-base);
+  color: var(--color-primary);
+  line-height: 1.6;
+}
+
+.goodFitList li:last-child {
+  margin-bottom: 0;
+}
+
+.goodFitList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.5em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+}

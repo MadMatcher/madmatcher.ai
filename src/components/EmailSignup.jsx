@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import styles from './EmailSignup.module.css';
 
 export default function EmailSignup() {
   const [email, setEmail] = useState('');
@@ -70,20 +71,13 @@ export default function EmailSignup() {
       </p>
       <form
         onSubmit={handleSubmit}
-        style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}
+        className={styles.signupForm}
       >
-        <div
-          style={{
-            display: 'flex',
-            gap: '0.5rem',
-            alignItems: 'center',
-            flexWrap: 'wrap',
-          }}
-        >
-          <div style={{ flex: '1 1 200px', minWidth: '200px' }}>
-            <label htmlFor="email-signup" className="form-label" style={{ display: 'none' }}>
-              Email
-            </label>
+        <label htmlFor="email-signup" className="form-label" style={{ display: 'none' }}>
+          Email
+        </label>
+        <div className={styles.formRow}>
+          <div className={styles.inputWrap}>
             <input
               id="email-signup"
               name="email"
@@ -91,36 +85,20 @@ export default function EmailSignup() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="form-input"
+              className={`form-input ${styles.signupInput}`}
               required
               disabled={isSubmitting}
-              style={{
-                marginBottom: 0,
-                borderRadius: 'var(--radius-md)',
-                width: '100%',
-                height: '56px',
-                boxSizing: 'border-box',
-                fontFamily: 'inherit',
-              }}
             />
           </div>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            disabled={isSubmitting}
-            style={{
-              whiteSpace: 'nowrap',
-              padding: '0 var(--spacing-lg)',
-              flexShrink: 0,
-              height: '56px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              fontFamily: 'inherit',
-            }}
-          >
-            {isSubmitting ? 'Submitting...' : 'Subscribe'}
-          </button>
+          <div className={styles.buttonWrap}>
+            <button
+              type="submit"
+              className={`btn btn-primary ${styles.signupSubmit}`}
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? 'Submitting...' : 'Subscribe'}
+            </button>
+          </div>
         </div>
         {message && (
           <div

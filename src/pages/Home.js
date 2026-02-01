@@ -1,12 +1,12 @@
 import React from 'react';
 import HeroHome from '../components/HeroHome';
-import SolutionsHome from '../components/SolutionsHome';
+import HomePageContent from '../components/HomePageContent';
 import ContactUs from '../components/ContactUs';
 
 const Home = () => (
   <>
     <HeroHome />
-    <SolutionsHome />
+    <HomePageContent />
     <ContactUs />
   </>
 );

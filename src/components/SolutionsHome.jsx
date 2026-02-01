@@ -106,7 +106,7 @@ const SolutionsHome = () => (
           <div className="flex justify-center gap-lg mt-xl">
             <a
               href="./products"
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary"
               target="_blank"
               rel="noopener noreferrer"
               style={{

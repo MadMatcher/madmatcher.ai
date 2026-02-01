@@ -20,19 +20,25 @@ const HeroHome = () => {
           </h1>
 
           <div className="hero-actions">
+            <p className="hero-blurb">For data teams working with large, messy datasets.</p>
             <p className="hero-blurb">
-              MadMatcher delivers state-of-the-art entity matching solutions for enterprises,
-              government agencies, and university researchers. Our open-source tools are built on a{' '}
-              <a 
-                href="https://anhaidgroup.github.io/magellan/"
-                style={{
-                  textDecoration: 'none',
-                }}
-              >
-                decade of research at the University of Wisconsin-Madison
-              </a>
-              , and are designed for scalability, accuracy, and ease of integration.
+              Built on{' '}
+              <a href="https://anhaidgroup.github.io/magellan/" style={{ textDecoration: 'none' }}>
+                10+ years of research
+              </a>{' '}
+              at UW-Madison.
             </p>
+            <p className="hero-blurb">Proven in research and real production workflows.</p>
+            <a
+              href="#get-started"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection('get-started');
+              }}
+              className="btn btn-primary"
+            >
+              Get Started
+            </a>
           </div>
         </div>
 

@@ -11,9 +11,8 @@ const Footer = () => {
       { name: 'MatchFlow', href: '/products#matchflow' },
     ],
     Company: [
-      { name: 'About Us', href: '/about' },
-      { name: 'Case Studies', href: '/case-studies' },
-      { name: 'Contact Us', href: '/contact' },
+      { name: 'Use Cases', href: '/use-cases' },
+      { name: 'About', href: '/about' },
     ],
   };
 

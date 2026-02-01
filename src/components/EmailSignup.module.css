@@ -1,0 +1,94 @@
+/* EmailSignup — match .btn-primary height (from .btn: padding-sm + font-sm + line-height 1.5), responsive layout */
+
+/* .btn height = padding-top + padding-bottom + (font-size * line-height) = 0.5rem + 0.5rem + 0.875rem*1.5 ≈ 2.3125rem */
+.signupInput {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  border-radius: var(--radius-md);
+  font-family: inherit;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  /* Same total height as .btn: match padding and let border sit inside so input = btn height */
+  height: calc(var(--spacing-sm) * 2 + 1em * 1.5);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 2px solid var(--color-gray-200);
+}
+
+.signupSubmit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: inherit;
+  /* Height from .btn (no override) */
+}
+
+.signupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.formRow {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inputWrap {
+  flex: 1 1 200px;
+  min-width: 200px;
+}
+
+.buttonWrap {
+  flex-shrink: 0;
+}
+
+/*
+ * Small screens: button centered under input.
+ * inputWrap must add zero vertical space — only the flex gap adds space between input and button.
+ */
+@media (max-width: 768px) {
+  .formRow {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    row-gap: 1rem;
+    column-gap: 0;
+  }
+
+  /* inputWrap: do not grow — take only the height of the input. flex: 1 1 200px would grow in column and add gap. */
+  .formRow .inputWrap {
+    flex: 0 0 auto;
+    min-width: 0;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .formRow .inputWrap input,
+  .formRow .inputWrap .signupInput {
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .formRow .buttonWrap {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .formRow .buttonWrap .btn,
+  .formRow .buttonWrap .signupSubmit {
+    margin: 0 !important;
+  }
+
+  .signupSubmit {
+    min-width: 120px;
+  }
+}

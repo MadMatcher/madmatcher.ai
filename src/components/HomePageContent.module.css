@@ -1,0 +1,80 @@
+/* Homepage content — section spacing and Get Started CTA */
+
+/* Single-column stack — cards always vertical, one per row (no grid) */
+.homeSectionStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  margin-top: 0;
+}
+
+/* Consistent left-aligned text and padding — same left edge for all card content */
+.homeContentCard {
+  text-align: left;
+  padding: 1.5rem;
+  align-items: stretch;
+}
+
+.homeContentCard .product-header,
+.homeContentCard .product-features {
+  width: 100%;
+  text-align: left;
+}
+
+/* Alternating backgrounds: section = white, sectionAlt = gray */
+.section {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-white);
+}
+
+.sectionAlt {
+  padding: var(--spacing-4xl) 0;
+  background: var(--color-gray-50);
+}
+
+/* Ready to Get Started — less top padding, alternating gray */
+.getStartedSection {
+  padding: var(--spacing-3xl) 0 var(--spacing-4xl) 0;
+  background: var(--color-gray-50);
+}
+
+.getStartedContent {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.getStartedTitle {
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -0.02em;
+}
+
+.getStartedLead {
+  font-size: var(--text-base);
+  color: var(--color-gray-600);
+  line-height: 1.7;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.ctaButtonWrap {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 200px;
+  height: 56px;
+  text-decoration: none;
+}
+
+.contactHint {
+  font-size: var(--text-base);
+  color: var(--color-gray-600);
+  margin-top: var(--spacing-2xl);
+  line-height: 1.5;
+}

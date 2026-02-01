@@ -5,21 +5,7 @@ const products = [
     id: 'sparkly',
     name: 'Sparkly',
     subtitle:
-      'A TF/IDF top-k blocking system for entity matching built on Apache Spark and PyLucene',
-    icon: '⚡',
-    features: [
-      'Top-k blocking using BM25 scoring',
-      'Built on Apache Spark for distributed computation',
-      'PyLucene-based indexing and search',
-      'Simple configuration API for index fields',
-      'Support for n-gram tokenization',
-      'Handles large-scale datasets efficiently',
-    ],
-    useCases: [
-      'Blocking for large entity matching tasks',
-      'Distributed search across massive datasets',
-      'High quality candidate pair generation',
-    ],
+      'Uses TF/IDF–based similarity to block, and has been shown to outperform many state-of-the-art blocking approaches.',
     github: 'https://github.com/anhaidgroup/sparkly',
     apiDocs: 'https://anhaidgroup.github.io/sparkly/',
     examples: 'https://github.com/anhaidgroup/sparkly/tree/main/examples',
@@ -28,21 +14,7 @@ const products = [
     id: 'delex',
     name: 'Delex',
     subtitle:
-      'Delex allows the user to create blocking predicates, allowing users with domain knowledge to create blocking rules that are specific to their data.',
-    icon: '🔍',
-    features: [
-      'Built-in scoring functions for comparing text',
-      'User-defined blocking rules and predicates',
-      'Tokenizers for text standardization',
-      'Rule-based blocking with keep/drop logic',
-      'Customizable blocking strategies',
-      'Efficient predicate evaluation',
-    ],
-    useCases: [
-      'Domain-specific blocking rules',
-      'Flexible predicate combinations for custom blocking logic',
-      'Efficient blocking for high-volume data processing',
-    ],
+      ' Enables users to combine multiple blocking strategies within a single workflow. It provides a declarative language for specifying blocking rules, allowing users to express complex blocking logic in a concise and flexible way.',
     github: 'https://github.com/anhaidgroup/delex',
     apiDocs: 'https://anhaidgroup.github.io/delex/',
     examples: 'https://github.com/anhaidgroup/delex/tree/main/examples',
@@ -51,29 +23,18 @@ const products = [
     id: 'matchflow',
     name: 'MatchFlow',
     subtitle:
-      'A comprehensive suite of tools to create, customize, and deploy your own entity matching workflows. Build powerful matching solutions with our modular components.',
-    icon: '🛠️',
-    features: [
-      'Modular component architecture',
-      'Use built-in or custom similarity functions and tokenizers',
-      'Adaptable for most SparkML or SKLearn models',
-      'Active learning capabilities',
-    ],
-    useCases: [
-      'Labeling data using Active Learning so you label the most informative exmples',
-      'Featurizing your data efficiently with Spark',
-      'Building specialized matching pipelines',
-    ],
+      'Enables users to create a wide range of workflows for the matching step, across different runtime environments. It provides modular components that can be composed into flexible matching pipelines.  It also provides workflows for fast and effective labeling of training data.',
+
     github: 'https://github.com/madmatcher/matchflow',
     apiDocs: 'https://madmatcher.github.io/MatchFlow/',
     examples: 'https://github.com/madmatcher/matchflow/tree/main/examples',
   },
-  {
-    id: 'consulting',
-    name: 'Consulting Services',
-    subtitle:
-      'The MadMatcher team will help you understand where and how to implement entity matching in your data pipeline.',
-  },
+  // {
+  //   id: 'consulting',
+  //   name: 'Consulting Services',
+  //   subtitle:
+  //     'The MadMatcher team will help you understand where and how to implement entity matching in your data pipeline.',
+  // },
 ];
 
 // Add this style override at the top of the Product component
@@ -86,28 +47,57 @@ const Product = () => {
   return (
     <>
       {/* Header Section */}
-      <section className="case-studies-header" style={headerStyle}>
+      <section className="use-cases-header" style={headerStyle}>
         <div className="container">
           <div className="text-center">
             <h1>MadMatcher Products</h1>
             <p className="section-intro">
-              Comprehensive entity matching solutions with Pandas or Spark
+              MadMatcher provides three open-source packages that support end-to-end EM workflows at
+              scale.
             </p>
           </div>
         </div>
       </section>
 
       {/* Products Grid */}
-      <section className="section bg-gray-50" id="products">
+      <section className="section bg-gray-50" id="products" style={{ paddingTop: 'var(--spacing-lg)' }}>
         <div className="container">
           <div className="grid grid-cols-1 gap-xl">
             {products.map((product, index) => (
-              <div
-                key={product.id}
-                id={product.id} // Add id for anchor links
-                className="card animate-fade-in"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
+              <React.Fragment key={product.id}>
+                {index === 0 && (
+                  <p
+                    className="mb-lg text-center"
+                    style={{
+                      gridColumn: '1 / -1',
+                      fontSize: '1.25rem',
+                      fontWeight: 600,
+                      color: 'var(--color-primary)',
+                    }}
+                  >
+                    The following packages support the <strong>blocking</strong> step
+                  </p>
+                )}
+                {index === 2 && (
+                  <p
+                    className="text-center"
+                    style={{
+                      gridColumn: '1 / -1',
+                      fontSize: '1.25rem',
+                      fontWeight: 600,
+                      color: 'var(--color-primary)',
+                      marginTop: '2rem',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
+                    The following package supports the <strong>matching</strong> step
+                  </p>
+                )}
+                <div
+                  id={product.id}
+                  className="card animate-fade-in scroll-margin-for-nav"
+                  style={{ animationDelay: `${index * 0.2}s` }}
+                >
                 {product.id === 'consulting' ? (
                   // Consulting card - simplified layout
                   <div className="text-center">
@@ -156,17 +146,6 @@ const Product = () => {
                           {product.subtitle}
                         </p>
                       </div>
-
-                      <p
-                        className="mb-xs"
-                        style={{
-                          fontSize: '1rem',
-                          lineHeight: '1.6',
-                          color: 'var(--color-gray-600)',
-                        }}
-                      >
-                        {product.description}
-                      </p>
 
                       <div className="flex flex-wrap gap-sm justify-center">
                         {product.github && (
@@ -231,80 +210,10 @@ const Product = () => {
                         )}
                       </div>
                     </div>
-
-                    {/* Features and Use Cases - Right side */}
-                    <div className="lg:col-span-6">
-                      <div className="flex justify-center">
-                        <div className="flex gap-xl" style={{ maxWidth: '800px' }}>
-                          {/* Features */}
-                          <div className="flex-1">
-                            <h4
-                              className="text-primary mb-md text-center"
-                              style={{ fontSize: '1.4rem', fontWeight: '600' }}
-                            >
-                              Key Features
-                            </h4>
-                            <ul className="space-y-sm">
-                              {product.features.map((feature, idx) => (
-                                <li
-                                  key={idx}
-                                  className="flex items-center gap-sm"
-                                  style={{
-                                    fontSize: '1rem',
-                                    color: 'var(--color-gray-700)',
-                                  }}
-                                >
-                                  <span
-                                    style={{
-                                      color: 'var(--color-secondary)',
-                                      fontSize: '1.2rem',
-                                    }}
-                                  >
-                                    ✓
-                                  </span>
-                                  {feature}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Use Cases */}
-                          <div className="flex-1">
-                            <h4
-                              className="text-primary mb-md text-center"
-                              style={{ fontSize: '1.4rem', fontWeight: '600' }}
-                            >
-                              Use Cases
-                            </h4>
-                            <ul className="space-y-sm">
-                              {product.useCases.map((useCase, idx) => (
-                                <li
-                                  key={idx}
-                                  className="flex items-center gap-sm"
-                                  style={{
-                                    fontSize: '0.95rem',
-                                    color: 'var(--color-gray-600)',
-                                  }}
-                                >
-                                  <span
-                                    style={{
-                                      color: 'var(--color-secondary)',
-                                      fontSize: '1.1rem',
-                                    }}
-                                  >
-                                    →
-                                  </span>
-                                  {useCase}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 )}
               </div>
+              </React.Fragment>
             ))}
           </div>
         </div>

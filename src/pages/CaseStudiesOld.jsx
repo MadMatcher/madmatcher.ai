@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './CaseStudies.module.css';
+import styles from './UseCases.module.css';
 
 const CaseStudies = () => {
   const [activeSection, setActiveSection] = useState('datasets');
@@ -15,10 +15,10 @@ const CaseStudies = () => {
   return (
     <div>
       {/* Header Section */}
-      <section className="case-studies-header">
+      <section className="use-cases-header">
         <div className="container">
           <div className="text-center">
-            <h1>Case Studies</h1>
+            <h1>Use Cases</h1>
             <p className="section-intro">
               Performance comparisons of MadMatcher against leading entity matching systems.
             </p>
@@ -28,7 +28,7 @@ const CaseStudies = () => {
 
       {/* Navigation Menu */}
       <div className="container">
-        <nav className="case-studies-nav">
+        <nav className="use-cases-nav">
           <button
             className={`btn-nav ${activeSection === 'datasets' ? 'active' : ''}`}
             onClick={() => scrollToSection('datasets')}
