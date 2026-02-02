@@ -94,21 +94,19 @@ const HomePageContent = () => (
       </div>
     </section>
 
-    {/* How It Works — section title + Blocking, Matching, Labeling & Scale cards */}
+    {/* How It Works — one block with Blocking, Matching, Labeling & Scale as left-blocks */}
     <section className={`${styles.sectionAlt} section`}>
       <div className="container">
-        <div className="text-center mb-2xl">
-          <h3 className="category-title">How It Works</h3>
-          <p className="category-description">
-            MadMatcher performs entity matching in two steps: blocking and matching.
-          </p>
-        </div>
-        <div className={styles.homeSectionStack}>
-          <div className={`${sectionStyles['product-card']} ${styles.homeContentCard}`}>
-            <div className="product-header">
-              <h4 className="product-name">1. Blocking</h4>
-            </div>
-            <div className="product-features">
+        <div className={`${sectionStyles['product-card']} ${styles.howItWorksBlock}`}>
+          <div className="text-center mb-2xl">
+            <h3 className="product-name">How It Works</h3>
+            <p className="category-description">
+              MadMatcher performs entity matching in two steps: blocking and matching.
+            </p>
+          </div>
+          <div className={styles.howItWorksSubsections}>
+            <div className={styles.howItWorksSubblock}>
+              <h4 className={styles.howItWorksSubheader}>1. Blocking</h4>
               <ul className="features-list features-list-bulleted">
                 {BLOCKING_LINES.map((line, idx) => (
                   <li key={idx} className="feature-item">
@@ -117,12 +115,8 @@ const HomePageContent = () => (
                 ))}
               </ul>
             </div>
-          </div>
-          <div className={`${sectionStyles['product-card']} ${styles.homeContentCard}`}>
-            <div className="product-header">
-              <h4 className="product-name">2. Matching</h4>
-            </div>
-            <div className="product-features">
+            <div className={styles.howItWorksSubblock}>
+              <h4 className={styles.howItWorksSubheader}>2. Matching</h4>
               <ul className="features-list features-list-bulleted">
                 {MATCHING_LINES.map((line, idx) => (
                   <li key={idx} className="feature-item">
@@ -131,12 +125,8 @@ const HomePageContent = () => (
                 ))}
               </ul>
             </div>
-          </div>
-          <div className={`${sectionStyles['product-card']} ${styles.homeContentCard}`}>
-            <div className="product-header">
-              <h4 className="product-name">Labeling & Scale</h4>
-            </div>
-            <div className="product-features">
+            <div className={styles.howItWorksSubblock}>
+              <h4 className={styles.howItWorksSubheader}>Labeling & Scale</h4>
               <ul className="features-list features-list-bulleted">
                 {LABELING_SCALE_LINES.map((line, idx) => (
                   <li key={idx} className="feature-item">
@@ -191,13 +181,10 @@ const HomePageContent = () => (
       <div className="container">
         <div className={styles.getStartedContent}>
           <h2 className={styles.getStartedTitle}>Ready to Get Started?</h2>
-          <p className={styles.getStartedLead}>
-            Explore the solutions, join our mailing list to stay updated, or contact us with
-            questions or requests for free consulting.
-          </p>
+
           <div className={styles.ctaButtonWrap}>
             <Link to="/products" className="btn btn-primary">
-              Explore the Solutions
+              Try MadMatcher
             </Link>
           </div>
           <EmailSignup />

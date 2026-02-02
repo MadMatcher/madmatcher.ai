@@ -67,12 +67,20 @@ const UseCases = () => (
 
     <section id="good-fit" className={styles.goodFitSection}>
       <div className="container">
-        <h2 className={styles.goodFitTitle}>When MadMatcher Is a Good Fit</h2>
-        <ul className={styles.goodFitList}>
-          {GOOD_FIT_ITEMS.map((item, idx) => (
-            <li key={idx}>{item}</li>
-          ))}
-        </ul>
+        <div className={`product-card ${styles.goodFitCard}`}>
+          <div className="product-header">
+            <h4 className="product-name">When MadMatcher Is a Good Fit</h4>
+          </div>
+          <div className="product-features">
+            <ul className="features-list features-list-bulleted">
+              {GOOD_FIT_ITEMS.map((item, idx) => (
+                <li key={idx} className="feature-item">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </div>

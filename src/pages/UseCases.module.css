@@ -33,42 +33,16 @@
   background: var(--color-gray-50);
 }
 
-.goodFitTitle {
-  font-size: var(--text-2xl);
-  font-weight: 700;
-  color: var(--color-primary);
-  margin-bottom: var(--spacing-xl);
-  text-align: center;
+/* Same format as homepage cards: product-header + product-features, left-aligned */
+.goodFitCard {
+  height: auto;
+  text-align: left;
+  padding: 1.5rem;
+  align-items: stretch;
 }
 
-.goodFitList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-.goodFitList li {
-  position: relative;
-  padding-left: 1.5rem;
-  margin-bottom: var(--spacing-md);
-  font-size: var(--text-base);
-  color: var(--color-primary);
-  line-height: 1.6;
-}
-
-.goodFitList li:last-child {
-  margin-bottom: 0;
-}
-
-.goodFitList li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.5em;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--color-secondary);
+.goodFitCard .product-header,
+.goodFitCard .product-features {
+  width: 100%;
+  text-align: left;
 }

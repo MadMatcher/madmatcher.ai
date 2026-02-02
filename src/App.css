@@ -476,6 +476,16 @@ a {
   scroll-margin-top: var(--navbar-height);
 }
 
+/* Product page section labels — same font style as home card bullets (feature-item) */
+.product-section-label {
+  font-size: var(--text-base);
+  color: var(--color-primary);
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  text-align: left;
+}
+
 .navbar-container {
   width: 100%;
   max-width: var(--container-xl);
@@ -1339,7 +1349,7 @@ a {
 
 .product-features {
   flex: 1;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-md);
 }
 
 .features-title {
