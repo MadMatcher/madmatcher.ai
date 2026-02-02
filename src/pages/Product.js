@@ -87,10 +87,11 @@ const Product = () => {
                   {product.id === 'consulting' ? (
                     // Consulting card - simplified layout
                     <div className="text-center">
-                      <h2 className="product-name mb-sm">
-                        {product.name}
-                      </h2>
-                      <p className="product-description mb-lg">
+                      <h2 className="product-name mb-sm">{product.name}</h2>
+                      <p
+                        className="product-description mb-lg"
+                        style={{ color: 'var(--color-primary)' }}
+                      >
                         {product.subtitle}
                       </p>
                       <div className="flex justify-center">
@@ -113,10 +114,11 @@ const Product = () => {
                       {/* Product Info - Left side */}
                       <div className="lg:col-span-6 flex flex-col">
                         <div className="mb-lg text-center">
-                          <h2 className="product-name mb-sm">
-                            {product.name}
-                          </h2>
-                          <p className="product-description mb-0">
+                          <h2 className="product-name mb-sm">{product.name}</h2>
+                          <p
+                            className="product-description mb-0"
+                            style={{ color: 'var(--color-primary)' }}
+                          >
                             {product.subtitle}
                           </p>
                         </div>
