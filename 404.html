@@ -1,0 +1,7 @@
+<!DOCTYPE html><meta charset="utf-8" />
+<script>
+  (function () {
+    var p = location.pathname + location.search + location.hash;
+    location.replace('/?redirect=' + encodeURIComponent(p));
+  })();
+</script>
