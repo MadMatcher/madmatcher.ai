@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dahluwalia/madmatcher.git"
+    "url": "https://github.com/MadMatcher/madmatcher.ai.git"
   },
   "engines": {
     "node": ">=16.x"
