@@ -7,7 +7,7 @@ const products = [
     subtitle:
       'Uses TF/IDF–based similarity to block, and has been shown to outperform many state-of-the-art blocking approaches.',
     github: 'https://github.com/MadMatcher/sparkly',
-    apiDocs: 'https://anhaidgroup.github.io/sparkly/',
+    apiDocs: 'https://sparkly.madmatcher.ai/',
     examples: 'https://github.com/MadMatcher/sparkly/tree/main/examples',
   },
   {
@@ -16,7 +16,7 @@ const products = [
     subtitle:
       ' Enables users to combine multiple blocking strategies within a single workflow. It provides a declarative language for specifying blocking rules, allowing users to express complex blocking logic in a concise and flexible way.',
     github: 'https://github.com/MadMatcher/delex',
-    apiDocs: 'https://anhaidgroup.github.io/delex/',
+    apiDocs: 'https://delex.madmatcher.ai/',
     examples: 'https://github.com/MadMatcher/delex/tree/main/examples',
   },
   {
@@ -26,7 +26,7 @@ const products = [
       'Enables users to create a wide range of workflows for the matching step, across different runtime environments. It provides modular components that can be composed into flexible matching pipelines.  It also provides workflows for fast and effective labeling of training data.',
 
     github: 'https://github.com/MadMatcher/MatchFlow',
-    apiDocs: 'https://madmatcher.github.io/MatchFlow/',
+    apiDocs: 'https://matchflow.madmatcher.ai/',
     examples: 'https://github.com/MadMatcher/MatchFlow/tree/main/examples',
   },
   // {
