@@ -27,7 +27,7 @@ const ContactUs = () => {
 
     try {
       // Create mailto link with form data
-      const mailtoLink = `mailto:entitymatchinginfo@gmail.com?subject=${encodeURIComponent(
+      const mailtoLink = `mailto:dev@hellomadmatcher.com?subject=${encodeURIComponent(
         formData.subject
       )}&body=${encodeURIComponent(
         `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
