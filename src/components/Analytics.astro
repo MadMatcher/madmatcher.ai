@@ -1,0 +1,29 @@
+---
+/**
+ * Google Analytics (gtag). Only emitted in production builds so local dev and
+ * preview traffic don't pollute the data. Swap for Plausible/Vercel Analytics
+ * if you prefer cookieless analytics.
+ */
+import { ANALYTICS } from '../consts';
+const isProd = import.meta.env.PROD;
+---
+
+{
+  isProd && ANALYTICS.gaId && (
+    <>
+      <script
+        is:inline
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS.gaId}`}
+      />
+      <script is:inline define:vars={{ gaId: ANALYTICS.gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    </>
+  )
+}

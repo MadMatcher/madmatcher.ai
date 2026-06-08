@@ -1,0 +1,213 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { breadcrumbSchema, faqSchema } from '../lib/schema';
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Compare approaches', path: '/compare' },
+]);
+
+// Columns are ARCHITECTURAL APPROACHES, never named products.
+const approaches = [
+  { key: 'mm', label: 'MadMatcher', sub: 'Learned + benchmarked blocking', highlight: true },
+  { key: 'dl', label: 'Neural', sub: 'Deep learning, label-hungry' },
+  { key: 'llm', label: 'LLM', sub: 'Prompted, zero-shot' },
+  { key: 'fixed', label: 'Pretrained', sub: 'Off-the-shelf model' },
+  { key: 'rules', label: 'Rules', sub: 'Hand-written, deterministic' },
+  { key: 'unsup', label: 'Unsupervised', sub: 'Statistical, no labels' },
+  { key: 'diy', label: 'DIY SQL', sub: 'Hand-built fuzzy matching in your warehouse' },
+];
+
+// '✓' yes · '~' partial / depends · '—' no
+const rows = [
+  { dim: 'Trains to your domain', mm: '✓', dl: '✓', llm: '~', fixed: '—', rules: '~', unsup: '~', diy: '~' },
+  { dim: 'Handles messy data', mm: '✓', dl: '✓', llm: '✓', fixed: '~', rules: '~', unsup: '~', diy: '—' },
+  { dim: 'Benchmarked blocking', mm: '✓', dl: '~', llm: '—', fixed: '—', rules: '—', unsup: '—', diy: '—' },
+  { dim: 'Improves with your data', mm: '✓', dl: '✓', llm: '~', fixed: '—', rules: '—', unsup: '—', diy: '—' },
+  { dim: 'Runs in your infrastructure', mm: '✓', dl: '~', llm: '~', fixed: '~', rules: '~', unsup: '✓', diy: '✓' },
+  { dim: 'Scales', mm: '✓', dl: '—', llm: '—', fixed: '~', rules: '~', unsup: '✓', diy: '~' },
+  { dim: 'Avoids large labeled sets', mm: '✓', dl: '—', llm: '✓', fixed: '✓', rules: '✓', unsup: '✓', diy: '✓' },
+  { dim: 'Explainable', mm: '✓', dl: '—', llm: '—', fixed: '—', rules: '✓', unsup: '✓', diy: '✓' },
+  { dim: 'Real-time serving', mm: '—', dl: '~', llm: '~', fixed: '~', rules: '~', unsup: '—', diy: '~' },
+];
+
+const faqs = [
+  {
+    question: 'How do I choose an entity matching approach?',
+    answer:
+      'Match the approach to your constraints. How well it trains to your domain, where the data has to live, how it scales, and how much you can label. A learned engine that runs in your own infrastructure fits when accuracy on an unusual domain and keeping data in place both matter.',
+  },
+  {
+    question: 'When is a learned matcher worth the labeling effort?',
+    answer:
+      'When fixed rules and pretrained models leave accuracy unclaimed on an unusual domain. Active learning keeps labeling small (typically about 600 pairs), so the accuracy gain usually outweighs the effort.',
+  },
+];
+---
+
+<BaseLayout
+  title="Compare entity matching approaches"
+  description="A side-by-side comparison of entity matching approaches (learned matchers, fixed pretrained models, hand-authored rules, unsupervised statistical methods, and build-your-own SQL) by trainability, data location, scale, and real-time needs."
+  schemas={[crumbs, faqSchema(faqs)]}
+>
+  <PageHero
+    title="How entity matching approaches compare."
+    lead="There are several ways to match records, each with real trade-offs. Here is how the main ones stack up on what matters: accuracy on messy data, scale, where it runs, and how much labeling they need."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="table-scroll">
+        <table class="compare">
+          <thead>
+            <tr>
+              <th class="dim-col">Capability</th>
+              {approaches.map((a) => (
+                <th class:list={['approach-col', { hi: a.highlight }]}>
+                  <span class="a-label">{a.label}</span>
+                  <span class="a-sub mono">{a.sub}</span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr>
+                <th scope="row" class="dim-col">{r.dim}</th>
+                {approaches.map((a) => {
+                  const v = r[a.key as keyof typeof r] as string;
+                  return (
+                    <td class:list={['cell', { hi: a.highlight }, v === '✓' ? 'yes' : v === '—' ? 'no' : 'partial']}>
+                      {v}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="legend mono">✓ yes &nbsp;·&nbsp; ~ partial / depends &nbsp;·&nbsp; — no</p>
+    </div>
+  </section>
+
+  <section class="section section-soft">
+    <div class="container container-narrow">
+      <div class="section-head center">
+        <h2>Which approach fits you?</h2>
+      </div>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.question}</summary>
+            <p>{f.answer}</p>
+          </details>
+        ))}
+      </div>
+      <p class="text-center mt-8"><a href="/why-madmatcher" class="btn btn-ghost">Why teams choose MadMatcher’s approach →</a></p>
+    </div>
+  </section>
+
+  <CtaBand heading="Not sure which fits?" blurb="Tell us your constraints (scale, data location, real-time needs) and we’ll show you where MadMatcher fits your problem." />
+</BaseLayout>
+
+<style>
+  .table-scroll {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+  }
+  .compare {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 1060px;
+    font-size: var(--text-sm);
+  }
+  .compare th,
+  .compare td {
+    padding: var(--space-4) var(--space-2);
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+  }
+  .dim-col {
+    text-align: left !important;
+    width: 15%;
+    font-weight: 560;
+    color: var(--ink);
+  }
+  thead .approach-col {
+    vertical-align: bottom;
+    padding-top: var(--space-6);
+  }
+  .a-label {
+    display: block;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .a-sub {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+  .approach-col.hi,
+  .cell.hi {
+    background: var(--red-tint);
+  }
+  thead .approach-col.hi .a-label {
+    color: var(--red-dark);
+  }
+  .cell {
+    font-size: var(--text-base);
+    font-weight: 600;
+  }
+  .cell.yes {
+    color: #1a7f37;
+  }
+  .cell.no {
+    color: var(--faint);
+  }
+  .cell.partial {
+    color: var(--warning, #b26a00);
+  }
+  .legend {
+    margin-top: var(--space-4);
+    color: var(--muted);
+    font-size: var(--text-xs);
+    text-align: center;
+  }
+  .faq {
+    border-top: 1px solid var(--line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: var(--space-4) 0;
+    font-weight: 560;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: '+';
+    color: var(--red);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .faq-item[open] summary::after {
+    content: '–';
+  }
+  .faq-item p {
+    padding-bottom: var(--space-4);
+    color: var(--muted);
+  }
+</style>

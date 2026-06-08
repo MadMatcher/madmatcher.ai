@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const cases = (await getCollection('useCases', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Use cases', path: '/use-cases' },
+]);
+---
+
+<BaseLayout
+  title="Use cases: where entity matching pays off"
+  description="Customer 360, product-catalog reconciliation, healthcare record linkage, and compliance screening: the data-integration problems MadMatcher’s entity matching engine is built to solve."
+  schemas={[crumbs]}
+>
+  <PageHero
+    title="Where teams use it."
+    lead="Anywhere the same real-world entity appears as different records. A few common cases below."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="uc-grid">
+        {
+          cases.map((c, i) => (
+            <a href={`/use-cases/${c.id}/`} class="uc-card card card-hover">
+              <span class="uc-num mono">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{c.data.title}</h3>
+              <p class="muted mt-2">{c.data.summary}</p>
+              <span class="uc-cta">Read →</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Don’t see your use case?" blurb="These are just the common ones. If you’re resolving messy records that point to the same entity, tell us what you’re working with." />
+</BaseLayout>
+
+<style>
+  .uc-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+  .uc-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    border-top: 2px solid var(--red);
+  }
+  .uc-num {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 0.02em;
+  }
+  .uc-card h3 {
+    margin-top: var(--space-2);
+    font-size: var(--text-lg);
+  }
+  .uc-card p {
+    font-size: var(--text-sm);
+    flex: 1;
+  }
+  .uc-cta {
+    margin-top: var(--space-4);
+    font-weight: 560;
+    font-size: var(--text-sm);
+    color: var(--ink);
+  }
+  .uc-card:hover .uc-cta {
+    color: var(--red);
+  }
+  @media (max-width: 620px) {
+    .uc-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

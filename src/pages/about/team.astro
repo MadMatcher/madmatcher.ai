@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { TEAM } from '../../data/team';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Team', path: '/about/team' },
+]);
+---
+
+<BaseLayout
+  title="Team"
+  description="The people behind MadMatcher: founder Dev Ahluwalia, with advisors AnHai Doan and Derek Paulsen from UW–Madison’s Magellan Data Management Group."
+  schemas={[crumbs]}
+>
+  <PageHero
+    title="Who builds MadMatcher."
+    lead="A founder and two advisors from UW–Madison’s Magellan Data Management Group."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="team-grid">
+        {
+          TEAM.map((m) => (
+            <article class="member card">
+              <img class="member-photo" src={m.photo} alt={`Portrait of ${m.name}`} width="96" height="96" loading="lazy" />
+              <div class="member-meta">
+                <h2 class="member-name">{m.name}</h2>
+                <div class="member-role mono">{m.role}</div>
+              </div>
+              <p class="member-bio muted">{m.bio}</p>
+              {m.link && (
+                <a class="member-link" href={m.link} target="_blank" rel="noopener">
+                  Profile ↗
+                </a>
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Work with us." blurb="Have a question, or a hard matching problem? Reach out." />
+</BaseLayout>
+
+<style>
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+  .member {
+    display: flex;
+    flex-direction: column;
+  }
+  .member-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    margin-bottom: var(--space-4);
+  }
+  .member-name {
+    font-size: var(--text-xl);
+  }
+  .member-role {
+    color: var(--red);
+    font-size: var(--text-xs);
+    margin-top: 2px;
+  }
+  .member-bio {
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    flex: 1;
+  }
+  .member-link {
+    margin-top: var(--space-4);
+    font-weight: 560;
+    font-size: var(--text-sm);
+  }
+  .member-link:hover {
+    color: var(--red);
+  }
+  @media (max-width: 820px) {
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

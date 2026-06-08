@@ -1,0 +1,110 @@
+---
+/**
+ * Newsletter capture. Submits to StaticForms (api.staticforms.dev) via fetch,
+ * with inline success/error — no redirect, works for everyone with JS.
+ * Set PUBLIC_STATICFORMS_API_KEY in your env (and in Vercel) for it to deliver.
+ */
+interface Props {
+  heading?: string;
+  blurb?: string;
+}
+const {
+  heading = 'Get new entity-matching guides in your inbox',
+  blurb = 'Occasional and technical, no spam. Release notes and the occasional deep dive when we have them.',
+} = Astro.props;
+
+const SF_KEY = import.meta.env.PUBLIC_STATICFORMS_API_KEY ?? '';
+---
+
+<div class="newsletter">
+  <div class="newsletter-copy">
+    <h3>{heading}</h3>
+    <p class="muted">{blurb}</p>
+  </div>
+  <div class="newsletter-side">
+    <form class="newsletter-form" data-sf-form data-sf-success="You’re on the list. Thanks." action="https://api.staticforms.dev/submit" method="post">
+      <input type="hidden" name="apiKey" value={SF_KEY} />
+      <input type="hidden" name="subject" value="MadMatcher newsletter signup" />
+      <input type="hidden" name="redirect" value="false" />
+      <input type="text" name="honeypot" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <label class="sr-only" for="nl-email">Email address</label>
+      <input
+        id="nl-email"
+        type="email"
+        name="email"
+        placeholder="you@company.com"
+        required
+        autocomplete="email"
+      />
+      <button type="submit" class="btn btn-accent">Subscribe</button>
+    </form>
+    <p class="form-status" data-sf-status role="status" aria-live="polite" hidden></p>
+  </div>
+</div>
+
+<style>
+  .newsletter {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: var(--space-8);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    background: var(--bg);
+  }
+  .newsletter h3 {
+    font-size: var(--text-xl);
+  }
+  .newsletter-copy p {
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+  }
+  .newsletter-form {
+    display: flex;
+    gap: var(--space-2);
+  }
+  .newsletter-form input[type='email'] {
+    flex: 1;
+    min-width: 0;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    font: inherit;
+    font-size: var(--text-sm);
+  }
+  .newsletter-form input[type='email']:focus {
+    border-color: var(--ink);
+    outline: none;
+  }
+  .hp {
+    display: none;
+  }
+  .form-status {
+    margin-top: var(--space-3);
+    font-size: var(--text-sm);
+  }
+  .form-status.is-ok {
+    color: #1a7f37;
+  }
+  .form-status.is-err {
+    color: var(--red);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  @media (max-width: 720px) {
+    .newsletter {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+    }
+  }
+</style>
+
+<script>
+  import '../scripts/staticforms.ts';
+</script>

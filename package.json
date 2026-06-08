@@ -1,52 +1,23 @@
 {
-  "name": "madmatcher",
-  "version": "0.1.1",
+  "name": "madmatcher-site",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
   "homepage": "https://madmatcher.ai",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MadMatcher/madmatcher.ai.git"
-  },
-  "engines": {
-    "node": ">=16.x"
-  },
+  "license": "UNLICENSED",
   "scripts": {
-    "analyze": "npm run build && source-map-explorer build/static/js/*.chunk.js",
-    "build": "rimraf ./build && react-scripts build",
-    "postbuild": "cp CNAME build/",
-    "lint": "eslint \"**/*.js\"",
-    "lint:fix": "eslint 'src/**/*.{js,jsx}' --fix",
-    "predeploy": "npm run build && npm run postbuild",
-    "start": "react-scripts start",
-    "test": "npx jest",
-    "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-burger-menu": "^3.1.0",
-    "react-dom": "^18.2.0",
-    "react-ga": "^3.3.1",
-    "react-helmet-async": "^2.0.5",
-    "react-router-dom": "^6.3.0",
-    "react-scripts": "^5.0.1",
-    "web-vitals": "^5.0.3"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.13",
-    "gh-pages": "^6.3.0",
-    "rimraf": "^6.0.1"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@astrojs/mdx": "^4.2.0",
+    "@astrojs/sitemap": "^3.3.0",
+    "astro": "^5.7.0",
+    "astro-og-canvas": "^0.11.1",
+    "canvaskit-wasm": "^0.41.1"
   }
 }

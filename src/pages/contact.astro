@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { CONTACT, SOCIAL } from '../consts';
+import { breadcrumbSchema } from '../lib/schema';
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Contact', path: '/contact' },
+]);
+
+const SF_KEY = import.meta.env.PUBLIC_STATICFORMS_API_KEY ?? '';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Get in touch with MadMatcher to ask a question, scope a consulting engagement, or book a call to work through an entity-matching problem."
+  schemas={[crumbs]}
+>
+  <PageHero
+    title="Let’s talk matching."
+    lead="Pick the path that fits, whether you want to talk through a problem or just have a question."
+  />
+
+  <section class="section">
+    <div class="container contact-grid">
+      <!-- Two clear paths -->
+      <div class="paths">
+        <a href={CONTACT.calendar} target="_blank" rel="noopener" class="path-card card card-hover">
+          <div class="eyebrow">Buying / scoping</div>
+          <h3 class="mt-2">Book a call</h3>
+          <p class="muted mt-2">Grab a 30-minute slot to scope your use case or evaluate a fit. Best for data leaders and teams with a concrete problem.</p>
+          <span class="path-cta">Book a call ↗</span>
+        </a>
+
+        <a href={SOCIAL.github} target="_blank" rel="noopener" class="path-card card card-hover">
+          <div class="eyebrow">Developers</div>
+          <h3 class="mt-2">Start on GitHub</h3>
+          <p class="muted mt-2">Clone the repos and try MadMatcher on your own data, or open an issue if you get stuck.</p>
+          <span class="path-cta">Go to GitHub ↗</span>
+        </a>
+
+        <a href={`mailto:${CONTACT.email}`} class="path-card card card-hover">
+          <div class="eyebrow">Anything else</div>
+          <h3 class="mt-2">Email us</h3>
+          <p class="muted mt-2">Questions, or want help with a matching problem? We read every message.</p>
+          <span class="path-cta mono">{CONTACT.email}</span>
+        </a>
+      </div>
+
+      <!-- Message form -->
+      <div class="form-wrap card">
+        <h3>Send a message</h3>
+        <p class="muted mt-2">We’ll reply to your email, usually within a day.</p>
+        <form
+          class="contact-form mt-6"
+          data-sf-form
+          data-sf-success="Thanks. Your message is on its way, and we’ll be in touch."
+          action="https://api.staticforms.dev/submit"
+          method="POST"
+        >
+          <input type="hidden" name="apiKey" value={SF_KEY} />
+          <input type="hidden" name="subject" value="MadMatcher contact form" />
+          <input type="hidden" name="redirect" value="false" />
+          <input type="text" name="honeypot" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" required autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="org">Company / org <span class="opt">(optional)</span></label>
+            <input id="org" name="organization" type="text" autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent">Send message</button>
+          <p class="form-status" data-sf-status role="status" aria-live="polite" hidden></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--space-12);
+    align-items: start;
+  }
+  .paths {
+    display: grid;
+    gap: var(--space-4);
+  }
+  .path-card {
+    display: block;
+    padding: var(--space-6);
+  }
+  .path-card h3 {
+    font-size: var(--text-lg);
+  }
+  .path-card p {
+    font-size: var(--text-sm);
+  }
+  .path-cta {
+    display: inline-block;
+    margin-top: var(--space-4);
+    font-weight: 560;
+    font-size: var(--text-sm);
+    color: var(--ink);
+  }
+  .path-card:hover .path-cta {
+    color: var(--red);
+  }
+  .form-wrap h3 {
+    font-size: var(--text-xl);
+  }
+  .form-wrap > p {
+    font-size: var(--text-sm);
+  }
+  .contact-form {
+    display: grid;
+    gap: var(--space-4);
+  }
+  .field {
+    display: grid;
+    gap: var(--space-2);
+  }
+  .field label {
+    font-size: var(--text-sm);
+    font-weight: 560;
+  }
+  .opt {
+    color: var(--faint);
+    font-weight: 400;
+  }
+  .hp {
+    display: none;
+  }
+  .form-status {
+    margin: 0;
+    font-size: var(--text-sm);
+  }
+  .form-status.is-ok {
+    color: #1a7f37;
+  }
+  .form-status.is-err {
+    color: var(--red);
+  }
+  .field input,
+  .field textarea {
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius);
+    font: inherit;
+    font-size: var(--text-sm);
+    resize: vertical;
+  }
+  .field input:focus,
+  .field textarea:focus {
+    border-color: var(--ink);
+    outline: none;
+  }
+  @media (max-width: 820px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+</style>
+
+<script>
+  import '../scripts/staticforms.ts';
+</script>

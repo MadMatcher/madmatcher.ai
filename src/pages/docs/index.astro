@@ -1,0 +1,106 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { SOCIAL, PRODUCTS } from '../../consts';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const docs = (await getCollection('docs', ({ data }) => !data.draft)).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Docs', path: '/docs' },
+]);
+---
+
+<BaseLayout
+  title="Docs & quickstart"
+  description="Install MadMatcher and run an entity matching pipeline end to end. Quickstart, installation, and guides for Sparkly, Delex, and MatchFlow."
+  schemas={[crumbs]}
+>
+  <PageHero
+    title="Get matching in minutes."
+    lead="Install the tools, run a pipeline on a sample table, then point it at your own data. Source and issues live on GitHub."
+  >
+    <a slot="actions" href={SOCIAL.github} class="btn btn-primary" target="_blank" rel="noopener">GitHub org</a>
+    {docs[0] && <a slot="actions" href={`/docs/${docs[0].id}/`} class="btn btn-ghost">Start the quickstart</a>}
+  </PageHero>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="block-h">Guides</h2>
+      <div class="grid grid-2">
+        {
+          docs.map((d) => (
+            <a href={`/docs/${d.id}/`} class="card card-hover tile">
+              <h3>{d.data.title}</h3>
+              <p class="muted mt-2">{d.data.description}</p>
+              <span class="tile-cta">Read →</span>
+            </a>
+          ))
+        }
+        {docs.length === 0 && <p class="muted">Guides are being written. Each repo’s README has install + usage in the meantime.</p>}
+      </div>
+
+      <h2 class="block-h block-h-spaced">Component repos</h2>
+      <div class="grid grid-3">
+        {
+          PRODUCTS.map((p) => (
+            <a href={p.github} target="_blank" rel="noopener" class="card card-hover tile repo">
+              <div class="repo-tag">{p.role}</div>
+              <h3>{p.name}</h3>
+              <span class="tile-cta">GitHub ↗</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Stuck on setup?" blurb="Open an issue on GitHub, or ask the founder directly." />
+</BaseLayout>
+
+<style>
+  .block-h {
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-5);
+  }
+  .block-h-spaced {
+    margin-top: var(--space-16);
+  }
+  .tile {
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+  }
+  .tile h3 {
+    font-size: var(--text-lg);
+  }
+  .tile p {
+    font-size: var(--text-sm);
+    flex: 1;
+  }
+  .tile-cta {
+    margin-top: var(--space-4);
+    font-weight: 560;
+    font-size: var(--text-sm);
+    color: var(--ink);
+  }
+  .tile:hover .tile-cta {
+    color: var(--red);
+  }
+  .repo-tag {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--red);
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+  }
+  .repo h3 {
+    margin-top: 0;
+  }
+</style>

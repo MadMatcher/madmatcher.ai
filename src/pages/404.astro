@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { NAV } from '../consts';
+---
+
+<BaseLayout title="Page not found" noindex>
+  <section class="section notfound">
+    <div class="container container-narrow text-center">
+      <div class="code mono">404</div>
+      <h1>No match found.</h1>
+      <p class="lead mt-4">
+        Fitting, for an entity-matching site, but this page genuinely doesn’t exist.
+        Try one of these instead.
+      </p>
+      <div class="links mt-8">
+        <a href="/" class="btn btn-primary">Back home</a>
+        {NAV.slice(0, 4).map((n) => <a href={n.href} class="btn btn-ghost">{n.label}</a>)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .notfound {
+    padding-block: var(--space-32);
+  }
+  .code {
+    font-size: clamp(4rem, 12vw, 8rem);
+    font-weight: 600;
+    color: var(--red);
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    justify-content: center;
+  }
+</style>

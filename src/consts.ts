@@ -1,0 +1,110 @@
+/** Canonical site facts: single source of truth for copy across the site. */
+
+export const SITE = {
+  name: 'MadMatcher',
+  legalName: 'MadMatcher LLC',
+  url: 'https://madmatcher.ai',
+  tagline: 'Accurate entity matching at scale, in your own infrastructure.',
+  description:
+    'MadMatcher resolves records that refer to the same real-world entity across large, messy datasets. Benchmarked blocking (Sparkly, Delex) and a matcher you train to your own domain (MatchFlow), running on Apache Spark in your own infrastructure.',
+  founded: '2026',
+  locale: 'en_US',
+  twitterHandle: '',
+} as const;
+
+export const CONTACT = {
+  email: 'dev@hellomadmatcher.com',
+  calendar: 'https://calendar.app.google/sdvV73b2sN7xazWu5',
+} as const;
+
+export const SOCIAL = {
+  github: 'https://github.com/MadMatcher',
+  linkedin: 'https://www.linkedin.com/company/madmatcher',
+} as const;
+
+export const NAV: { label: string; href: string }[] = [
+  { label: 'Products', href: '/products' },
+  { label: 'How it works', href: '/how-it-works' },
+  { label: 'Use cases', href: '/use-cases' },
+  { label: 'Compare', href: '/compare' },
+  { label: 'Docs', href: '/docs' },
+  { label: 'Blog', href: '/blog' },
+];
+
+/** Homepage proof points. */
+export const PROOF = [
+  { value: '100M+', label: 'records per table', sub: 'scales out with your cluster' },
+  { value: '8', label: 'leading blockers it beats', sub: 'peer-reviewed, PVLDB 2023' },
+  { value: '0', label: 'records sent to us', sub: 'runs in your own cloud or cluster' },
+] as const;
+
+/** The three components. Summaries mirror each repo's README. */
+export const PRODUCTS = [
+  {
+    slug: 'sparkly',
+    name: 'Sparkly',
+    role: 'TF/IDF blocking',
+    step: 'Blocking',
+    status: '',
+    summary:
+      'Finds candidate matches using top-k TF/IDF similarity (the BM25 variant, via Lucene). It indexes one table and searches it with the other, scaling to hundreds of millions of tuples on Spark.',
+    highlight: 'Outperforms eight state-of-the-art blocking solutions (VLDB 2023).',
+    github: 'https://github.com/MadMatcher/sparkly',
+    docs: 'https://anhaidgroup.github.io/sparkly/',
+  },
+  {
+    slug: 'delex',
+    name: 'Delex',
+    role: 'Multi-strategy blocking',
+    step: 'Blocking',
+    status: '',
+    summary:
+      'Combines several blocking strategies (TF/IDF, dictionary blockers, custom rules) in one declarative program, compiled to a Spark DAG. Use it when one blocking strategy is not enough.',
+    highlight: 'Start with Sparkly; reach for Delex when you need to combine strategies.',
+    github: 'https://github.com/MadMatcher/delex',
+    docs: 'https://anhaidgroup.github.io/delex/',
+  },
+  {
+    slug: 'matchflow',
+    name: 'MatchFlow',
+    role: 'Matching',
+    step: 'Matching',
+    status: '',
+    summary:
+      'Trains a supervised ML matcher on labeled pairs and applies it to the blocking output. Composable functions for features, labeling, training, and prediction; runs on pandas or Spark.',
+    highlight: 'Active learning builds training data from about 600 labeled pairs.',
+    github: 'https://github.com/MadMatcher/MatchFlow',
+    docs: '',
+  },
+] as const;
+
+/** Commercial offerings on top of the open-source core. */
+export const PRO = {
+  name: 'MadMatcher-Pro',
+  tagline: 'Reliability for long-running matching jobs.',
+  description:
+    'The same Sparkly, Delex, and MatchFlow, plus the reliability a long-running production job needs. A multi-hour run survives a failure instead of starting from scratch.',
+  status: 'Launching soon',
+  // The reliability features shipping at launch.
+  features: ['Crash recovery', 'Progress tracking'],
+} as const;
+
+export const CONSULTING = {
+  name: 'Consulting',
+  tagline: 'Hands-on help with your matching problem.',
+  description:
+    'Work directly with the team to build and tune an entity matching pipeline on your own data, from blocking strategy to a trained matcher.',
+  status: 'Available now',
+} as const;
+
+export const ANALYTICS = {
+  gaId: 'G-CCB4PBJ4KE',
+} as const;
+
+/** The research citation. */
+export const CITATION = {
+  title: 'Sparkly: A Simple yet Surprisingly Strong TF/IDF Blocker for Entity Matching',
+  venue: 'PVLDB 16(6), 2023',
+  url: 'https://pages.cs.wisc.edu/~anhai/papers1/sparkly-vldb2023.pdf',
+  short: 'Paulsen et al., PVLDB 16(6), 2023',
+} as const;

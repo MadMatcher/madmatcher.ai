@@ -1,0 +1,130 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
+import CtaBand from '../components/CtaBand.astro';
+import '../styles/prose.css';
+import { articleSchema, breadcrumbSchema } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author?: string;
+  tags?: string[];
+  minutes?: number;
+}
+
+const { title, description, image, pubDate, updatedDate, author = 'Dev Ahluwalia', tags = [], minutes } =
+  Astro.props;
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+const schemas = [
+  articleSchema({
+    title,
+    description,
+    url: Astro.url.pathname,
+    datePublished: pubDate.toISOString(),
+    dateModified: (updatedDate ?? pubDate).toISOString(),
+    author,
+    keywords: tags,
+  }),
+  breadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog' },
+    { name: title, path: Astro.url.pathname },
+  ]),
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={image}
+  type="article"
+  publishedTime={pubDate.toISOString()}
+  modifiedTime={(updatedDate ?? pubDate).toISOString()}
+  schemas={schemas}
+>
+  <article>
+    <header class="post-header">
+      <div class="container container-narrow">
+        <a href="/blog" class="back-link mono">← Blog</a>
+        <h1>{title}</h1>
+        <p class="lead post-desc">{description}</p>
+        <div class="post-meta mono">
+          <span>{author}</span>
+          <span aria-hidden="true">·</span>
+          <time datetime={pubDate.toISOString()}>{fmt(pubDate)}</time>
+          {minutes && (<><span aria-hidden="true">·</span><span>{minutes} min read</span></>)}
+        </div>
+      </div>
+    </header>
+
+    <div class="container container-narrow post-body">
+      <div class="prose">
+        <slot />
+      </div>
+    </div>
+  </article>
+
+  <section class="section-tight">
+    <div class="container">
+      <Newsletter />
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .post-header {
+    padding-block: clamp(var(--space-12), 6vw, var(--space-24)) var(--space-8);
+    border-bottom: 1px solid var(--line);
+  }
+  .back-link {
+    color: var(--muted);
+    font-size: var(--text-sm);
+  }
+  .back-link:hover {
+    color: var(--red);
+  }
+  .post-header h1 {
+    margin-top: var(--space-4);
+    font-size: clamp(2rem, 1.3rem + 2.6vw, var(--text-4xl));
+  }
+  .post-desc {
+    margin-top: var(--space-4);
+  }
+  .post-meta {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+    margin-top: var(--space-6);
+    color: var(--muted);
+    font-size: var(--text-sm);
+  }
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .tag {
+    font-size: var(--text-xs);
+    color: var(--ink-soft);
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+  }
+  .post-body {
+    padding-block: var(--space-12);
+  }
+  .post-body .prose {
+    margin-inline: auto;
+  }
+</style>

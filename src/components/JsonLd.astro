@@ -1,0 +1,16 @@
+---
+/**
+ * Renders a JSON-LD <script>. Pass any schema.org object as `schema`.
+ * Structured data → rich results in search + cleaner ingestion by AI engines.
+ */
+interface Props {
+  schema: Record<string, unknown> | Record<string, unknown>[];
+}
+const { schema } = Astro.props;
+---
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify(schema)}
+/>

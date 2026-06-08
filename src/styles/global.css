@@ -1,0 +1,407 @@
+/* =========================================================================
+   MadMatcher — design system
+   Technical / Editorial: restrained, ink-on-white, red used sparingly,
+   monospace for technical accents. Brand: black #1d1d1f, red #c5050c.
+   ========================================================================= */
+
+:root {
+  /* --- color: ink scale --- */
+  --ink: #1d1d1f;
+  --ink-soft: #424245;
+  --muted: #6e6e73;
+  --faint: #6f6f74;
+  --line: #e7e7ea;
+  --line-strong: #d2d2d7;
+
+  /* --- color: surfaces --- */
+  --bg: #ffffff;
+  --bg-soft: #f6f6f7;
+  --bg-ink: #161617;
+  --bg-ink-soft: #1f1f21;
+
+  /* --- color: brand red (sparingly) --- */
+  --red: #c5050c;
+  --red-dark: #9e040a;
+  --red-tint: #fbeaea;
+
+  /* --- typography --- */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'SFMono-Regular',
+    Menlo, Consolas, 'Liberation Mono', monospace;
+
+  /* One UI font (mono reserved for code). Distinct steps for real hierarchy:
+     14 / 15 / 16 / 19 / 22 / 28 / 32 / 40px. */
+  --text-xs: 0.875rem; /* 14px — micro labels / eyebrow */
+  --text-sm: 0.9375rem; /* 15px — secondary / caption */
+  --text-base: 1rem; /* 16px — body */
+  --text-lg: 1.1875rem; /* 19px — lead / card title */
+  --text-xl: 1.375rem; /* 22px — sub-heading */
+  --text-2xl: 1.75rem; /* 28px — h2 */
+  --text-3xl: 2rem; /* 32px */
+  --text-4xl: 2.5rem; /* 40px — h1 / display */
+  --text-5xl: 2.5rem; /* 40px */
+  --text-6xl: 2.5rem; /* 40px */
+
+  /* --- layout --- */
+  --container: 1120px;
+  --container-narrow: 760px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-sm: 6px;
+
+  /* --- spacing --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* --- reset --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 680;
+  color: var(--ink);
+}
+
+h1 {
+  font-size: clamp(2rem, 1.3rem + 2.6vw, var(--text-4xl)); /* 32 → 40px */
+}
+h2 {
+  font-size: var(--text-2xl); /* 28px */
+}
+h3 {
+  font-size: var(--text-lg); /* 19px */
+}
+
+p {
+  text-wrap: pretty;
+}
+
+code,
+kbd,
+samp {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+
+::selection {
+  background: var(--red);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* =========================================================================
+   Layout primitives
+   ========================================================================= */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+.container-narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  padding-block: clamp(var(--space-12), 5vw, 5rem);
+}
+
+.section-tight {
+  padding-block: var(--space-12);
+}
+
+.section-soft {
+  background: var(--bg-soft);
+}
+
+.section-ink {
+  background: var(--bg-ink);
+  color: #f5f5f7;
+}
+.section-ink h1,
+.section-ink h2,
+.section-ink h3,
+.section-ink h4 {
+  color: #fff;
+}
+
+/* =========================================================================
+   Type helpers
+   ========================================================================= */
+.eyebrow {
+  display: inline-block;
+  font-size: var(--text-xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--red);
+  font-weight: 600;
+}
+
+.lead {
+  font-size: var(--text-lg);
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+/* `.mono` no longer switches font — the UI uses one family. Real code (the
+   `code`/`pre` element selectors) still renders in the monospace face. */
+.mono {
+  font-family: inherit;
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: var(--space-8);
+}
+.section-head.center {
+  margin-inline: auto;
+  text-align: center;
+}
+.section-head .lead {
+  margin-top: var(--space-4);
+}
+
+/* =========================================================================
+   Buttons
+   ========================================================================= */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  font-weight: 560;
+  line-height: 1;
+  padding: 0.85rem 1.35rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #000;
+}
+
+.btn-accent {
+  background: var(--red);
+  color: #fff;
+}
+.btn-accent:hover {
+  background: var(--red-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+.btn-ghost:hover {
+  border-color: var(--ink);
+}
+
+.section-ink .btn-ghost {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+.section-ink .btn-ghost:hover {
+  border-color: #fff;
+}
+.section-ink .btn-primary {
+  background: #fff;
+  color: var(--ink);
+}
+
+/* =========================================================================
+   Cards & grids
+   ========================================================================= */
+.grid {
+  display: grid;
+  gap: var(--space-6);
+}
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 900px) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 620px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: var(--space-8);
+  box-shadow: 0 1px 2px rgba(20, 22, 23, 0.05);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+.card-hover {
+  cursor: pointer;
+}
+.card-hover:hover {
+  border-color: var(--line-strong);
+  box-shadow: 0 12px 32px rgba(20, 22, 23, 0.09);
+  transform: translateY(-3px);
+}
+
+/* bulleted technical lists with red ticks */
+.ticks {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+}
+.ticks li {
+  position: relative;
+  padding-left: 1.6rem;
+  color: var(--ink-soft);
+}
+.ticks li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
+  background: var(--red);
+}
+
+/* =========================================================================
+   Utilities
+   ========================================================================= */
+.text-center {
+  text-align: center;
+}
+.flex {
+  display: flex;
+}
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+.mt-2 {
+  margin-top: var(--space-2);
+}
+.mt-4 {
+  margin-top: var(--space-4);
+}
+.mt-6 {
+  margin-top: var(--space-6);
+}
+.mt-8 {
+  margin-top: var(--space-8);
+}
+
+.divider {
+  height: 1px;
+  background: var(--line);
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

@@ -1,0 +1,100 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import '../../styles/prose.css';
+import { breadcrumbSchema, faqSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const cases = await getCollection('useCases', ({ data }) => !data.draft);
+  return cases.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const faqs = entry.data.faqs ?? [];
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Use cases', path: '/use-cases' },
+  { name: entry.data.title, path: `/use-cases/${entry.id}` },
+]);
+
+const schemas = faqs.length ? [crumbs, faqSchema(faqs)] : [crumbs];
+---
+
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  image={`/og/use-cases/${entry.id}.png`}
+  schemas={schemas}
+>
+  <PageHero narrow title={entry.data.title} lead={entry.data.summary}>
+    <a slot="actions" href="/contact" class="btn btn-primary">Book a call</a>
+    <a slot="actions" href="/how-it-works" class="btn btn-ghost">How it works</a>
+  </PageHero>
+
+  <section class="section">
+    <div class="container container-narrow">
+      <div class="prose"><Content /></div>
+    </div>
+  </section>
+
+  {
+    faqs.length > 0 && (
+      <section class="section-tight section-soft">
+        <div class="container container-narrow">
+          <h2 class="faq-title">Frequently asked questions</h2>
+          <div class="faq">
+            {faqs.map((f) => (
+              <details class="faq-item">
+                <summary>{f.question}</summary>
+                <p>{f.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .faq-title {
+    margin-bottom: var(--space-2);
+  }
+  .faq {
+    border-top: 1px solid var(--line);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: var(--space-4) 0;
+    font-weight: 560;
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item summary::after {
+    content: '+';
+    color: var(--red);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .faq-item[open] summary::after {
+    content: '–';
+  }
+  .faq-item p {
+    padding-bottom: var(--space-4);
+    color: var(--muted);
+  }
+</style>

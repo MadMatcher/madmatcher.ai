@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { breadcrumbSchema } from '../lib/schema';
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Why MadMatcher', path: '/why-madmatcher' },
+]);
+
+// Differentiators by approach — never by named competitor.
+const points = [
+  {
+    title: 'Trainable to your domain',
+    body: 'MatchFlow learns a matcher from your labeled pairs, rather than applying one fixed pretrained model. Accuracy improves as you add labels.',
+  },
+  {
+    title: 'Runs in your infrastructure',
+    body: 'Everything runs in your own Spark or single-machine environment. Your data does not leave your perimeter for a vendor cloud.',
+  },
+  {
+    title: 'Blocking that is benchmarked',
+    body: 'Sparkly’s TF/IDF blocking was published at VLDB 2023 and outperforms eight state-of-the-art blocking solutions. The method and benchmarks are public.',
+  },
+  {
+    title: 'Composable by design',
+    body: 'Use one tool or all three. MadMatcher slots into your existing pipeline instead of making you adopt a full platform.',
+  },
+];
+
+---
+
+<BaseLayout
+  title="Why MadMatcher"
+  description="MadMatcher is trainable to your domain, runs in your own infrastructure, uses benchmarked blocking (VLDB 2023), and composes into your stack. Here is where it fits, and where it does not."
+  schemas={[crumbs]}
+>
+  <PageHero
+    title="Why teams choose MadMatcher."
+    lead="We compare on approach rather than on logos. Four things MadMatcher does differently."
+  />
+
+  <section class="section">
+    <div class="container points">
+      {
+        points.map((p) => (
+          <div class="point">
+            <h2>{p.title}</h2>
+            <p class="mt-2">{p.body}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section section-ink">
+    <div class="container">
+      <div class="section-head">
+        <h2>Backed by published research.</h2>
+        <p class="lead" style="color:#c7c7cc">
+          The blocking core was introduced and benchmarked in a peer-reviewed VLDB 2023
+          paper, and builds on a decade of work from UW–Madison’s Magellan group. You can
+          read the method and the numbers yourself.
+        </p>
+      </div>
+      <div class="btn-row">
+        <a href="/compare" class="btn btn-primary">Compare approaches</a>
+        <a href="/products" class="btn btn-ghost">See the tools</a>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .points {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12) var(--space-16);
+    max-width: 880px;
+  }
+  .point h2 {
+    font-size: var(--text-xl);
+  }
+  .point p {
+    color: var(--ink-soft);
+  }
+  .not-card {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: var(--radius-lg);
+    padding: var(--space-6);
+    background: var(--bg-ink-soft);
+  }
+  .not-card h3 {
+    font-size: var(--text-lg);
+    color: #fff;
+  }
+  .not-card p {
+    color: #a8a8ad;
+    margin-top: var(--space-2);
+    font-size: var(--text-sm);
+  }
+  @media (max-width: 680px) {
+    .points {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+</style>

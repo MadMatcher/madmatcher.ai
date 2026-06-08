@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const terms = (await getCollection('glossary', ({ data }) => !data.draft)).sort((a, b) =>
+  a.data.term.localeCompare(b.data.term)
+);
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Glossary', path: '/glossary' },
+]);
+---
+
+<BaseLayout
+  title="Entity matching glossary"
+  description="Clear definitions of entity matching terms: entity resolution, record linkage, blocking, matching, active learning, deduplication, and more."
+  schemas={[crumbs]}
+>
+  <PageHero
+    title="The entity matching vocabulary."
+    lead="Plain-language definitions of the terms you’ll meet across this site and the field. Each links to a fuller explanation."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {
+          terms.map((t) => (
+            <a href={`/glossary/${t.id}/`} class="card card-hover g-card">
+              <h3>{t.data.term}</h3>
+              {t.data.aka.length > 0 && <div class="g-aka">also: {t.data.aka.join(', ')}</div>}
+              <p class="muted mt-2">{t.data.definition}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBand heading="Want the applied version?" blurb="See how these concepts turn into a working pipeline." />
+</BaseLayout>
+
+<style>
+  .g-card {
+    padding: var(--space-6);
+    display: block;
+  }
+  .g-card h3 {
+    font-size: var(--text-lg);
+  }
+  .g-aka {
+    font-size: var(--text-xs);
+    color: var(--red);
+    margin-top: 4px;
+    font-weight: 540;
+  }
+  .g-card p {
+    font-size: var(--text-sm);
+  }
+</style>
