@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { breadcrumbSchema } from '../lib/schema';
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'How it works', path: '/how-it-works' },
+]);
+
+const stages = [
+  {
+    n: '1',
+    key: 'Block',
+    tool: 'Sparkly · Delex',
+    body: 'Comparing every pair of records is quadratic and infeasible past modest sizes. Blocking narrows two tables to a small set of candidate pairs. Sparkly does this with top-k TF/IDF similarity; Delex combines multiple blocking strategies. What blocking drops, matching can never recover, so blocking is tuned for recall.',
+  },
+  {
+    n: '2',
+    key: 'Label',
+    tool: 'MatchFlow',
+    body: 'A learned matcher needs labeled examples. If you have none, MatchFlow’s active learning selects a small, informative sample from the candidate set (typically about 600 pairs) for you to label using a CLI or web labeler. You can also bring your own labels.',
+  },
+  {
+    n: '3',
+    key: 'Match',
+    tool: 'MatchFlow',
+    body: 'MatchFlow turns labeled pairs into feature vectors, trains a classifier (from scikit-learn or PySpark MLlib), and applies it to the full blocking output to predict match or no-match. It runs on pandas for small data or Spark for large.',
+  },
+];
+---
+
+<BaseLayout
+  title="How it works"
+  description="Entity matching in MadMatcher has two steps. Blocking (Sparkly, Delex) narrows two tables to candidate pairs, and matching (MatchFlow) classifies each pair, with active learning to build training data."
+  schemas={[crumbs]}
+>
+  <PageHero
+    title="Block, then match."
+    lead="Entity matching is two steps. Blocking narrows two tables to candidate pairs; matching decides which pairs are real. MatchFlow adds a labeling step when you don’t have training data."
+  />
+
+  <section class="section">
+    <div class="container stages">
+      {
+        stages.map((s) => (
+          <div class="stage">
+            <div class="stage-n mono">{s.n}</div>
+            <div>
+              <div class="stage-top">
+                <h2>{s.key}</h2>
+                <span class="stage-tool mono">{s.tool}</span>
+              </div>
+              <p class="mt-2">{s.body}</p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="section-tight section-soft">
+    <div class="container next-row">
+      <a href="/products" class="next-link">See the tools <span>→</span></a>
+      <a href="/docs/quickstart" class="next-link">Run the quickstart <span>→</span></a>
+      <a href="/glossary" class="next-link">Glossary of terms <span>→</span></a>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .stages {
+    display: grid;
+    gap: var(--space-12);
+    max-width: 720px;
+  }
+  .stage {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: var(--space-6);
+  }
+  .stage-n {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--red);
+    color: var(--red);
+    font-weight: 600;
+  }
+  .stage-top {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+  }
+  .stage-top h2 {
+    font-size: var(--text-2xl);
+  }
+  .stage-tool {
+    font-size: var(--text-xs);
+    color: var(--muted);
+  }
+  .stage p {
+    color: var(--ink-soft);
+    font-size: var(--text-lg);
+    max-width: 60ch;
+  }
+  .next-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-8);
+  }
+  .next-link {
+    font-weight: 540;
+  }
+  .next-link span {
+    color: var(--red);
+  }
+  .next-link:hover {
+    color: var(--red);
+  }
+  @media (max-width: 620px) {
+    .stage {
+      grid-template-columns: 36px 1fr;
+      gap: var(--space-4);
+    }
+    .stage-n {
+      width: 36px;
+      height: 36px;
+    }
+  }
+</style>

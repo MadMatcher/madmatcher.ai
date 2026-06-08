@@ -1,3 +1,26 @@
-# https://www.robotstxt.org/robotstxt.html
+# MadMatcher — https://madmatcher.ai
+# Crawlers and AI engines are welcome. Content is server-rendered HTML.
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Major AI / answer-engine crawlers (GEO) — explicitly welcomed.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://madmatcher.ai/sitemap-index.xml

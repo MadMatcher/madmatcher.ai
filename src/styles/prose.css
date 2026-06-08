@@ -1,0 +1,119 @@
+/* Long-form content (blog, docs, use-cases, glossary). */
+.prose {
+  font-size: var(--text-lg);
+  line-height: 1.75;
+  color: var(--ink-soft);
+  max-width: 70ch;
+}
+.prose > * + * {
+  margin-top: var(--space-5, 1.25rem);
+}
+.prose h2 {
+  font-size: var(--text-2xl);
+  margin-top: var(--space-12);
+  color: var(--ink);
+}
+.prose h3 {
+  font-size: var(--text-xl);
+  margin-top: var(--space-8);
+  color: var(--ink);
+}
+.prose h2 + p,
+.prose h3 + p {
+  margin-top: var(--space-3);
+}
+.prose a {
+  color: var(--red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+.prose a:hover {
+  text-decoration-thickness: 2px;
+}
+.prose strong {
+  color: var(--ink);
+  font-weight: 640;
+}
+.prose ul,
+.prose ol {
+  padding-left: 1.3rem;
+}
+.prose li + li {
+  margin-top: var(--space-2);
+}
+.prose ul {
+  list-style: none;
+  padding-left: 0;
+}
+.prose ul > li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.prose ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--red);
+}
+.prose blockquote {
+  border-left: 3px solid var(--red);
+  padding-left: var(--space-5);
+  font-size: var(--text-xl);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.prose code {
+  background: var(--bg-soft);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.88em;
+  color: var(--ink);
+}
+.prose pre {
+  background: var(--bg-ink);
+  color: #e6e6e9;
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  font-size: 0.9rem;
+  line-height: 1.75;
+}
+.prose pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+}
+.prose img {
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin-block: var(--space-8);
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  display: block;
+  overflow-x: auto;
+}
+.prose th,
+.prose td {
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.prose th {
+  color: var(--ink);
+  font-weight: 600;
+  border-bottom: 1.5px solid var(--line-strong);
+  white-space: nowrap;
+}

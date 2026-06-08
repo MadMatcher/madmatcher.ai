@@ -1,0 +1,30 @@
+---
+import { CONTACT, SOCIAL } from '../consts';
+interface Props {
+  heading?: string;
+  blurb?: string;
+}
+const {
+  heading = 'Have a matching problem?',
+  blurb = 'Book a call to scope it with the team, or explore the code on GitHub.',
+} = Astro.props;
+---
+
+<section class="section section-ink cta-band">
+  <div class="container text-center">
+    <h2>{heading}</h2>
+    <p class="lead cta-blurb">{blurb}</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a href={CONTACT.calendar} class="btn btn-primary" target="_blank" rel="noopener">Book a call</a>
+      <a href={SOCIAL.github} class="btn btn-ghost" target="_blank" rel="noopener">View on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-blurb {
+    color: #c7c7cc;
+    max-width: 52ch;
+    margin: var(--space-4) auto var(--space-8);
+  }
+</style>

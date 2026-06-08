@@ -1,0 +1,153 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import '../../styles/prose.css';
+import { breadcrumbSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('docs', ({ data }) => !data.draft);
+  const sorted = docs.sort((a, b) => a.data.order - b.data.order);
+  return sorted.map((entry, i) => ({
+    params: { slug: entry.id },
+    props: { entry, sorted, index: i },
+  }));
+}
+
+const { entry, sorted, index } = Astro.props;
+const { Content } = await render(entry);
+const prev = sorted[index - 1];
+const next = sorted[index + 1];
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'Docs', path: '/docs' },
+  { name: entry.data.title, path: `/docs/${entry.id}` },
+]);
+---
+
+<BaseLayout
+  title={entry.data.title}
+  description={entry.data.description}
+  image={`/og/docs/${entry.id}.png`}
+  schemas={[crumbs]}
+>
+  <div class="container docs-shell">
+    <aside class="docs-nav">
+      <a href="/docs" class="docs-nav-home mono">← All docs</a>
+      <nav>
+        {sorted.map((d) => (
+          <a
+            href={`/docs/${d.id}/`}
+            class:list={['docs-nav-link', { active: d.id === entry.id }]}
+          >
+            {d.data.title}
+          </a>
+        ))}
+      </nav>
+    </aside>
+
+    <article class="docs-article">
+      <h1>{entry.data.title}</h1>
+      <p class="lead docs-lead">{entry.data.description}</p>
+      <div class="prose"><Content /></div>
+
+      <nav class="docs-pager">
+        {prev ? <a href={`/docs/${prev.id}/`} class="pager-link"><span class="mono">← Previous</span><span>{prev.data.title}</span></a> : <span></span>}
+        {next ? <a href={`/docs/${next.id}/`} class="pager-link right"><span class="mono">Next →</span><span>{next.data.title}</span></a> : <span></span>}
+      </nav>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .docs-shell {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: var(--space-12);
+    padding-block: var(--space-12) var(--space-24);
+    align-items: start;
+  }
+  .docs-nav {
+    position: sticky;
+    top: 88px;
+  }
+  .docs-nav-home {
+    display: block;
+    color: var(--muted);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+  }
+  .docs-nav nav {
+    display: grid;
+    gap: var(--space-1);
+    border-left: 1px solid var(--line);
+  }
+  .docs-nav-link {
+    padding: 0.4rem 0 0.4rem var(--space-4);
+    margin-left: -1px;
+    border-left: 2px solid transparent;
+    font-size: var(--text-sm);
+    color: var(--ink-soft);
+  }
+  .docs-nav-link:hover {
+    color: var(--ink);
+  }
+  .docs-nav-link.active {
+    color: var(--red);
+    border-left-color: var(--red);
+    font-weight: 560;
+  }
+  .docs-article h1 {
+    font-size: clamp(2rem, 1.3rem + 2.6vw, var(--text-4xl));
+  }
+  .docs-lead {
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-8);
+  }
+  .docs-pager {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-4);
+    margin-top: var(--space-16);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--line);
+  }
+  .pager-link {
+    display: grid;
+    gap: 2px;
+    font-weight: 560;
+  }
+  .pager-link.right {
+    text-align: right;
+  }
+  .pager-link .mono {
+    color: var(--muted);
+    font-size: var(--text-xs);
+    font-weight: 400;
+  }
+  .pager-link:hover {
+    color: var(--red);
+  }
+  @media (max-width: 820px) {
+    .docs-shell {
+      grid-template-columns: 1fr;
+    }
+    .docs-nav {
+      position: static;
+    }
+    .docs-nav nav {
+      display: flex;
+      flex-wrap: wrap;
+      border-left: 0;
+      gap: var(--space-2);
+    }
+    .docs-nav-link {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+    }
+    .docs-nav-link.active {
+      border-color: var(--red);
+    }
+  }
+</style>

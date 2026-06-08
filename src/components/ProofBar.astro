@@ -1,0 +1,63 @@
+---
+import { PROOF } from '../consts';
+---
+
+<div class="proof-bar">
+  {
+    PROOF.map((p) => (
+      <div class="proof-item">
+        <div class="proof-value mono">{p.value}</div>
+        <div class="proof-label">{p.label}</div>
+        <div class="proof-sub">{p.sub}</div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .proof-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--bg);
+    padding: var(--space-8);
+    box-shadow: var(--shadow-sm);
+  }
+  .proof-item {
+    padding-inline: var(--space-2);
+  }
+  .proof-item + .proof-item {
+    border-left: 1px solid var(--line);
+    padding-left: var(--space-6);
+  }
+  .proof-value {
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+  .proof-label {
+    margin-top: var(--space-1);
+    font-weight: 560;
+    font-size: var(--text-sm);
+  }
+  .proof-sub {
+    color: var(--muted);
+    font-size: var(--text-xs);
+    margin-top: 2px;
+  }
+  @media (max-width: 720px) {
+    .proof-bar {
+      grid-template-columns: 1fr;
+      gap: var(--space-5, 1.25rem);
+    }
+    .proof-item + .proof-item {
+      border-left: 0;
+      border-top: 1px solid var(--line);
+      padding-left: var(--space-2);
+      padding-top: var(--space-4);
+    }
+  }
+</style>

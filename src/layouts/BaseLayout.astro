@@ -1,0 +1,61 @@
+---
+import '../styles/global.css';
+import BaseHead from '../components/BaseHead.astro';
+import Analytics from '../components/Analytics.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
+import { organizationSchema, webSiteSchema } from '../lib/schema';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  /** Extra page-specific JSON-LD objects. */
+  schemas?: Record<string, unknown>[];
+}
+
+const { schemas = [], ...head } = Astro.props;
+const siteSchemas = [organizationSchema(), webSiteSchema(), ...schemas];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead {...head} />
+    {siteSchemas.map((s) => <JsonLd schema={s} />)}
+    <Analytics />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Privacy-respecting analytics placeholder. Swap in Plausible/Vercel/GA. -->
+    <slot name="analytics" />
+  </body>
+</html>
+
+<style is:global>
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-sm);
+    z-index: 100;
+  }
+  .skip-link:focus {
+    left: var(--space-4);
+    top: var(--space-4);
+  }
+</style>

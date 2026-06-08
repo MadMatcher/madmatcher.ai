@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { breadcrumbSchema, faqSchema, definedTermSchema } from '../../lib/schema';
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Entity matching', path: '/about/entity-matching' },
+]);
+
+const term = definedTermSchema({
+  term: 'Entity matching',
+  definition:
+    'Entity matching (also called entity resolution or record linkage) is the task of identifying records that refer to the same real-world entity, across or within datasets, even when those records are not identical.',
+  url: '/about/entity-matching',
+});
+
+const faqs = [
+  {
+    question: 'What is entity matching?',
+    answer:
+      'Entity matching identifies which records refer to the same real-world entity, across or within datasets, even when the records differ in formatting, spelling, or completeness. It is also called entity resolution or record linkage.',
+  },
+  {
+    question: 'What is the difference between entity matching, entity resolution, and record linkage?',
+    answer:
+      'They mean the same thing. "Record linkage" is common in statistics and healthcare, "entity resolution" in computer science, and "entity matching" in data engineering.',
+  },
+  {
+    question: 'Why is entity matching hard?',
+    answer:
+      'The same entity appears with different spellings, formats, and missing fields, so exact comparison misses matches. Comparing every pair of records is also quadratic, so it needs efficient blocking plus a model that tolerates noise.',
+  },
+];
+
+const uses = [
+  { t: 'Customer 360', d: 'Unify customer records across CRM, billing, and support.' },
+  { t: 'Product catalogs', d: 'Deduplicate and reconcile listings from many suppliers.' },
+  { t: 'Healthcare records', d: 'Link patient records across systems with mismatched IDs.' },
+  { t: 'Compliance screening', d: 'Match entities against watchlists despite name variation.' },
+];
+---
+
+<BaseLayout
+  title="What is entity matching?"
+  description="Entity matching (entity resolution, record linkage) identifies records that refer to the same real-world entity across messy datasets. What it is, why it's hard, and how it works at scale."
+  schemas={[crumbs, term, faqSchema(faqs)]}
+>
+  <PageHero narrow title="What is entity matching?" />
+
+  <article class="section">
+    <div class="container container-narrow prose-page">
+      <p class="definition">
+        <strong>Entity matching</strong> is the task of identifying records that refer to the
+        same real-world entity, across or within datasets, even when those records aren’t
+        identical. It’s also called <strong>entity resolution</strong> or
+        <strong>record linkage</strong>.
+      </p>
+
+      <h2>Why it’s hard</h2>
+      <p>
+        The same entity shows up with typos and missing fields, so exact joins miss matches
+        and create duplicates. Comparing every pair of records grows quadratically, so brute
+        force fails well before the scale that matters. Accurate matching needs an efficient
+        way to narrow which pairs to compare and a model good enough to decide the hard cases.
+      </p>
+
+      <h2>The two steps</h2>
+      <p>
+        <strong>Blocking</strong> generates a small set of candidate pairs (the records that
+        plausibly match) so you never compare all pairs. <strong>Matching</strong> then
+        classifies each candidate pair as a match or not. Blocking quality caps recall;
+        matching quality determines precision. When a matcher is learned, a labeling step adds
+        the training examples it needs.
+        <a href="/how-it-works">How the steps fit together →</a>
+      </p>
+
+      <h2>Where it’s used</h2>
+      <div class="use-grid">
+        {uses.map((u) => (
+          <div class="use-item">
+            <h3>{u.t}</h3>
+            <p class="muted">{u.d}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2>At scale</h2>
+      <p>
+        Matching a few thousand rows is easy. Matching hundreds of millions needs distributed
+        blocking and a matcher that runs in parallel, without hand-labeling a huge training
+        set. That’s what MadMatcher’s tools are built for.
+        <a href="/why-madmatcher">Why MadMatcher’s approach →</a>
+      </p>
+
+      <h2>Common questions</h2>
+      <div class="faq">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.question}</summary>
+            <p>{f.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </article>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .prose-page :is(h2) {
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-3);
+  }
+  .prose-page p {
+    color: var(--ink-soft);
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    margin-bottom: var(--space-4);
+  }
+  .prose-page a {
+    color: var(--red);
+  }
+  .prose-page a:hover {
+    text-decoration: underline;
+  }
+  .definition {
+    font-size: var(--text-xl) !important;
+    color: var(--ink) !important;
+    border-left: 3px solid var(--red);
+    padding-left: var(--space-4);
+  }
+  .use-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    margin: var(--space-6) 0;
+  }
+  .use-item {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: var(--space-4);
+  }
+  .use-item h3 {
+    font-size: var(--text-base);
+  }
+  .use-item p {
+    font-size: var(--text-sm) !important;
+    margin: 0;
+  }
+  .faq {
+    border-top: 1px solid var(--line);
+    margin-top: var(--space-6);
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    padding: var(--space-4) 0;
+    font-weight: 560;
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item p {
+    padding-bottom: var(--space-4);
+    font-size: var(--text-base) !important;
+    color: var(--muted) !important;
+  }
+  @media (max-width: 620px) {
+    .use-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

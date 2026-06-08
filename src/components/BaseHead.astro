@@ -1,0 +1,92 @@
+---
+/**
+ * Centralized <head>: per-page title, description, canonical, OpenGraph +
+ * Twitter cards. Everything here is server-rendered into static HTML, so
+ * crawlers and AI engines see it without executing JavaScript.
+ */
+import { SITE } from '../consts';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Path or absolute URL to the social share image. */
+  image?: string;
+  /** Override the canonical URL (defaults to the current page). */
+  canonical?: string;
+  type?: 'website' | 'article';
+  noindex?: boolean;
+  /** Publication / update dates for article pages. */
+  publishedTime?: string;
+  modifiedTime?: string;
+}
+
+const {
+  title,
+  description = SITE.description,
+  image = '/og/default.png',
+  canonical,
+  type = 'website',
+  noindex = false,
+  publishedTime,
+  modifiedTime,
+} = Astro.props;
+
+const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} · ${SITE.tagline}`;
+const canonicalURL = canonical
+  ? new URL(canonical, SITE.url).href
+  : new URL(Astro.url.pathname, SITE.url).href;
+const imageURL = new URL(image, SITE.url).href;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#161617" />
+<meta name="generator" content={Astro.generator} />
+
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalURL} />
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Icons -->
+<link rel="icon" type="image/svg+xml" href="/logo-mark.svg" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<!-- OpenGraph -->
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:image" content={imageURL} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content={SITE.locale} />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageURL} />
+{SITE.twitterHandle && <meta name="twitter:site" content={SITE.twitterHandle} />}
+
+<!-- Fonts: preconnect + display-swap so text paints immediately -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;560;680;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+  media="print"
+  onload="this.media='all'"
+/>
+<noscript>
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;560;680;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+  />
+</noscript>

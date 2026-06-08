@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { breadcrumbSchema } from '../../lib/schema';
+
+const crumbs = breadcrumbSchema([
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+]);
+
+const milestones = [
+  { year: '2016', text: 'py_entitymatching, the Magellan group’s end-to-end EM toolkit (VLDB 2016).' },
+  { year: '2018', text: 'CloudMatcher scales entity matching in the cloud (VLDB 2018).' },
+  { year: '2023', text: 'Sparkly: TF/IDF blocking that outperforms eight state-of-the-art solutions (VLDB 2023).' },
+  { year: '2026', text: 'MadMatcher LLC founded to package this research into tools data teams can run.' },
+];
+---
+
+<BaseLayout
+  title="About"
+  description="MadMatcher LLC packages entity-matching research from UW–Madison’s Magellan Data Management Group into tools that run in your own infrastructure."
+  schemas={[crumbs]}
+>
+  <PageHero
+    title="Entity-matching research, packaged as tools."
+    lead="MadMatcher LLC builds on a decade of work from UW–Madison’s Magellan Data Management Group, turning it into software a data team can run."
+  >
+    <a slot="actions" href="/about/team" class="btn btn-primary">Team</a>
+    <a slot="actions" href="/about/entity-matching" class="btn btn-ghost">What is entity matching?</a>
+  </PageHero>
+
+  <section class="section">
+    <div class="container two-col">
+      <div class="prose-block">
+        <p>
+          MadMatcher was founded in 2026 by Dev Ahluwalia. It packages the Magellan group’s
+          entity-matching research, including Sparkly, Delex, and MatchFlow, into tools a
+          data team can run, with a commercial tier on top.
+        </p>
+        <p>
+          The work is split into the two steps of entity matching: blocking (Sparkly, Delex)
+          and matching (MatchFlow). It runs in your own Spark or single-machine environment,
+          so your data stays where it is.
+        </p>
+      </div>
+      <aside class="timeline card">
+        <div class="eyebrow">Lineage</div>
+        <ul class="timeline-list mt-4">
+          {milestones.map((m) => (
+            <li>
+              <span class="t-year mono">{m.year}</span>
+              <span class="t-text">{m.text}</span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <CtaBand heading="Questions?" blurb="Reach out to the team about the tools, the research, or a problem you’re working on." />
+</BaseLayout>
+
+<style>
+  .two-col {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: var(--space-16);
+    align-items: start;
+  }
+  .prose-block p {
+    color: var(--ink-soft);
+    font-size: var(--text-lg);
+    line-height: 1.7;
+  }
+  .prose-block p + p {
+    margin-top: var(--space-4);
+  }
+  .timeline {
+    background: var(--bg-soft);
+  }
+  .timeline-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--space-4);
+  }
+  .timeline-list li {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: var(--space-3);
+    font-size: var(--text-sm);
+  }
+  .t-year {
+    color: var(--red);
+    font-weight: 600;
+  }
+  .t-text {
+    color: var(--ink-soft);
+  }
+  @media (max-width: 820px) {
+    .two-col {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+</style>
