@@ -7,9 +7,6 @@
 /dist
 /.astro
 
-# legacy CRA production build (kept for reference, not built here)
-/build
-
 # testing
 /coverage
 

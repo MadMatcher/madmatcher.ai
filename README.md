@@ -4,8 +4,6 @@ The marketing + content site for [madmatcher.ai](https://madmatcher.ai). Built w
 [Astro](https://astro.build) for fast, **server-rendered HTML** that search engines and
 AI answer engines can read without executing JavaScript — the foundation for SEO and GEO.
 
-> The previous Create React App SPA lives in [`legacy-cra/`](./legacy-cra) for reference.
-
 ## Stack
 
 - **Astro 5** (static output) — real HTML per page, zero client JS by default
