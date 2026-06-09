@@ -34,6 +34,10 @@ function bind(f: HTMLFormElement) {
         status.textContent = f.dataset.sfSuccess || 'Thanks, got it.';
         status.classList.add('is-ok');
       }
+      const phEvent = f.dataset.posthogEvent;
+      if (phEvent) {
+        (window as any).posthog?.capture(phEvent);
+      }
       f.reset();
     } catch {
       if (status) {

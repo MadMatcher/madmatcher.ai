@@ -28,3 +28,20 @@ const {
     margin: var(--space-4) auto var(--space-8);
   }
 </style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var band = document.querySelector('.cta-band');
+    if (!band) return;
+    band.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.posthog?.capture('book_call_clicked', { source: 'cta_band' });
+      });
+    });
+    band.querySelectorAll('a[href*="github.com"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.posthog?.capture('github_clicked', { source: 'cta_band' });
+      });
+    });
+  });
+</script>

@@ -31,6 +31,13 @@ const columns = [
       { label: 'Contact', href: '/contact' },
     ],
   },
+  {
+    title: 'Legal',
+    links: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+    ],
+  },
 ];
 ---
 
@@ -78,6 +85,9 @@ const columns = [
 
   <div class="container footer-base">
     <p>© {year} {SITE.legalName}. All rights reserved.</p>
+    <button type="button" class="cookie-prefs" onclick="window.openCookiePrefs && window.openCookiePrefs()">
+      Cookie preferences
+    </button>
   </div>
 </footer>
 
@@ -89,8 +99,8 @@ const columns = [
   }
   .footer-inner {
     display: grid;
-    grid-template-columns: 1.6fr repeat(3, 1fr);
-    gap: var(--space-12);
+    grid-template-columns: 1.6fr repeat(4, 1fr);
+    gap: var(--space-8);
   }
   .footer-brand .brand {
     display: inline-flex;
@@ -150,6 +160,18 @@ const columns = [
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: var(--text-xs);
     color: #8e8e93;
+  }
+  .cookie-prefs {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    font-size: var(--text-xs);
+    color: #8e8e93;
+    cursor: pointer;
+  }
+  .cookie-prefs:hover {
+    color: #fff;
   }
   @media (max-width: 820px) {
     .footer-inner {

@@ -1,0 +1,104 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { SITE, CONTACT } from '../consts';
+
+const updated = 'June 9, 2026';
+---
+
+<LegalLayout
+  title="Terms of Service"
+  description="The terms governing your use of the MadMatcher website, madmatcher.ai."
+  updated={updated}
+>
+  <p>
+    These Terms of Service (“Terms”) govern your use of
+    <a href={SITE.url}>madmatcher.ai</a> (the “Site”), operated by
+    {SITE.legalName} (“MadMatcher,” “we,” “us,” or “our”). By accessing or using
+    the Site, you agree to these Terms. If you do not agree, please do not use
+    the Site.
+  </p>
+
+  <h2 id="about">1. About the Site</h2>
+  <p>
+    The Site is an informational website about MadMatcher and its products and
+    services. Its content is provided for general information and may change
+    without notice.
+  </p>
+
+  <h2 id="acceptable-use">2. Acceptable Use</h2>
+  <p>
+    You agree not to use the Site for any unlawful purpose, attempt to gain
+    unauthorized access to it, disrupt it, scrape it except as permitted by our
+    <a href="/robots.txt">robots</a> directives, or misrepresent your affiliation
+    with MadMatcher.
+  </p>
+
+  <h2 id="ip">3. Intellectual Property</h2>
+  <p>
+    The Site’s content and marks are owned by MadMatcher or its licensors. You may
+    not copy, reproduce, or create derivative works from them without our
+    permission, other than ordinary personal or internal reference use.
+  </p>
+
+  <h2 id="no-advice">4. No Professional Advice</h2>
+  <p>
+    Site content is for informational purposes only and is not professional
+    advice. Any commercial engagement with MadMatcher is governed by a separate
+    written agreement, not these Terms.
+  </p>
+
+  <h2 id="third-party">5. Third-Party Links</h2>
+  <p>
+    The Site links to third-party services we don’t control and aren’t
+    responsible for. Your use of them is subject to their own terms.
+  </p>
+
+  <h2 id="availability">6. Availability</h2>
+  <p>
+    We don’t guarantee the Site will be uninterrupted or error-free, and may
+    modify or discontinue any part of it at any time.
+  </p>
+
+  <h2 id="warranties">7. Disclaimer of Warranties</h2>
+  <p>
+    THE SITE AND ITS CONTENT ARE PROVIDED “AS IS” AND “AS AVAILABLE” WITHOUT
+    WARRANTIES OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING IMPLIED
+    WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+    NON-INFRINGEMENT.
+  </p>
+
+  <h2 id="liability">8. Limitation of Liability</h2>
+  <p>
+    TO THE FULLEST EXTENT PERMITTED BY LAW, MADMATCHER WILL NOT BE LIABLE FOR ANY
+    INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, OR ANY LOSS
+    OF PROFITS OR DATA, ARISING FROM OR RELATING TO YOUR USE OF THE SITE.
+  </p>
+
+  <h2 id="indemnification">9. Indemnification</h2>
+  <p>
+    You agree to indemnify and hold harmless MadMatcher from any claims, damages,
+    or expenses arising out of your use of the Site or your violation of these
+    Terms.
+  </p>
+
+  <h2 id="governing-law">10. Governing Law</h2>
+  <p>
+    These Terms are governed by the laws of the State of Maryland, United States,
+    and you agree to the exclusive jurisdiction of its state and federal courts
+    for any dispute arising from these Terms or the Site.
+  </p>
+
+  <h2 id="changes">11. Changes to These Terms</h2>
+  <p>
+    We may update these Terms from time to time; the date above shows the latest
+    version. Your continued use of the Site constitutes acceptance of the revised
+    Terms.
+  </p>
+
+  <h2 id="contact">12. Contact Us</h2>
+  <p>
+    Questions about these Terms? Email
+    <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
+  </p>
+  <p>{SITE.legalName}<br />306 W Redwood St, Ste 201<br />Baltimore, MD 21201, United States</p>
+</LegalLayout>

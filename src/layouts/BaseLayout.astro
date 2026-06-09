@@ -4,6 +4,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Analytics from '../components/Analytics.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ConsentBanner from '../components/ConsentBanner.astro';
 import JsonLd from '../components/JsonLd.astro';
 import { organizationSchema, webSiteSchema } from '../lib/schema';
 
@@ -37,9 +38,7 @@ const siteSchemas = [organizationSchema(), webSiteSchema(), ...schemas];
       <slot />
     </main>
     <Footer />
-
-    <!-- Privacy-respecting analytics placeholder. Swap in Plausible/Vercel/GA. -->
-    <slot name="analytics" />
+    <ConsentBanner />
   </body>
 </html>
 

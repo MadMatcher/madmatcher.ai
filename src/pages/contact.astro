@@ -14,7 +14,7 @@ const SF_KEY = import.meta.env.PUBLIC_STATICFORMS_API_KEY ?? '';
 
 <BaseLayout
   title="Contact"
-  description="Get in touch with MadMatcher to ask a question, scope a consulting engagement, or book a call to work through an entity-matching problem."
+  description="Get in touch with MadMatcher to ask a question, scope a consulting engagement, or book a call to work through an entity matching problem."
   schemas={[crumbs]}
 >
   <PageHero
@@ -56,6 +56,7 @@ const SF_KEY = import.meta.env.PUBLIC_STATICFORMS_API_KEY ?? '';
           class="contact-form mt-6"
           data-sf-form
           data-sf-success="Thanks. Your message is on its way, and we’ll be in touch."
+          data-posthog-event="contact_message_sent"
           action="https://api.staticforms.dev/submit"
           method="POST"
         >
@@ -177,4 +178,19 @@ const SF_KEY = import.meta.env.PUBLIC_STATICFORMS_API_KEY ?? '';
 
 <script>
   import '../scripts/staticforms.ts';
+</script>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.posthog?.capture('book_call_clicked', { source: 'contact_paths' });
+      });
+    });
+    document.querySelectorAll('a[href*="github.com"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.posthog?.capture('github_clicked', { source: 'contact_paths' });
+      });
+    });
+  });
 </script>
