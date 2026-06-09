@@ -205,6 +205,29 @@ const matching = PRODUCTS.filter((p) => p.step === 'Matching');
   <CtaBand />
 </BaseLayout>
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    var heroCta = document.querySelector('.hero-cta');
+    if (heroCta) {
+      heroCta.querySelectorAll('a[href*="calendar.app.google"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          window.posthog?.capture('book_call_clicked', { source: 'hero' });
+        });
+      });
+      heroCta.querySelectorAll('a[href*="github.com"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          window.posthog?.capture('github_clicked', { source: 'hero' });
+        });
+      });
+    }
+    document.querySelectorAll('.research-btn').forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.posthog?.capture('research_paper_clicked');
+      });
+    });
+  });
+</script>
+
 <style>
   /* ---------------- hero ---------------- */
   .hero {

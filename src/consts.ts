@@ -34,7 +34,7 @@ export const NAV: { label: string; href: string }[] = [
 /** Homepage proof points. */
 export const PROOF = [
   { value: '100M+', label: 'records per table', sub: 'scales out with your cluster' },
-  { value: '8', label: 'leading blockers it beats', sub: 'peer-reviewed, PVLDB 2023' },
+  { value: '8', label: 'leading blockers it beats', sub: 'peer-reviewed, VLDB 2023' },
   { value: '0', label: 'records sent to us', sub: 'runs in your own cloud or cluster' },
 ] as const;
 
@@ -98,13 +98,16 @@ export const CONSULTING = {
 } as const;
 
 export const ANALYTICS = {
-  gaId: 'G-CCB4PBJ4KE',
+  /** PostHog project API key (public, safe to ship). Set PUBLIC_POSTHOG_KEY in .env. */
+  posthogKey: import.meta.env.PUBLIC_POSTHOG_KEY,
+  /** PostHog Cloud ingestion host. Set PUBLIC_POSTHOG_HOST in .env. */
+  posthogHost: import.meta.env.PUBLIC_POSTHOG_HOST ?? 'https://us.i.posthog.com',
 } as const;
 
 /** The research citation. */
 export const CITATION = {
   title: 'Sparkly: A Simple yet Surprisingly Strong TF/IDF Blocker for Entity Matching',
-  venue: 'PVLDB 16(6), 2023',
+  venue: 'VLDB 16(6), 2023',
   url: 'https://pages.cs.wisc.edu/~anhai/papers1/sparkly-vldb2023.pdf',
-  short: 'Paulsen et al., PVLDB 16(6), 2023',
+  short: 'Paulsen et al., VLDB 16(6), 2023',
 } as const;

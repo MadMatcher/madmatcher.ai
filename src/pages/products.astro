@@ -122,6 +122,46 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
   <CtaBand heading="See it on your data." blurb="Book a call to scope your matching problem with the team, or explore the tools and run the quickstart yourself." />
 </BaseLayout>
 
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Pro interest click (scoped to the Pro offer card)
+    document.querySelectorAll('.offer-pro a[href="/contact"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.posthog?.capture('pro_interest_clicked');
+      });
+    });
+
+    // Consulting: book a call from products page
+    document.querySelectorAll('.offer a[href*="calendar.app.google"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.posthog?.capture('book_call_clicked', { source: 'products_consulting' });
+      });
+    });
+
+    // Per-tool GitHub and docs links
+    document.querySelectorAll('.tool').forEach(function (card) {
+      var toolSlug = card.id;
+      card.querySelectorAll('.tool-links a[href*="github.com"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          window.posthog?.capture('github_clicked', { source: 'product_' + toolSlug, tool: toolSlug });
+        });
+      });
+      card.querySelectorAll('.tool-links a[href*="anhaidgroup.github.io"]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          window.posthog?.capture('product_docs_clicked', { tool: toolSlug });
+        });
+      });
+    });
+
+    // Research paper link on products page
+    document.querySelectorAll('.tool-cite a[href*="sparkly-vldb"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.posthog?.capture('research_paper_clicked');
+      });
+    });
+  });
+</script>
+
 <style>
   /* ---------- tool cards (uniform) ---------- */
   .tool {

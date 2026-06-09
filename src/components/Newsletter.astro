@@ -9,7 +9,7 @@ interface Props {
   blurb?: string;
 }
 const {
-  heading = 'Get new entity-matching guides in your inbox',
+  heading = 'Get new entity matching guides in your inbox',
   blurb = 'Occasional and technical, no spam. Release notes and the occasional deep dive when we have them.',
 } = Astro.props;
 
@@ -22,7 +22,7 @@ const SF_KEY = import.meta.env.PUBLIC_STATICFORMS_API_KEY ?? '';
     <p class="muted">{blurb}</p>
   </div>
   <div class="newsletter-side">
-    <form class="newsletter-form" data-sf-form data-sf-success="You’re on the list. Thanks." action="https://api.staticforms.dev/submit" method="post">
+    <form class="newsletter-form" data-sf-form data-sf-success="You’re on the list. Thanks." data-posthog-event="newsletter_subscribed" action="https://api.staticforms.dev/submit" method="post">
       <input type="hidden" name="apiKey" value={SF_KEY} />
       <input type="hidden" name="subject" value="MadMatcher newsletter signup" />
       <input type="hidden" name="redirect" value="false" />

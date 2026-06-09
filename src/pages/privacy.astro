@@ -1,0 +1,80 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { SITE, CONTACT } from '../consts';
+
+const updated = 'June 9, 2026';
+---
+
+<LegalLayout
+  title="Privacy Policy"
+  description="How MadMatcher handles information on madmatcher.ai, including cookies and analytics."
+  updated={updated}
+>
+  <p>
+    This policy explains how {SITE.legalName} (“we”) handles information on
+    <a href={SITE.url}>madmatcher.ai</a>.
+  </p>
+
+  <h2 id="information-we-collect">Information We Collect</h2>
+  <ul>
+    <li>
+      <strong>Information you give us.</strong> If you use our contact form or
+      subscribe to our newsletter, we collect the details you submit, such as
+      your name and email.
+    </li>
+    <li>
+      <strong>Usage data.</strong> With your consent, we use analytics cookies to
+      collect basic usage and device information about your visit. See
+      <a href="#cookies">Cookies</a>.
+    </li>
+  </ul>
+  <p>
+    We use this information to respond to you, send the newsletter you requested,
+    operate and improve the Site, and meet legal obligations.
+  </p>
+
+  <h2 id="cookies">Cookies</h2>
+  <p>
+    Analytics is <strong>off by default</strong> — we don’t set analytics cookies
+    until you accept via the consent banner. You can change your choice anytime
+    using
+    <button type="button" class="link-button" onclick="window.openCookiePrefs && window.openCookiePrefs()">
+      Cookie preferences
+    </button>
+    in the footer.
+  </p>
+
+  <h2 id="sharing">How We Share Information</h2>
+  <p>
+    <strong>We do not sell your personal information.</strong> We share it only
+    with service providers that help us run the Site, and when required by law.
+  </p>
+
+  <h2 id="your-rights">Your Rights</h2>
+  <p>
+    Depending on where you live, you may have the right to access, correct,
+    delete, or receive a copy of your personal information, and to withdraw
+    consent — including rights under the GDPR and CCPA/CPRA. To make a request,
+    email <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>.
+  </p>
+
+  <h2 id="contact">Contact</h2>
+  <p>
+    Questions, or to exercise a right, email
+    <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>. We may update this
+    policy from time to time; the date above shows the latest version.
+  </p>
+  <p>{SITE.legalName}<br />306 W Redwood St, Ste 201<br />Baltimore, MD 21201, United States</p>
+</LegalLayout>
+
+<style>
+  .link-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: var(--red);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+</style>
