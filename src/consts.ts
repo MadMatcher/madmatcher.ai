@@ -13,8 +13,9 @@ export const SITE = {
 } as const;
 
 export const CONTACT = {
-  email: 'dev@hellomadmatcher.com',
-  calendar: 'https://calendar.app.google/sdvV73b2sN7xazWu5',
+  email: 'hello@madmatcher.ai',
+  supportEmail: 'support@madmatcher.ai',
+  calendar: 'https://calendar.app.google/XHJRT4dU5NRGfGb79',
 } as const;
 
 export const SOCIAL = {
