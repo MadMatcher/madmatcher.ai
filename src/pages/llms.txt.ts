@@ -32,7 +32,7 @@ export const GET: APIRoute = async () => {
   lines.push('- Deployment: runs in the customer’s own infrastructure (e.g. your own Spark cluster); no data egress.');
   lines.push(`- Research: ${CITATION.short}. ${CITATION.title}.`);
   lines.push('- Lineage: UW–Madison Magellan Data Management Group.');
-  lines.push(`- Commercial: ${PRO.name}, reliability features for production jobs, e.g. crash recovery and progress tracking (${PRO.status}); ${CONSULTING.name} (${CONSULTING.status}). Pricing via the official contact.`);
+  lines.push(`- Commercial: ${PRO.name}, premium features for production jobs (crash recovery, progress tracking, semantic blocking and matching), available now; ${CONSULTING.name}, available now. Pricing via the official contact.`);
   lines.push('');
 
   lines.push('## Products');

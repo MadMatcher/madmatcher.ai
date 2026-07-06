@@ -51,7 +51,7 @@ export const PRODUCTS = [
       'Finds candidate matches using top-k TF/IDF similarity (the BM25 variant, via Lucene). It indexes one table and searches it with the other, scaling to hundreds of millions of tuples on Spark.',
     highlight: 'Outperforms eight state-of-the-art blocking solutions (VLDB 2023).',
     github: 'https://github.com/MadMatcher/sparkly',
-    docs: 'https://docs.madmatcher.ai/sparkly/',
+    docs: 'https://docs.madmatcher.ai/sparkly',
   },
   {
     slug: 'delex',
@@ -63,7 +63,7 @@ export const PRODUCTS = [
       'Combines several blocking strategies (TF/IDF, dictionary blockers, custom rules) in one declarative program, compiled to a Spark DAG. Use it when one blocking strategy is not enough.',
     highlight: 'Start with Sparkly; reach for Delex when you need to combine strategies.',
     github: 'https://github.com/MadMatcher/delex',
-    docs: 'https://docs.madmatcher.ai/delex/',
+    docs: 'https://docs.madmatcher.ai/delex',
   },
   {
     slug: 'matchflow',
@@ -75,20 +75,19 @@ export const PRODUCTS = [
       'Trains a supervised ML matcher on labeled pairs and applies it to the blocking output. Composable functions for features, labeling, training, and prediction; runs on pandas or Spark.',
     highlight: 'Active learning builds training data from about 600 labeled pairs.',
     github: 'https://github.com/MadMatcher/MatchFlow',
-    docs: 'https://docs.madmatcher.ai/matchflow/',
+    docs: 'https://docs.madmatcher.ai/matchflow',
   },
 ] as const;
 
 /** Commercial offerings on top of the open-source core. */
 export const PRO = {
   name: 'MadMatcher-Pro',
-  tagline: 'Reliability for long-running matching jobs.',
+  tagline: 'Production reliability and semantic accuracy on top of the open-source core.',
   description:
-    'The same Sparkly, Delex, and MatchFlow, plus the reliability a long-running production job needs. A multi-hour run survives a failure instead of starting from scratch.',
-  status: 'Launching soon',
-  // The premium features shipping at launch.
+    'The same Sparkly, Delex, and MatchFlow, plus the features a production pipeline needs. Crash recovery and live progress tracking keep a multi-hour run going instead of starting over, and semantic (embedding-based) blocking and matching push accuracy higher on messy, real-world data.',
+  // The premium features available today.
   features: ['Crash recovery', 'Progress tracking', 'Semantic blocking', 'Semantic matching feature'],
-  docs: 'https://docs.madmatcher.ai/madmatcher-pro/',
+  docs: 'https://docs.madmatcher.ai/madmatcher-pro',
 } as const;
 
 export const CONSULTING = {
@@ -96,7 +95,6 @@ export const CONSULTING = {
   tagline: 'Hands-on help with your matching problem.',
   description:
     'Work directly with the team to build and tune an entity matching pipeline on your own data, from blocking strategy to a trained matcher.',
-  status: 'Available now',
 } as const;
 
 export const ANALYTICS = {
