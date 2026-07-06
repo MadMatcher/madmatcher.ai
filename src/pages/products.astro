@@ -68,7 +68,10 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
             <span class="offer-features-label">At launch</span>
             <ul class="ticks">{PRO.features.map((f) => <li>{f}</li>)}</ul>
           </div>
-          <a href="/contact" class="btn btn-accent btn-sm offer-cta">Get in touch about Pro</a>
+          <div class="offer-actions offer-cta">
+            <a href="/contact" class="btn btn-accent btn-sm">Get in touch about Pro</a>
+            <a href={PRO.docs} target="_blank" rel="noopener" class="btn btn-ghost btn-sm">API docs</a>
+          </div>
         </div>
 
         <div class="card offer">
@@ -146,7 +149,7 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
           window.posthog?.capture('github_clicked', { source: 'product_' + toolSlug, tool: toolSlug });
         });
       });
-      card.querySelectorAll('.tool-links a[href*="anhaidgroup.github.io"]').forEach(function (el) {
+      card.querySelectorAll('.tool-links a[href*="docs.madmatcher.ai"]').forEach(function (el) {
         el.addEventListener('click', function () {
           window.posthog?.capture('product_docs_clicked', { tool: toolSlug });
         });
@@ -268,5 +271,11 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
   .offer-cta {
     align-self: flex-start;
     margin-top: auto;
+  }
+  .offer-actions {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    flex-wrap: wrap;
   }
 </style>

@@ -51,7 +51,7 @@ export const PRODUCTS = [
       'Finds candidate matches using top-k TF/IDF similarity (the BM25 variant, via Lucene). It indexes one table and searches it with the other, scaling to hundreds of millions of tuples on Spark.',
     highlight: 'Outperforms eight state-of-the-art blocking solutions (VLDB 2023).',
     github: 'https://github.com/MadMatcher/sparkly',
-    docs: 'https://anhaidgroup.github.io/sparkly/',
+    docs: 'https://docs.madmatcher.ai/sparkly/',
   },
   {
     slug: 'delex',
@@ -63,7 +63,7 @@ export const PRODUCTS = [
       'Combines several blocking strategies (TF/IDF, dictionary blockers, custom rules) in one declarative program, compiled to a Spark DAG. Use it when one blocking strategy is not enough.',
     highlight: 'Start with Sparkly; reach for Delex when you need to combine strategies.',
     github: 'https://github.com/MadMatcher/delex',
-    docs: 'https://anhaidgroup.github.io/delex/',
+    docs: 'https://docs.madmatcher.ai/delex/',
   },
   {
     slug: 'matchflow',
@@ -75,7 +75,7 @@ export const PRODUCTS = [
       'Trains a supervised ML matcher on labeled pairs and applies it to the blocking output. Composable functions for features, labeling, training, and prediction; runs on pandas or Spark.',
     highlight: 'Active learning builds training data from about 600 labeled pairs.',
     github: 'https://github.com/MadMatcher/MatchFlow',
-    docs: '',
+    docs: 'https://docs.madmatcher.ai/matchflow/',
   },
 ] as const;
 
@@ -86,8 +86,9 @@ export const PRO = {
   description:
     'The same Sparkly, Delex, and MatchFlow, plus the reliability a long-running production job needs. A multi-hour run survives a failure instead of starting from scratch.',
   status: 'Launching soon',
-  // The reliability features shipping at launch.
-  features: ['Crash recovery', 'Progress tracking'],
+  // The premium features shipping at launch.
+  features: ['Crash recovery', 'Progress tracking', 'Semantic blocking', 'Semantic matching feature'],
+  docs: 'https://docs.madmatcher.ai/madmatcher-pro/',
 } as const;
 
 export const CONSULTING = {

@@ -27,6 +27,7 @@ const crumbs = breadcrumbSchema([
   >
     <a slot="actions" href={SOCIAL.github} class="btn btn-primary" target="_blank" rel="noopener">GitHub org</a>
     {docs[0] && <a slot="actions" href={`/docs/${docs[0].id}/`} class="btn btn-ghost">Start the quickstart</a>}
+    <a slot="actions" href="https://docs.madmatcher.ai" class="btn btn-ghost" target="_blank" rel="noopener">API reference</a>
   </PageHero>
 
   <section class="section">
@@ -49,11 +50,16 @@ const crumbs = breadcrumbSchema([
       <div class="grid grid-3">
         {
           PRODUCTS.map((p) => (
-            <a href={p.github} target="_blank" rel="noopener" class="card card-hover tile repo">
+            <div class="card tile repo">
               <div class="repo-tag">{p.role}</div>
               <h3>{p.name}</h3>
-              <span class="tile-cta">GitHub ↗</span>
-            </a>
+              <div class="repo-links">
+                <a href={p.github} target="_blank" rel="noopener" class="repo-link">GitHub ↗</a>
+                {p.docs && (
+                  <a href={p.docs} target="_blank" rel="noopener" class="repo-link">API docs ↗</a>
+                )}
+              </div>
+            </div>
           ))
         }
       </div>
@@ -102,5 +108,20 @@ const crumbs = breadcrumbSchema([
   }
   .repo h3 {
     margin-top: 0;
+  }
+  .repo-links {
+    margin-top: var(--space-4);
+    display: flex;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+  }
+  .repo-link {
+    font-weight: 560;
+    font-size: var(--text-sm);
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .repo-link:hover {
+    color: var(--red);
   }
 </style>
