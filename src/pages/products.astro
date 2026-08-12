@@ -64,7 +64,7 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
           </div>
           <p class="offer-desc">{PRO.description}</p>
           <div class="offer-features">
-            <span class="offer-features-label">At launch</span>
+            <span class="offer-features-label">Included</span>
             <ul class="ticks">{PRO.features.map((f) => <li>{f}</li>)}</ul>
           </div>
           <div class="offer-actions offer-cta">
@@ -73,29 +73,29 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
           </div>
         </div>
 
-        <div class="card offer">
-          <div class="offer-top">
-            <h3>{CONSULTING.name}</h3>
-          </div>
-          <p class="offer-desc">{CONSULTING.description}</p>
-          <a href={CONTACT.calendar} target="_blank" rel="noopener" class="btn btn-primary btn-sm offer-cta">Book a call</a>
-        </div>
-      </div>
-
-      <div class="card offer-wide offer-realtime">
-        <div class="rt-copy">
+        <div class="card offer offer-realtime">
           <div class="offer-badge">Pro add-on</div>
-          <h3>{REALTIME.name}</h3>
+          <div class="offer-top">
+            <h3>{REALTIME.name}</h3>
+          </div>
           <p class="offer-desc">{REALTIME.description}</p>
-          <div class="offer-actions">
+          <div class="offer-features">
+            <span class="offer-features-label">Included</span>
+            <ul class="ticks">{REALTIME.features.map((f) => <li>{f}</li>)}</ul>
+          </div>
+          <div class="offer-actions offer-cta">
             <a href="/contact" class="btn btn-accent btn-sm">Get in touch about real-time</a>
             <a href={REALTIME.docs} target="_blank" rel="noopener" class="btn btn-ghost btn-sm">API docs</a>
           </div>
         </div>
-        <div class="rt-features">
-          <span class="offer-features-label">Included</span>
-          <ul class="ticks">{REALTIME.features.map((f) => <li>{f}</li>)}</ul>
+      </div>
+
+      <div class="card offer-consulting">
+        <div class="consult-copy">
+          <h3>{CONSULTING.name}</h3>
+          <p class="offer-desc">{CONSULTING.description}</p>
         </div>
+        <a href={CONTACT.calendar} target="_blank" rel="noopener" class="btn btn-primary">Book a call</a>
       </div>
     </div>
   </section>
@@ -156,7 +156,7 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
     });
 
     // Consulting: book a call from products page
-    document.querySelectorAll('.offer a[href*="calendar.app.google"]').forEach(function (el) {
+    document.querySelectorAll('.offer-consulting a[href*="calendar.app.google"]').forEach(function (el) {
       el.addEventListener('click', function () {
         window.posthog?.capture('book_call_clicked', { source: 'products_consulting' });
       });
@@ -265,42 +265,38 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
     letter-spacing: 0.05em;
     color: var(--red);
     font-weight: 600;
-    margin-bottom: var(--space-1);
+    margin-bottom: var(--space-2);
   }
 
-  /* ---------- real-time add-on (wide card under the offers) ---------- */
-  .offer-wide {
+  /* ---------- consulting (wide card under the offers) ---------- */
+  .offer-consulting {
     margin-top: var(--space-6);
     padding: var(--space-8);
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: var(--space-8) var(--space-12);
-    align-items: start;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-8);
   }
-  .rt-copy h3 {
+  .offer-consulting h3 {
     font-size: var(--text-xl);
   }
-  .rt-copy .offer-desc {
-    margin: var(--space-3) 0 var(--space-5);
-  }
-  .rt-features {
-    padding-top: var(--space-6);
+  .offer-consulting .offer-desc {
+    margin: var(--space-3) 0 0;
+    max-width: 64ch;
   }
   @media (max-width: 820px) {
-    .offer-wide {
+    .offer-consulting {
       grid-template-columns: 1fr;
       gap: var(--space-6);
-    }
-    .rt-features {
-      padding-top: 0;
+      justify-items: start;
     }
   }
   .offer-desc {
     color: var(--ink-soft);
-    margin: var(--space-3) 0 var(--space-5);
+    margin: var(--space-4) 0 var(--space-8);
   }
   .offer-features {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-8);
   }
   .offer-features-label {
     display: block;
@@ -309,7 +305,7 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
     letter-spacing: 0.05em;
     color: var(--muted);
     font-weight: 600;
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
   }
   .offer-cta {
     align-self: flex-start;
