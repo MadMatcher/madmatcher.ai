@@ -30,7 +30,7 @@ const rows = [
   { dim: 'Scales', mm: '✓', dl: '—', llm: '—', fixed: '~', rules: '~', unsup: '✓', diy: '~' },
   { dim: 'Avoids large labeled sets', mm: '✓', dl: '—', llm: '✓', fixed: '✓', rules: '✓', unsup: '✓', diy: '✓' },
   { dim: 'Explainable', mm: '✓', dl: '—', llm: '—', fixed: '—', rules: '✓', unsup: '✓', diy: '✓' },
-  { dim: 'Real-time serving', mm: '—', dl: '~', llm: '~', fixed: '~', rules: '~', unsup: '—', diy: '~' },
+  { dim: 'Real-time serving', mm: '✓', dl: '~', llm: '~', fixed: '~', rules: '~', unsup: '—', diy: '~' },
 ];
 
 const faqs = [
@@ -43,6 +43,11 @@ const faqs = [
     question: 'When is a learned matcher worth the labeling effort?',
     answer:
       'When fixed rules and pretrained models leave accuracy unclaimed on an unusual domain. Active learning keeps labeling small (typically about 600 pairs), so the accuracy gain usually outweighs the effort.',
+  },
+  {
+    question: 'Can MadMatcher run in real time?',
+    answer:
+      'Yes. MadMatcher-Pro adds real-time serving: it matches a single incoming record against your indexed data in milliseconds, in-process, reusing the same blocker and trained matcher as the batch pipeline. The data it serves against is refreshed by republishing and hot-swapping, with zero downtime.',
   },
 ];
 ---

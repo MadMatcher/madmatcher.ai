@@ -90,6 +90,21 @@ export const PRO = {
   docs: 'https://docs.madmatcher.ai/madmatcher-pro',
 } as const;
 
+/** The separately licensed real-time serving add-on to Pro. */
+export const REALTIME = {
+  name: 'Real-Time Serving',
+  tagline: 'Single-record matching in milliseconds, from the same pipeline.',
+  description:
+    'An add-on to MadMatcher-Pro for records that arrive one at a time. Publish a finished batch build as a serving bundle and match each incoming record in milliseconds, in-process, with no Spark job per request. The same blocker and trained matcher answer both ways, so a served match is identical to the batch one.',
+  features: [
+    'Single records, batches, and micro-batching',
+    'Worker pools that scale across cores',
+    'Durable source-to-sink streams with crash resume',
+    'Zero-downtime bundle hot-swap',
+  ],
+  docs: 'https://docs.madmatcher.ai/madmatcher-pro',
+} as const;
+
 export const CONSULTING = {
   name: 'Consulting',
   tagline: 'Hands-on help with your matching problem.',

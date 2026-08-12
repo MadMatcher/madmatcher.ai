@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
-import { PRODUCTS, PRO, CONSULTING, CITATION, SOCIAL, CONTACT } from '../consts';
+import { PRODUCTS, PRO, REALTIME, CONSULTING, CITATION, SOCIAL, CONTACT } from '../consts';
 import { breadcrumbSchema, softwareSchema } from '../lib/schema';
 
 const crumbs = breadcrumbSchema([
@@ -39,12 +39,12 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
 
 <BaseLayout
   title="Products"
-  description="The MadMatcher toolkit: Sparkly and Delex for blocking, MatchFlow for matching, plus MadMatcher-Pro for production reliability and hands-on consulting."
+  description="The MadMatcher toolkit: Sparkly and Delex for blocking, MatchFlow for matching, plus MadMatcher-Pro for production reliability and real-time serving, and hands-on consulting."
   schemas={[crumbs, softwareSchema()]}
 >
   <PageHero
     title="MadMatcher in production."
-    lead="MadMatcher-Pro and consulting take entity matching to production, on top of an open-source core. Pro adds reliability for long-running jobs; consulting brings the team onto your data. Underneath sit three open-source tools you can also run yourself."
+    lead="MadMatcher-Pro and consulting take entity matching to production, on top of an open-source core. Pro adds reliability for long-running jobs and real-time serving for records that arrive one at a time; consulting brings the team onto your data. Underneath sit three open-source tools you can also run yourself."
   >
     <a slot="actions" href={CONTACT.calendar} class="btn btn-primary" target="_blank" rel="noopener">Book a call</a>
     <a slot="actions" href={SOCIAL.github} class="btn btn-ghost" target="_blank" rel="noopener">GitHub org</a>
@@ -55,9 +55,9 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
     <div class="container">
       <div class="section-head">
         <h2>Take it to production.</h2>
-        <p class="lead">MadMatcher-Pro adds the reliability a long-running job needs; consulting brings the team onto your data. The fastest path from a prototype to a production matching pipeline.</p>
+        <p class="lead">MadMatcher-Pro adds the reliability a long-running job needs, and supports semantic/fusion blocking + matching; the real-time add-on serves single-record matches in milliseconds; consulting brings the team onto your data. The fastest path from a prototype to a production matching pipeline.</p>
       </div>
-      <div class="grid grid-2">
+      <div class="grid grid-3">
         <div class="card offer offer-pro">
           <div class="offer-top">
             <h3>{PRO.name}</h3>
@@ -70,6 +70,22 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
           <div class="offer-actions offer-cta">
             <a href="/contact" class="btn btn-accent btn-sm">Get in touch about Pro</a>
             <a href={PRO.docs} target="_blank" rel="noopener" class="btn btn-ghost btn-sm">API docs</a>
+          </div>
+        </div>
+
+        <div class="card offer offer-realtime">
+          <div class="offer-top">
+            <h3>{REALTIME.name}</h3>
+            <span class="offer-badge">Pro add-on</span>
+          </div>
+          <p class="offer-desc">{REALTIME.description}</p>
+          <div class="offer-features">
+            <span class="offer-features-label">Included</span>
+            <ul class="ticks">{REALTIME.features.map((f) => <li>{f}</li>)}</ul>
+          </div>
+          <div class="offer-actions offer-cta">
+            <a href="/contact" class="btn btn-accent btn-sm">Get in touch about real-time</a>
+            <a href={REALTIME.docs} target="_blank" rel="noopener" class="btn btn-ghost btn-sm">API docs</a>
           </div>
         </div>
 
@@ -129,6 +145,13 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
     document.querySelectorAll('.offer-pro a[href="/contact"]').forEach(function (el) {
       el.addEventListener('click', function () {
         window.posthog?.capture('pro_interest_clicked');
+      });
+    });
+
+    // Real-time add-on interest click (scoped to the add-on card)
+    document.querySelectorAll('.offer-realtime a[href="/contact"]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        window.posthog?.capture('realtime_interest_clicked');
       });
     });
 
@@ -219,11 +242,12 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
 
   /* ---------- offers ---------- */
   .offer {
-    padding: var(--space-8);
+    padding: var(--space-6);
     display: flex;
     flex-direction: column;
   }
-  .offer-pro {
+  .offer-pro,
+  .offer-realtime {
     border-top: 3px solid var(--red);
   }
   .offer-top {
@@ -234,6 +258,14 @@ const detail: Record<string, { points: string[]; cite?: boolean }> = {
   }
   .offer-top h3 {
     font-size: var(--text-xl);
+  }
+  .offer-badge {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--red);
+    font-weight: 600;
+    white-space: nowrap;
   }
   .offer-desc {
     color: var(--ink-soft);

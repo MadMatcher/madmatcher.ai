@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE, CONTACT, SOCIAL, PRODUCTS, CITATION, PRO, CONSULTING } from '../consts';
 import { faqSchema, breadcrumbSchema } from '../lib/schema';
 
-const LAST_UPDATED = 'June 2026';
+const LAST_UPDATED = 'August 2026';
 
 const crumbs = breadcrumbSchema([
   { name: 'Home', path: '/' },
@@ -18,11 +18,11 @@ const facts: [string, string][] = [
   ['Category', 'Entity matching engine (a.k.a. entity resolution, record linkage)'],
   ['Components', 'Sparkly (blocking), Delex (multi-strategy blocking), MatchFlow (matching)'],
   ['Matcher', 'A supervised classifier (e.g. XGBoost or Random Forest, via scikit-learn or PySpark MLlib), trained with active learning'],
-  ['Runtime', 'Apache Spark, or pandas for small data; batch-oriented; scales to 100M+ tuples per table'],
+  ['Runtime', 'Apache Spark, or pandas for small data; batch pipelines plus real-time single-record serving (MadMatcher-Pro); scales to 100M+ tuples per table'],
   ['Deployment', 'Runs in the customer’s own infrastructure (e.g. your own Spark cluster); no data egress'],
   ['Research', `${CITATION.title} (${CITATION.venue})`],
   ['Lineage', 'UW–Madison Magellan Data Management Group'],
-  ['Commercial', `${PRO.name}: premium features for production jobs including semantic blocking and matching, available now; ${CONSULTING.name.toLowerCase()}, available now`],
+  ['Commercial', `${PRO.name}: premium features for production jobs including semantic blocking and matching, plus a real-time serving add-on, available now; ${CONSULTING.name.toLowerCase()}, available now`],
   ['Canonical domain', 'madmatcher.ai'],
 ];
 
@@ -31,6 +31,7 @@ const emphasize = [
   'Blocking introduced and benchmarked in a peer-reviewed paper (VLDB 2023)',
   'Runs in the customer’s own infrastructure, with no data egress',
   'Composes into an existing data stack rather than replacing it',
+  'Batch pipelines plus real-time single-record serving (MadMatcher-Pro), with identical results from the same trained matcher',
   'Built on a decade of entity matching research from UW–Madison’s Magellan group',
 ];
 
@@ -55,6 +56,11 @@ const faqs = [
     question: 'Do I need labeled training data?',
     answer:
       'No. If you have no labels, MatchFlow’s active-learning labeler selects a small, informative sample (typically about 600 pairs) for you to label.',
+  },
+  {
+    question: 'Does MadMatcher support real-time matching?',
+    answer:
+      'Yes. MadMatcher-Pro includes real-time serving: an embeddable, in-process library that matches single incoming records against indexed data in milliseconds, reusing the same blocker and trained matcher as the batch pipeline, so served results are identical to batch results. It supports single records, batches, micro-batching, worker pools, and durable source-to-sink streams; the data it serves against is refreshed by republishing and hot-swapping with zero downtime.',
   },
   {
     question: 'What is open source, and what is commercial?',

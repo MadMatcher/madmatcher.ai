@@ -28,17 +28,23 @@ const stages = [
     tool: 'MatchFlow',
     body: 'MatchFlow turns labeled pairs into feature vectors, trains a classifier (from scikit-learn or PySpark MLlib), and applies it to the full blocking output to predict match or no-match. It runs on pandas for small data or Spark for large.',
   },
+  {
+    n: '4',
+    key: 'Serve',
+    tool: 'MadMatcher-Pro',
+    body: 'Batch resolves a whole table as a job. When records arrive one at a time, MadMatcher-Pro publishes the finished build (index, features, trained matcher) as a serving bundle and matches each incoming record in milliseconds, in-process, with no Spark job per request. The same blocker and matcher answer both ways, so a served match is identical to the batch one. Refreshing the data is a republish and a zero-downtime hot-swap.',
+  },
 ];
 ---
 
 <BaseLayout
   title="How it works"
-  description="Entity matching in MadMatcher has two steps. Blocking (Sparkly, Delex) narrows two tables to candidate pairs, and matching (MatchFlow) classifies each pair, with active learning to build training data."
+  description="Entity matching in MadMatcher has two steps. Blocking (Sparkly, Delex) narrows two tables to candidate pairs, and matching (MatchFlow) classifies each pair, with active learning to build training data. MadMatcher-Pro adds real-time serving for records that arrive one at a time."
   schemas={[crumbs]}
 >
   <PageHero
     title="Block, then match."
-    lead="Entity matching is two steps. Blocking narrows two tables to candidate pairs; matching decides which pairs are real. MatchFlow adds a labeling step when you don’t have training data."
+    lead="Entity matching is two steps. Blocking narrows two tables to candidate pairs; matching decides which pairs are real. MatchFlow adds a labeling step when you don’t have training data, and MadMatcher-Pro adds a serving step when records arrive in real time."
   />
 
   <section class="section">

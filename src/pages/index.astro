@@ -26,7 +26,8 @@ const benefits = [
   { title: 'Scales to your hardest tables', body: 'Blocking runs share-nothing on Apache Spark and handles hundreds of millions of records per table.' },
   { title: 'Benchmarked blocking', body: 'Sparkly’s method is peer-reviewed and outperforms eight state-of-the-art blockers.' },
   { title: 'Fits your stack', body: 'Use one tool or the whole pipeline. It runs inside the stack you already have instead of making you adopt a new platform.' },
-  { title: 'Two clear, tunable parts', body: 'Blocking and matching are separate stages you can tune and measure independently.' },
+    { title: 'Two clear, tunable parts', body: 'Blocking and matching are separate stages you can tune and measure independently.' },
+  { title: 'Batch and real-time', body: 'Resolve whole tables as Spark jobs, or serve single-record matches in milliseconds with MadMatcher-Pro. The same trained matcher answers both ways, so results are identical.' },
 ];
 
 const blocking = PRODUCTS.filter((p) => p.step === 'Blocking');
@@ -186,7 +187,7 @@ const matching = PRODUCTS.filter((p) => p.step === 'Matching');
       </div>
 
       <p class="tools-more">
-        Need it in production? <a href="/products">MadMatcher-Pro and consulting →</a>
+        Need it in production, or in real time? <a href="/products">MadMatcher-Pro and consulting →</a>
       </p>
     </div>
   </section>

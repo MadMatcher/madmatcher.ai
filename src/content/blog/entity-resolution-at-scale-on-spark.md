@@ -23,6 +23,6 @@ MatchFlow runs three ways: pandas on a single machine for small data, Spark on a
 
 ## Batch, not real-time
 
-This is batch matching: you resolve a table, or an incremental slice, as a job. For most data-integration and deduplication work that's the right shape. If you need sub-second matching per request, that's a different system.
+This is batch matching: you resolve a table, or an incremental slice, as a job. For most data-integration and deduplication work that's the right shape. If you need sub-second matching per request, that's a different system, though no longer a different pipeline: [MadMatcher-Pro now serves single-record matches in real time](/blog/real-time-entity-matching) from the same build.
 
 [Why MadMatcher runs in your infrastructure →](/why-madmatcher)
