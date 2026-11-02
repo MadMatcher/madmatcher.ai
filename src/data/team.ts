@@ -7,13 +7,6 @@ export const TEAM = [
     link: 'https://www.linkedin.com/in/devahluwalia',
   },
   {
-    name: 'AnHai Doan',
-    role: 'Advisor',
-    photo: '/team/anhai-doan.png',
-    bio: 'Professor of Computer Sciences at UW–Madison and a longtime entity matching researcher. Leads the Magellan Data Management Group, whose work spans py_entitymatching (VLDB 2016), CloudMatcher (VLDB 2018), and Sparkly (VLDB 2023).',
-    link: 'https://pages.cs.wisc.edu/~anhai/',
-  },
-  {
     name: 'Derek Paulsen',
     role: 'Advisor',
     photo: '/team/derek-paulsen.jpg',
